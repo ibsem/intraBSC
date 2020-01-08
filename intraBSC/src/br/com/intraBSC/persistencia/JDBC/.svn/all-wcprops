@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC
+END
+CausaEfeitoDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/CausaEfeitoDAOJDBC.java
+END
+IndicadorDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/IndicadorDAOJDBC.java
+END
+GrupoDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/GrupoDAOJDBC.java
+END
+PapelDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/PapelDAOJDBC.java
+END
+IndicadorFatoDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/IndicadorFatoDAOJDBC.java
+END
+MapaEstrategicoDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/MapaEstrategicoDAOJDBC.java
+END
+UnidadeDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/UnidadeDAOJDBC.java
+END
+TipoPerspectivaDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/TipoPerspectivaDAOJDBC.java
+END
+ObjetivoDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/ObjetivoDAOJDBC.java
+END
+RecursoDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/RecursoDAOJDBC.java
+END
+RelacionamentosDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/RelacionamentosDAOJDBC.java
+END
+PerspectivaDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/PerspectivaDAOJDBC.java
+END
+PeriodicidadeDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/PeriodicidadeDAOJDBC.java
+END
+TemaDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/TemaDAOJDBC.java
+END
+MetaDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/MetaDAOJDBC.java
+END
+UsuarioDAOJDBC.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/persistencia/JDBC/UsuarioDAOJDBC.java
+END

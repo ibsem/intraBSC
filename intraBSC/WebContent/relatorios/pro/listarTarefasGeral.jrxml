@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="listarTarefasGeral"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="559"
+		 columnSpacing="0"
+		 leftMargin="6"
+		 rightMargin="6"
+		 topMargin="14"
+		 bottomMargin="14"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="com.jasperassistant.designer.DataSource" value="Conexao db2 D1CID02P" />
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+	<reportFont name="arial_normal" isDefault="false" fontName="Arial" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<reportFont name="arial_bold" isDefault="false" fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+
+	<parameter name="chaveSolicitante" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="chaveParticipante" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="BaseDir" isForPrompting="true" class="java.lang.String"/>
+	<queryString><![CDATA[select      ATVD.AA_CRIC_ATVD,
+            ATVD.NR_SEQL_ATVD as sequencial,
+            ATVD.DT_INC_ATVD,
+            ATVD.DT_FIM_ATVD,
+            ATVD.TS_CRIC_ATVD,
+            ATVD.TS_ALT_ATVD,
+            ATVD.DT_LIM_FIN_ATVD as prazo,
+            ATVD.NR_AGDT_ATVD,
+            ATVD.TX_SLCT_ATVD as solicitacao,
+            ATVD.NM_ATVD as atividade,
+            ATVD.TX_CRTC_ATVD,
+            ATVD.TX_TIP_ATVD as tipo,
+            ATVD.TX_EST_ATVD as estado,
+            ATVD.CD_PRF_DEPE_SLTT as prefixo,
+            ATVD.CD_USU_SLTT_ATVD as solicitante,
+            HIST.TS_EVT_HST_ATVD as data_h,
+            HIST.CD_USU as chave_his,
+            HIST.TX_EVT_HST_ATVD as ultimo_h,
+            ANX.NR_QTD_ARQ_ANX
+
+from
+(
+      select  H.AA_CRIC_ATVD, H.NR_SEQL_ATVD, H.TS_EVT_HST_ATVD, H.CD_USU, H.TX_EVT_HST_ATVD
+      from
+         DB2ATV.ATVD P left outer join
+         DB2ATV.EVT_HST_ATVD H on
+                H.AA_CRIC_ATVD=P.AA_CRIC_ATVD and
+                H.NR_SEQL_ATVD=P.NR_SEQL_ATVD and
+                H.CD_TIP_EVT_HST=1 and
+                P.CD_USU_SLTT_ATVD = $P{chaveSolicitante} and
+                P.CD_EST_ATVD <> 5 and
+                P.CD_EST_ATVD <> 4
+) as HIST
+inner join
+(
+      select  H.AA_CRIC_ATVD, H.NR_SEQL_ATVD, MAX(H.TS_EVT_HST_ATVD) as MAX_TS_EVT
+      from
+         DB2ATV.ATVD P left outer join
+         DB2ATV.EVT_HST_ATVD H on
+                H.AA_CRIC_ATVD=P.AA_CRIC_ATVD and
+                H.NR_SEQL_ATVD=P.NR_SEQL_ATVD and
+                H.CD_TIP_EVT_HST=1 and
+                P.CD_USU_SLTT_ATVD = $P{chaveSolicitante} and
+                P.CD_EST_ATVD <> 5 and
+                P.CD_EST_ATVD <> 4
+        group by H.AA_CRIC_ATVD, H.NR_SEQL_ATVD
+) as HIST_MAX
+on
+      HIST.AA_CRIC_ATVD=HIST_MAX.AA_CRIC_ATVD and
+      HIST.NR_SEQL_ATVD=HIST_MAX.NR_SEQL_ATVD and
+      HIST.TS_EVT_HST_ATVD=HIST_MAX.MAX_TS_EVT
+
+right outer join
+(
+      Select P.AA_CRIC_ATVD,
+             P.NR_SEQL_ATVD,
+            P.DT_INC_ATVD,
+            P.DT_FIM_ATVD,
+            P.TS_CRIC_ATVD,
+            P.TS_ALT_ATVD,
+            P.DT_LIM_FIN_ATVD,
+            P.NR_AGDT_ATVD,
+            P.TX_SLCT_ATVD,
+            P.NM_ATVD,
+            case when (P.CD_CRTC_ATVD = 1) then 'Alta'
+                 when (P.CD_CRTC_ATVD = 2) then 'Média'
+                 when (P.CD_CRTC_ATVD = 3) then 'Baixa'
+                 end  as TX_CRTC_ATVD,
+            T.TX_TIP_ATVD,
+            case when (P.CD_EST_ATVD = 1) then 'Não Iniciada'
+                 when (P.CD_EST_ATVD = 2) then 'Iniciada'
+                 when (P.CD_EST_ATVD = 3) then 'Aguardando Validação'
+                 when (P.CD_EST_ATVD = 4) then 'Cancelada'
+                 when (P.CD_EST_ATVD = 5) then 'Validada'
+                 end  as TX_EST_ATVD,
+            p.CD_PRF_DEPE_SLTT,
+            p.CD_USU_SLTT_ATVD
+
+        from DB2ATV.ATVD P
+        inner join DB2ATV.TIP_ATVD  T  on
+               T.CD_TIP_ATVD=P.CD_TIP_ATVD and
+               (T.TX_TIP_ATVD NOT LIKE 'Ações Básicas%') and
+               T.TX_TIP_ATVD<>'Contratos Ortad' and
+               T.TX_TIP_ATVD<>'Acompanhamento de Fornecedores'
+        inner join DB2ATV.PCT_ATVD PA on
+              PA.NR_SEQL_ATVD=P.NR_SEQL_ATVD and
+              PA.AA_CRIC_ATVD=P.AA_CRIC_ATVD
+        where P.CD_USU_SLTT_ATVD = $P{chaveSolicitante} and
+              P.CD_EST_ATVD <> 5 and
+              P.CD_EST_ATVD <> 4 and
+	      PA.CD_TIP_PRTC = 1 and 
+              PA.CD_USU = $P{chaveParticipante}) as ATVD
+on
+      HIST.AA_CRIC_ATVD=ATVD.AA_CRIC_ATVD and
+      HIST.NR_SEQL_ATVD=ATVD.NR_SEQL_ATVD
+
+left outer join
+(
+      select A.NR_SEQL_ATVD, A.AA_CRIC_ATVD, count(A.NR_SEQL_ARQ_ANX) as NR_QTD_ARQ_ANX
+      from DB2ATV.ARQ_ANX_ATVD A
+      inner join DB2ATV.ATVD P on
+            A.NR_SEQL_ATVD = P.NR_SEQL_ATVD and
+            A.AA_CRIC_ATVD = P.AA_CRIC_ATVD
+      group by A.NR_SEQL_ATVD, A.AA_CRIC_ATVD
+) as ANX
+on
+       ANX.NR_SEQL_ATVD = ATVD.NR_SEQL_ATVD and
+       ANX.AA_CRIC_ATVD = ATVD.AA_CRIC_ATVD]]></queryString>
+
+	<field name="solicitante" class="java.lang.String"/>
+	<field name="prefixo" class="java.lang.Integer"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="sequencial" class="java.lang.Integer"/>
+	<field name="atividade" class="java.lang.String"/>
+	<field name="solicitacao" class="java.lang.String"/>
+	<field name="prazo" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="ultimo_h" class="java.lang.String"/>
+
+	<variable name="Chart" class="net.sf.jasperreports.engine.JRRenderable" resetType="Report" calculation="System">
+	</variable>
+	<variable name="CONTADOR" class="java.lang.Integer" resetType="Report" calculation="Nothing">
+		<variableExpression><![CDATA[new Integer(($V{CONTADOR}).intValue() + (int)(1)) ]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(0) ]]></initialValueExpression>
+	</variable>
+
+		<group  name="Tipo" >
+			<groupExpression><![CDATA[$F{tipo}]]></groupExpression>
+			<groupHeader>
+			<band height="22"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="1"
+						y="1"
+						width="580"
+						height="19"
+						forecolor="#FFFFFF"
+						backcolor="#0038A8"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_bold" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{tipo}]]></textFieldExpression>
+				</textField>
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupFooter>
+		</group>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="68"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						mode="Opaque"
+						x="3"
+						y="33"
+						width="96"
+						height="16"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="staticText"
+						positionType="Float"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal" size="11" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Solicitante:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						mode="Opaque"
+						x="3"
+						y="50"
+						width="96"
+						height="16"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="staticText"
+						positionType="Float"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal" size="11" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Dependência:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						mode="Opaque"
+						x="2"
+						y="1"
+						width="358"
+						height="21"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="staticText"
+						positionType="Float"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_bold" size="14"/>
+					</textElement>
+				<text><![CDATA[Vice-Presidência de Tecnologia e Logística]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						mode="Opaque"
+						x="446"
+						y="3"
+						width="133"
+						height="15"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="staticText"
+						positionType="Float"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_bold"/>
+					</textElement>
+				<text><![CDATA[Resumo das Atividades]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy HH.mm.ss" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="472"
+						y="18"
+						width="109"
+						height="15"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField"
+						positionType="Float"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="102"
+						y="33"
+						width="165"
+						height="16"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{solicitante}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="102"
+						y="50"
+						width="165"
+						height="16"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{prefixo}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="21"  isSplitAllowed="false" >
+				<staticText>
+					<reportElement
+						mode="Opaque"
+						x="1"
+						y="0"
+						width="30"
+						height="20"
+						forecolor="#FFFFFF"
+						backcolor="#0038A8"
+						key="staticText"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="1" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_bold" size="12"/>
+					</textElement>
+				<text><![CDATA[N°]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						mode="Opaque"
+						x="33"
+						y="0"
+						width="82"
+						height="20"
+						forecolor="#FFFFFF"
+						backcolor="#0038A8"
+						key="staticText"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="1" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_bold" size="12"/>
+					</textElement>
+				<text><![CDATA[Atividade]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						mode="Opaque"
+						x="117"
+						y="0"
+						width="166"
+						height="20"
+						forecolor="#FFFFFF"
+						backcolor="#0038A8"
+						key="staticText"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="1" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_bold" size="12"/>
+					</textElement>
+				<text><![CDATA[Solicitação]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						mode="Opaque"
+						x="285"
+						y="0"
+						width="58"
+						height="20"
+						forecolor="#FFFFFF"
+						backcolor="#0038A8"
+						key="staticText"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="1" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_bold" size="12"/>
+					</textElement>
+				<text><![CDATA[Prazo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						mode="Opaque"
+						x="345"
+						y="0"
+						width="51"
+						height="20"
+						forecolor="#FFFFFF"
+						backcolor="#0038A8"
+						key="staticText"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="1" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_bold" size="12"/>
+					</textElement>
+				<text><![CDATA[Estado]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						mode="Opaque"
+						x="398"
+						y="0"
+						width="183"
+						height="20"
+						forecolor="#FFFFFF"
+						backcolor="#0038A8"
+						key="staticText"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="1" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_bold" size="12"/>
+					</textElement>
+				<text><![CDATA[Último histórico]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="21"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="1"
+						y="0"
+						width="30"
+						height="20"
+						forecolor="#000000"
+						backcolor="#CCD7ED"
+						key="textField-1"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) != (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{sequencial}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="31"
+						y="0"
+						width="89"
+						height="20"
+						forecolor="#000000"
+						backcolor="#CCD7ED"
+						key="textField-2"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) != (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{atividade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="120"
+						y="0"
+						width="163"
+						height="20"
+						forecolor="#000000"
+						backcolor="#CCD7ED"
+						key="textField-3"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) != (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{solicitacao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="283"
+						y="0"
+						width="60"
+						height="20"
+						forecolor="#000000"
+						backcolor="#CCD7ED"
+						key="textField-4"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) != (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{prazo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="343"
+						y="0"
+						width="53"
+						height="20"
+						forecolor="#000000"
+						backcolor="#CCD7ED"
+						key="textField-5"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) != (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{estado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="396"
+						y="0"
+						width="185"
+						height="20"
+						forecolor="#000000"
+						backcolor="#CCD7ED"
+						key="textField-6"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) != (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{ultimo_h}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="1"
+						y="0"
+						width="29"
+						height="20"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) == (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{sequencial}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="31"
+						y="0"
+						width="85"
+						height="20"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) == (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{atividade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="120"
+						y="0"
+						width="162"
+						height="20"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) == (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{solicitacao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="283"
+						y="0"
+						width="57"
+						height="20"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) == (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{prazo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="343"
+						y="0"
+						width="52"
+						height="20"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) == (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{estado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="396"
+						y="0"
+						width="184"
+						height="20"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField"
+						stretchType="RelativeToBandHeight">
+							<printWhenExpression><![CDATA[new Boolean(
+(double)( Math.ceil($V{CONTADOR}.doubleValue()/(int)2) ) == (double)($V{CONTADOR}.doubleValue()/(int)2)
+)]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font reportFont="arial_normal"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{ultimo_h}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

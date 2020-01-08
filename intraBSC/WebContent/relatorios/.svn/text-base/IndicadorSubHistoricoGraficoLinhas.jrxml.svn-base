@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="IndicadorSubHistoricoGraficoLinhas"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="900"
+		 pageHeight="590"
+		 columnWidth="900"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="0"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 scriptletClass="br.com.intraBSC.util.IndicadorSubHistoricoGraficoLinhaScriptlet"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="com.jasperassistant.designer.GridHeight" value="12" />
+	<property name="com.jasperassistant.designer.GridWidth" value="12" />
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false" />
+	<property name="com.jasperassistant.designer.Grid" value="true" />
+	<property name="ireport.scriptlethandling" value="2" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="indicador" isForPrompting="true" class="java.lang.Integer"/>
+	<parameter name="perspectiva" isForPrompting="true" class="java.lang.Integer"/>
+	<parameter name="bsc" isForPrompting="true" class="java.lang.Integer"/>
+	<queryString><![CDATA[SELECT MEASURE.ID AS NUM, BSC.ID AS IDMAPA, BSC.NAME AS NAMEBSC, OWNER.NAME AS NAMEOWNER, OWNER.EMAILADRESS AS EMAIL, 
+OWNER.PHONE AS FONE, OWNER.TYPE_OWNER AS PERFIL, PERSPECTIVE.SORTORDER AS ORDEM, PERSPECTIVE.ID AS IDPERSPECTIVA,
+PERSPECTIVE.NAME AS NAMEPERSPECTIVE, THEME.ID AS IDTEMA, THEME.NAME AS TEMA, OBJECTIVE.ID AS NUMOBJETIVO,
+OBJECTIVE.NAME AS NAMEOBJECTIVE, MEASURE.NAME AS NAMEMEASURE,  MEASURE.DESCRIPTION AS DESCRIPTION,
+ MEASUREFACT.VALUE AS VALORES, MEASURE.LAST_DATE AS DATAS, UNID.NAME AS UNIDADE,
+ TARGET.TARGETVALUEDOWN AS TARGETVALUEDOWN, TARGET.NAME AS META,
+TARGET.TARGETVALUEUP AS TARGETVALUEUP,   CASE WHEN MEASUREFACT.VALUE < TARGET.TARGETVALUEDOWN
+THEN 0 WHEN MEASUREFACT.VALUE > TARGET.TARGETVALUEUP THEN 1 ELSE -1 END AS SINAL,
+TARGET.INVERT AS INVERSAOLIMITE, CASE WHEN TARGET.INVERT = 2
+THEN ((MEASUREFACT.VALUE/TARGET.TARGETVALUEUP)-1)
+WHEN TARGET.INVERT = 1
+THEN ((TARGET.TARGETVALUEDOWN/MEASUREFACT.VALUE)-1) END AS DESVIO,
+CASE WHEN  TASK.ID_MEASURE <> 0 THEN 'S' END AS TAREFAS,PERI.NAME AS NAMEPERIODI
+   FROM  BSC
+   LEFT OUTER JOIN RELBSC ON RELBSC.BSC_ID = BSC.ID
+   LEFT OUTER JOIN OWNER ON  OWNER.ID = BSC.ID_OWNER
+   LEFT OUTER JOIN PERSPECTIVE ON  PERSPECTIVE.ID = RELBSC.PERSPECTIVE_ID AND PERSPECTIVE.ACTIVE = 1
+   LEFT OUTER JOIN RELPERSPECTIVE ON PERSPECTIVE.ID = RELPERSPECTIVE.PERSPECTIVE_ID
+   LEFT OUTER JOIN OBJECTIVE ON OBJECTIVE.ID = RELPERSPECTIVE.OBJECTIVE_ID AND OBJECTIVE.ACTIVE = 1
+   LEFT OUTER JOIN RELTHEME ON RELTHEME.OBJECTIVE_ID = OBJECTIVE.ID
+   LEFT OUTER JOIN THEME ON THEME.ID = RELTHEME.THEME_ID
+   LEFT OUTER JOIN MEASURE ON MEASURE.OBJECTIVE_ID = OBJECTIVE.ID AND MEASURE.ACTIVE = 1
+   LEFT OUTER JOIN MEASUREFACT ON MEASUREFACT.ID_MEASURE = MEASURE.ID AND MEASUREFACT.DATE = MEASURE.LAST_DATE
+   LEFT OUTER JOIN TARGET ON TARGET.MEASURE_ID = MEASURE.ID AND TARGET.ACTIVE = 1
+   LEFT OUTER JOIN UNIDADE AS UNID ON UNID.ID = MEASURE.UNITS
+   LEFT OUTER JOIN PERIODICIDADE AS PERI ON PERI.ID = MEASURE.UPDATEFREQUENCY
+   LEFT OUTER JOIN TASK ON TASK.ID_MEASURE = MEASURE.ID AND TASK.FK_STATUS_TASK < 4
+   WHERE BSC.ID = $P{bsc}  AND PERSPECTIVE.ID = $P{perspectiva} AND MEASURE.ID = $P{indicador}
+ ORDER BY PERSPECTIVE.SORTORDER,THEME.ID,OBJECTIVE.COL,OBJECTIVE.NAME,MEASURE.NAME ASC]]></queryString>
+
+	<field name="namebsc" class="java.lang.String"/>
+	<field name="namePerspective" class="java.lang.String"/>
+	<field name="nameObjective" class="java.lang.String"/>
+	<field name="nameMeasure" class="java.lang.String"/>
+	<field name="targetvalueup" class="java.lang.Float"/>
+	<field name="Valores" class="java.lang.Float"/>
+	<field name="Datas" class="java.sql.Date"/>
+	<field name="unidade" class="java.lang.String"/>
+	<field name="targetvaluedown" class="java.lang.Float"/>
+	<field name="nameOwner" class="java.lang.String"/>
+
+	<variable name="Chart2" class="net.sf.jasperreports.engine.JRRenderable" resetType="None" calculation="System">
+	</variable>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="200"  isSplitAllowed="true" >
+				<image  scaleImage="FillFrame" hAlign="Center" isUsingCache="true" evaluationTime="Now" hyperlinkType="Reference"  hyperlinkTarget="Self" >
+					<reportElement
+						x="2"
+						y="0"
+						width="895"
+						height="200"
+						key="image-70"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<graphicElement stretchType="NoStretch"/>
+					<imageExpression class="net.sf.jasperreports.engine.JRRenderable"><![CDATA[$V{Chart2}]]></imageExpression>
+					<hyperlinkReferenceExpression><![CDATA[]]></hyperlinkReferenceExpression>
+				</image>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

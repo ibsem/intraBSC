@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+
+    <formset>
+    	<form name="perspectivaForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="responsavel"
+				depends="required">
+				<arg0 key="bsc.campo.responsavel" />
+			</field>
+			<field
+				property="descricao"
+				depends="required">
+				<arg0 key="bsc.campo.descricao" />
+			</field>
+			<field
+				property="tipoPerspectiva"
+				depends="required">
+				<arg0 key="bsc.campo.tipoPerspectiva" />
+			</field>
+			<field
+				property="ordem"
+				depends="required">
+				<arg0 key="bsc.campo.numeroOrdem" />
+			</field>
+		</form>
+		
+		<form name="faseForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="responsavel"
+				depends="required">
+				<arg0 key="bsc.campo.responsavel" />
+			</field>
+			<field
+				property="descricao"
+				depends="required">
+				<arg0 key="bsc.campo.descricao" />
+			</field>
+			<field
+				property="ordem"
+				depends="required">
+				<arg0 key="bsc.campo.numeroOrdem" />
+			</field>
+		</form>
+		
+		
+		<form name="temaForm">
+			<field
+				property="nomeTema"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="responsavel"
+				depends="required">
+				<arg0 key="bsc.campo.responsavel" />
+			</field>
+			<field
+				property="descricao"
+				depends="required">
+				<arg0 key="bsc.campo.descricao" />
+			</field>
+		</form>
+		
+		<form name="objetivoForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="responsavel"
+				depends="required">
+				<arg0 key="bsc.campo.responsavel" />
+			</field>
+			<field
+				property="idPerspectiva"
+				depends="required">
+				<arg0 key="bsc.campo.perspectiva" />
+			</field>
+			<field
+				property="idTema"
+				depends="required">
+				<arg0 key="bsc.campo.tema" />
+			</field>
+			<field
+				property="descricao"
+				depends="required">
+				<arg0 key="bsc.campo.descricao" />
+			</field>
+			<field
+				property="coluna" depends="required">
+				<arg0 key="bsc.campo.coluna" />
+			</field>
+		</form>
+		
+		<form name="atividadeForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="responsavel"
+				depends="required">
+				<arg0 key="bsc.campo.responsavel" />
+			</field>
+			<field
+				property="idFase"
+				depends="required">
+				<arg0 key="bsc.campo.fase" />
+			</field>
+			<field
+				property="descricao"
+				depends="required">
+				<arg0 key="bsc.campo.descricao" />
+			</field>
+			
+		</form>
+		
+		
+		<form name="indicadorForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="idResponsavel"
+				depends="required">
+				<arg0 key="bsc.campo.responsavel" />
+			</field>
+			<field
+				property="idObjetivo"
+				depends="required">
+				<arg0 key="bsc.campo.objetivo" />
+			</field>
+			<field
+				property="unidade"
+				depends="required">
+				<arg0 key="bsc.campo.unidade" />
+			</field>
+			<field
+				property="periodicidade"
+				depends="required">
+				<arg0 key="bsc.campo.periodicidade" />
+			</field>
+			<field
+				property="descricao"
+				depends="required">
+				<arg0 key="bsc.campo.descricao" />
+			</field>
+		</form>
+		
+		<form name="metaForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="descricao"
+				depends="required">
+				<arg0 key="bsc.campo.descricao" />
+			</field>
+			<field
+				property="responsavel"
+				depends="required">
+				<arg0 key="bsc.campo.responsavel" />
+			</field>
+			<field
+				property="inversaoSinal"
+				depends="required">
+				<arg0 key="bsc.campo.inversaoLimite" />
+			</field>
+			<field
+				property="ativo"
+				depends="required">
+				<arg0 key="bsc.campo.ativo" />
+			</field>
+			<field
+				property="limiteSuperior"
+				depends="required">
+				<arg0 key="bsc.campo.limiteSuperior" />
+			</field>
+			<field
+				property="limiteInferior"
+				depends="required">
+				<arg0 key="bsc.campo.limiteInferior" />
+			</field>
+		</form>
+		
+		
+		<form name="recursoForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="descricao"
+				depends="required">
+				<arg0 key="bsc.campo.descricao" />
+			</field>
+		</form>
+		
+    	<form name="mapaEstrategicoForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="idResponsavel"
+				depends="required">
+				<arg0 key="bsc.campo.responsavel" />
+			</field>
+			<field
+				property="missao"
+				depends="required">
+				<arg0 key="bsc.campo.missao" />
+			</field>
+			<field
+				property="visao"
+				depends="required">
+				<arg0 key="bsc.campo.visao" />
+			</field>
+			<field
+				property="fatoresSucesso"
+				depends="required">
+				<arg0 key="bsc.campo.fatorescriticos" />
+			</field>
+			
+			
+		</form>
+		
+		<form name="processoForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="idResponsavel"
+				depends="required">
+				<arg0 key="bsc.campo.responsavel" />
+			</field>
+		</form>
+		
+		<form name="unidadeForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+		</form>
+		
+		<form name="papelForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+		</form>
+		
+		<form name="periodicidadeForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+		</form>
+		
+		<form name="tipoPerspectivaForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="bsc.campo.nome" />
+			</field>
+			<field
+				property="descricao"
+				depends="required">
+				<arg0 key="bsc.campo.descricao" />
+			</field>
+		</form>
+        
+<!-- *************************************** Configuracao do PRO ***************************************** -->
+
+		<form name="configTarefaForm">
+			<field
+				property="textoConfigTarefa"		
+				depends="required, mask">
+				<arg0
+					key="pro.label.nome" />
+				<msg name="mask"
+					key="pro.errorValidacao.espacosBrancos" />
+				<msg name="maxlength"
+					key="pro.errorValidacao.maior" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>[^ ][a-zA-Z0-9]</var-value>
+				</var>
+			</field>
+			<field
+				property="numDiasPrevistos"
+				depends="required, integer, minlength, mask, intRange">
+				<arg0 key="pro.label.numDiasPrevistos" />
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+
+				<msg name="integer"	key="pro.errorValidacao.numDiasPrevistos" />
+				<msg name="minlength" key="pro.errorValidacao.minNumDiasPrevistos" />
+				<msg name="mask" key="pro.erro.configTarefa.campoNumericoDiasPrevistos" />
+				<msg name="intRange" key="pro.validacao.configTarefa.campoNumericoDiasPrevistos" />
+
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>1</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>[1-9]</var-value>
+				</var>
+				<var>
+					<var-name>min</var-name>
+				    <var-value>1</var-value>
+				</var>
+				<var>
+				    <var-name>max</var-name>
+				    <var-value>999</var-value>
+				</var>
+			</field>
+			<field
+				property="idResponsavel"
+				depends="required">
+				<arg0 key="pro.label.responsavel" />
+			</field>
+		</form>
+
+
+		<form name="itemForm">
+			<field
+				property="numeroOrdem"
+				depends="required">
+				<arg0
+					key="pro.label.numeroOrdem" />
+			</field>
+			<field
+				property="nome"		
+				depends="required,mask">
+				<arg0
+					key="pro.label.nomeItem" />
+				<msg name="mask"
+					key="pro.errorValidacao.caracteresInvalido" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>[^ ][a-zA-Z0-9 ]*$</var-value>
+				</var>
+			</field>
+			
+		</form>
+
+		<form name="formularioForm">
+			<field
+				property="numeroOrdem"
+				depends="required">
+				<arg0
+					key="pro.label.numeroOrdem" />
+			</field>
+			<field
+				property="nome"		
+				depends="required,mask">
+				<arg0
+					key="pro.label.nomeFormulario" />
+				<msg name="mask"
+					key="pro.errorValidacao.caracteresInvalido" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>[^ ][a-zA-Z0-9 ]*$</var-value>
+				</var>
+			</field>
+			
+		</form>
+
+
+		<form name="tarefaForm">
+			<field
+				property="nome"		
+				depends="required">
+				<arg0
+					key="pro.validacao.nomeTarefa" />
+			</field>
+			<field
+				property="codConfigTarefa"		
+				depends="required">
+				<arg0
+					key="pro.validacao.codConfigTarefa" />
+			</field>
+			<field
+				property="textoSolicitacao"		
+				depends="required, maxlength">
+				<arg0 key="pro.validacao.solicitacao" />
+				<arg1 key="pro.label.textoSolicitacao" />
+				<msg name="maxlength" key="pro.errorValidacao.maior" />			
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1024</var-value>
+				</var>
+			</field>
+		</form>
+		
+		<!-- Esta validacao esta sendo utilizada somente para a validacao das datas da pesquisa de tarefa -->
+		<form name="tarefaFormConsulta">
+			<field
+				property="codigo"
+				depends="integer">
+				<msg name="integer"	key="pro.errorValidacao.numTarefa" />
+			</field>
+		</form>
+
+
+
+		<form name="anexoForm">
+			<field
+				property="arquivo"		
+				depends="required">
+				<arg0
+					key="pro.anexo.arquivo.required" />
+				
+			</field>	
+		</form>
+	
+		<form name="anotacaoTarefaForm">
+			<field
+				property="textoAnotacao"		
+				depends="required">
+				<arg0 key="pro.label.justificativa" />
+			</field>
+		</form>
+		
+		<form name="anotacaoTarefaFormIncluir">
+			<field
+				property="textoAnotacao"
+				depends="required">
+				<arg0 key="pro.label.anotacao" />
+			</field>
+		</form>
+					
+		<form name="relatorioForm">
+			<field
+				property="chaveSolicitante"		
+				depends="required">
+				<arg0
+					key="pro.relatorio.solicitante.required" />
+			</field>
+			<field
+				property="chaveParticipante"		
+				depends="required">
+				<arg0
+					key="pro.relatorio.participante.required" />				
+			</field>
+		</form>
+		<form name="usuarioForm">
+			<field
+				property="nome"
+				depends="required">
+				<arg0 key="pro.campo.nome" />
+			</field>
+			<field
+				property="telefone"
+				depends="required">
+				<arg0 key="pro.campo.telefone" />
+			</field>
+			<field
+				property="email"
+				depends="required">
+				<arg0 key="pro.campo.email" />
+			</field>
+			<field
+				property="login"
+				depends="required">
+				<arg0 key="pro.campo.login" />
+			</field>
+			<field
+				property="senha"
+				depends="required">
+				<arg0 key="pro.campo.senha" />
+			</field>
+			<field
+				property="confirmaSenha"
+				depends="required">
+				<arg0 key="pro.campo.confirmaSenha" />
+			</field>
+			<field
+				property="idGrupo"
+				depends="required">
+				<arg0 key="bsc.campo.grupo" />
+			</field>
+		</form>
+
+		<form name="grupoForm">
+			<field
+				property="descricao"		
+				depends="required">
+				<arg0
+					key="validacao.grupo.descricao" />
+			</field>
+			<field
+				property="ativo"		
+				depends="required">
+				<arg0
+					key="validacao.grupo.ativo" />				
+			</field>
+		</form>
+		
+    </formset>
+	
+
+
+</form-validation>

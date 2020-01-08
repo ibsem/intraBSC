@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+ 
+<struts-config>
+	 <form-beans>
+		<form-bean name="relatorioForm" type="br.com.intraPRO.relatorio.visao.RelatorioForm"/> <!-- nome do form que recebera os campos jsp -->
+	</form-beans>
+
+
+	 <action-mappings>
+		<!-- Acoes para inclusao de um tipo de tarefa -->	
+		 <action path="/relatorios/final" 
+					type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="relatorioForm">
+					
+	  		<forward name="sucesso" path="pro.relatorio.final"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		 </action>
+		 
+		 <action path="/encaminhar/relatorioResumo"
+				    type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="relatorioForm"
+					>
+			<forward name="sucesso" path="pro.pesquisa.visao.resumo"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>				
+		
+		<action path="/encaminhar/relatorioAgenda"
+					  type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="relatorioForm"
+					>
+			<forward name="sucesso" path="pro.pesquisa.planejamento"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		<action path="/encaminhar/relatorioGantt"
+					  type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="relatorioForm"
+					>
+			<forward name="sucesso" path="pro.pesquisa.gantt"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+					
+		<action path="/relatorio/consultarSolicitanteChaveResumo" 
+					type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="relatorioForm"
+				    >
+	  		<forward name="sucesso" path="pro.pesquisa.visao.resumo"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		<action path="/relatorio/consultarParticipanteChaveResumo" 
+					type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="relatorioForm"
+				   >
+	  		<forward name="sucesso" path="pro.pesquisa.visao.resumo"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		<action path="/relatorio/consultarSolicitanteChaveAgenda" 
+					type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="relatorioForm"
+				   >
+	  		<forward name="sucesso" path="pro.pesquisa.planejamento"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		<action path="/relatorio/consultarParticipanteChaveAgenda" 
+					type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="relatorioForm"
+				    >
+	  		<forward name="sucesso" path="pro.pesquisa.planejamento"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		
+		<action path="/relatorio/consultarSolicitanteGaant" 
+					type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="relatorioForm"
+				    >
+	  		<forward name="sucesso" path="pro.pesquisa.gantt"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		<action path="/relatorio/consultarParticipanteGaant" 
+					type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="relatorioForm"
+				    >
+	  		<forward name="sucesso" path="pro.pesquisa.gantt"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+	
+	 </action-mappings>
+
+</struts-config>

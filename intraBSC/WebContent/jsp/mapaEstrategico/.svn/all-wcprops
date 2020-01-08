@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico
+END
+incluirMapa.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico/incluirMapa.jsp
+END
+listarMapaEstrategicoold.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico/listarMapaEstrategicoold.jsp
+END
+listarMapaEstrategico.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico/listarMapaEstrategico.jsp
+END
+relCrossAcoes.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico/relCrossAcoes.jsp
+END
+alterarMapa.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico/alterarMapa.jsp
+END
+consultarMapa.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico/consultarMapa.jsp
+END
+listarMapaEstrategicoCompleto.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico/listarMapaEstrategicoCompleto.jsp
+END
+abrirMapa.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico/abrirMapa.jsp
+END
+relDetalhaMapaEstrategico.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico/relDetalhaMapaEstrategico.jsp
+END
+relDetalhaMapaGrafico.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/mapaEstrategico/relDetalhaMapaGrafico.jsp
+END

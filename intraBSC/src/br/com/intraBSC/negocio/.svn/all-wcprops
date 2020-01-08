@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio
+END
+ObjetivoBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/ObjetivoBO.java
+END
+TipoPerspectivaBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/TipoPerspectivaBO.java
+END
+RecursoBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/RecursoBO.java
+END
+RelacionamentosBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/RelacionamentosBO.java
+END
+PeriodicidadeBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/PeriodicidadeBO.java
+END
+PerspectivaBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/PerspectivaBO.java
+END
+MetaBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/MetaBO.java
+END
+TemaBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/TemaBO.java
+END
+UsuarioBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tiagotts/intraBSC/svn/!svn/ver/26/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/UsuarioBO.java
+END
+CausaEfeitoBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/CausaEfeitoBO.java
+END
+GrupoBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/GrupoBO.java
+END
+IndicadorBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/IndicadorBO.java
+END
+PapelBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/PapelBO.java
+END
+IndicadorFatoBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/IndicadorFatoBO.java
+END
+MapaEstrategicoBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/MapaEstrategicoBO.java
+END
+UnidadeBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/negocio/UnidadeBO.java
+END

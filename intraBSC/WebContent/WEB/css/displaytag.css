@@ -1,0 +1,183 @@
+/* ************     test styles      ************ */
+.botao  {
+	cursor: hand;
+	}	
+
+table.its thead tr {
+	background-color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	text-align : middle;
+}
+table.itse thead tr {
+	background-color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	text-align : left;
+
+	
+}
+
+caption {
+	background-color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-align : middle;
+
+}
+
+table.its tr.even {
+	background-color: #ffffff;
+
+}
+
+table.its tr.odd {
+  background-color: #ffffff;
+                    
+}
+
+/* ************     test styles      ************ */
+table.its thead tr {
+	background-color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: underline;
+	text-align : center;
+	cellpadding:0;
+	cellspacing:0;
+}
+table.itse thead tr {
+	background-color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	text-align : left;
+	cellpadding:0;
+	cellspacing:0;
+	
+}
+
+caption {
+	background-color: #0038a8;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-align : center;
+	cellpadding:0;
+	cellspacing:0;
+}
+
+table.its tr.even {
+	background-color: #FFFFFF;
+}
+table.linha tbody td,table.linha tbody th{
+	border-top:    1px solid #000000;
+	border-right:  1px solid #000000;
+	border-left:   1px solid #000000;
+	border-bottom: 1px solid #000000;
+}
+
+table.its tr.odd {
+  background-color: #ffffff;
+}
+
+table.nocol tbody td,table.nocol tbody th{
+	border-left: none;
+	border-right: none;
+}
+
+table.its th.sorted a, table.its th.sortable a {
+	background-repeat:no-repeat;
+	background-position: right;
+	display: block;
+	width: 100%;
+	background-color: #f2f8fa;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	text-align : middle;
+	cellpadding:0;
+	cellspacing:0;
+}
+
+table.its th.sortable a {
+	background-image: url(/intraBSC/ico/icon50b.gif);
+}
+
+table.its th.sortable a:hover {
+  text-decoration: none;
+  color: #000000
+
+}
+
+table.its th.order1 a {
+	background-image: url(/intraBSC/ico/icon49a.gif);
+}
+table.its th.order2 a {
+	background-image: url(/intraBSC/ico/icon49b.gif);
+}
+
+.pagebannerone{
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	font-weight: bold;
+	text-decoration: none;
+	position: relative;
+	left: 0px;
+	cellpadding:0;
+	cellspacing:0;
+}
+.pageanterior{
+	width: 7px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	font-weight: bold;
+	text-decoration: none;
+	position: relative;
+	left: 0px;
+	cellpadding:0;
+	cellspacing:0;
+}
+.pagebanner{
+	width: 40px;
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	font-weight: bold;
+	text-decoration: none;
+	position: relative;
+	left: 62px;
+	cellpadding:0;
+	cellspacing:0;}
+
+.pageproximo{
+	width: 8px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	font-weight: bold;
+	text-decoration: none;
+	position: relative;
+	left: 50px;
+	cellpadding:0;
+	cellspacing:0;
+}
+

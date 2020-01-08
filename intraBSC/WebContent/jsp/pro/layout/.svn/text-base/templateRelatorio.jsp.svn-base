@@ -1,0 +1,54 @@
+<%@ taglib uri="/tags/struts-html" prefix="html" %>
+<%@ taglib uri="/tags/struts-logic" prefix="logic" %>
+<%@ taglib uri="/tags/struts-tiles" prefix="tiles" %>
+<%@ taglib uri="/estrutura/tmpl" prefix="tmpl" %>
+<%@ taglib uri="/taglibs/" prefix="autenticacao" %>
+<%@ taglib uri="/tags/struts-bean" prefix="bean" %>
+<%@ taglib uri="/tags/displaytag" prefix="displaytag" %>
+<%@ taglib uri="/tags/c" prefix="c" %>
+<c:if test="${empty applicationScope.base}">
+	<c:choose>
+		<c:when test="${pageContext.request.contextPath eq '/'}">
+			<c:set var="base" value="" scope="application" />
+		</c:when>
+		<c:otherwise>
+			<c:set var="base" value="${pageContext.request.contextPath}" scope="application" />
+		</c:otherwise>
+	</c:choose>
+</c:if>
+<HTML>
+	<HEAD>
+	    <title><tiles:getAsString name="intrapro"/></title>
+	<link rel="stylesheet" href="<c:out value="${base}"/>/WEB/css/intraBSC.css" type="text/css">
+	<script type="text/javascript" src="<c:out value="${base}"/>/WEB/js/funcoes.js"></script>
+	<tiles:insert attribute="menu"/>
+	</HEAD>
+	<BODY>
+    <tiles:insert attribute="cabecalho"/>
+	<table border="0" width="800" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			
+            <td width="10" height="340">&nbsp;</td>
+			<td width="800">
+         		<table border="0" height="294" width="100%" cellspacing="0" cellpadding="0">
+			
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>		
+						<td class="titulo">
+							 <tiles:getAsString name="tituloPagina"/>
+						</td>	
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>						
+						<td align="left" valign="top" height="280"><div id="corpoImpressao"><tiles:insert attribute="corpo"/></div></td>						
+					</tr>
+		   		</table>
+		  	</td>
+		 </tr>
+	</table>
+	</BODY>
+</HTML>

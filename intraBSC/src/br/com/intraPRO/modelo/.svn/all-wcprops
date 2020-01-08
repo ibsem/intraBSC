@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo
+END
+ParticipanteConfigTarefaTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/ParticipanteConfigTarefaTO.java
+END
+ProcessoTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/ProcessoTO.java
+END
+ListaOpcaoFormularioTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/ListaOpcaoFormularioTO.java
+END
+ItemTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/ItemTO.java
+END
+RelatorioTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/RelatorioTO.java
+END
+TarefaTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/TarefaTO.java
+END
+ConteudoFormularioTarefaTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/ConteudoFormularioTarefaTO.java
+END
+AnotacaoTarefaTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/AnotacaoTarefaTO.java
+END
+AnexoTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/AnexoTO.java
+END
+ListaOpcaoItemTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/ListaOpcaoItemTO.java
+END
+FaseTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/FaseTO.java
+END
+SolicitanteTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/SolicitanteTO.java
+END
+FormularioTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/FormularioTO.java
+END
+ConteudoItemTarefaTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/ConteudoItemTarefaTO.java
+END
+RelacionamentosTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/RelacionamentosTO.java
+END
+ParticipanteTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/ParticipanteTO.java
+END
+TransicaoTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/TransicaoTO.java
+END
+FracaoAnexoTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/FracaoAnexoTO.java
+END
+ConfigTarefaTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/ConfigTarefaTO.java
+END
+AtividadeTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/modelo/AtividadeTO.java
+END

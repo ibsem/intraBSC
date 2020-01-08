@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="PerspectivaPrincipal"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="900"
+		 pageHeight="842"
+		 columnWidth="900"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="0"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false"
+		 resourceBundle="recursos.application">
+	<property name="com.jasperassistant.designer.GridHeight" value="5" />
+	<property name="com.jasperassistant.designer.GridWidth" value="5" />
+	<property name="com.jasperassistant.designer.DataSource" value="Conexao MYSQL" />
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true" />
+	<property name="com.jasperassistant.designer.Grid" value="true" />
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="baseDir" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="perspectiva" isForPrompting="true" class="java.lang.Integer"/>
+	<parameter name="bsc" isForPrompting="true" class="java.lang.Integer"/>
+	<queryString><![CDATA[SELECT BSCT.ID AS IDMAPA, PER.NAME AS NAMEPERSPECTIVE, BSCT.NAME AS NAMEBSC
+FROM PERSPECTIVE AS PER, BSC AS BSCT
+WHERE BSCT.ID = $P{bsc} AND PER.ID=$P{perspectiva}]]></queryString>
+
+	<field name="nameperspective" class="java.lang.String"/>
+	<field name="namebsc" class="java.lang.String"/>
+	<field name="idMapa" class="java.lang.String"/>
+
+	<variable name="Chart" class="net.sf.jasperreports.engine.JRRenderable" resetType="Report" calculation="System">
+	</variable>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="40"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="Reference"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="480"
+						y="18"
+						width="294"
+						height="20"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="2Point" bottomBorderColor="#999999"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font fontName="Arial" pdfFontName="Helvetica" size="12" isBold="false" isItalic="false" isUnderline="true" isPdfEmbedded ="false" pdfEncoding ="Cp1252" isStrikeThrough="false" />
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{namebsc}]]></textFieldExpression>
+					<anchorNameExpression><![CDATA["Mapa Estratégico"]]></anchorNameExpression>
+					<hyperlinkReferenceExpression><![CDATA["../mapaEstrategico/detalhar.do?op=mapaUsuarioRelatorioDetalha&codMapaEstrategico=" + $F{idMapa}]]></hyperlinkReferenceExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="774"
+						y="18"
+						width="108"
+						height="20"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-2"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" rightPadding="3" bottomBorder="2Point" bottomBorderColor="#999999"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<image  evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="19"
+						y="20"
+						width="16"
+						height="16"
+						key="image-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<graphicElement stretchType="NoStretch"/>
+					<imageExpression class="java.lang.String"><![CDATA[new String($P{baseDir}+"//WEB//imagens//arvore//file.gif")]]></imageExpression>
+				</image>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="Reference"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="147"
+						y="18"
+						width="333"
+						height="20"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-3"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="2Point" bottomBorderColor="#999999"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font fontName="Arial" pdfFontName="Helvetica-Bold" size="12" isBold="true" isItalic="false" isUnderline="false" isPdfEmbedded ="false" pdfEncoding ="Cp1252" isStrikeThrough="false" />
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nameperspective}]]></textFieldExpression>
+					<hyperlinkReferenceExpression><![CDATA[]]></hyperlinkReferenceExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="39"
+						y="18"
+						width="108"
+						height="20"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-4"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="2Point" bottomBorderColor="#999999"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font fontName="Arial" pdfFontName="Helvetica-Bold" size="12" isBold="true" isItalic="false" isUnderline="false" isPdfEmbedded ="false" pdfEncoding ="Cp1252" isStrikeThrough="false" />
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$R{bsc.report.perspectiva}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="112"  isSplitAllowed="true" >
+				<subreport  isUsingCache="false">
+					<reportElement
+						mode="Opaque"
+						x="18"
+						y="1"
+						width="864"
+						height="55"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="subreport"
+						positionType="Float"/>
+					<subreportParameter  name="perspectiva">
+						<subreportParameterExpression><![CDATA[$P{perspectiva}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter  name="bsc">
+						<subreportParameterExpression><![CDATA[$P{bsc}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter  name="baseDir">
+						<subreportParameterExpression><![CDATA[$P{baseDir}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression  class="java.io.File"><![CDATA[new File($P{baseDir},"//relatorios//PerspectivaSubEspecificacao.jasper")]]></subreportExpression>
+				</subreport>
+				<subreport  isUsingCache="false">
+					<reportElement
+						mode="Opaque"
+						x="18"
+						y="57"
+						width="864"
+						height="55"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="subreport-1"
+						positionType="Float"
+						isRemoveLineWhenBlank="true"/>
+					<subreportParameter  name="perspectiva">
+						<subreportParameterExpression><![CDATA[$P{perspectiva}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter  name="baseDir">
+						<subreportParameterExpression><![CDATA[$P{baseDir}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression  class="java.io.File"><![CDATA[new File($P{baseDir},"//relatorios//PerspectivaSubTasks.jasper")]]></subreportExpression>
+				</subreport>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="182"  isSplitAllowed="true" >
+				<subreport  isUsingCache="false">
+					<reportElement
+						mode="Opaque"
+						x="18"
+						y="1"
+						width="864"
+						height="176"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="subreport"
+						positionType="Float"/>
+					<subreportParameter  name="perspectiva">
+						<subreportParameterExpression><![CDATA[$P{perspectiva}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter  name="bsc">
+						<subreportParameterExpression><![CDATA[$P{bsc}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter  name="baseDir">
+						<subreportParameterExpression><![CDATA[$P{baseDir}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression  class="java.io.File"><![CDATA[new File($P{baseDir},"//relatorios//PerspectivaSubObjetivos.jasper")]]></subreportExpression>
+				</subreport>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

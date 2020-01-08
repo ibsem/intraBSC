@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="TemaSubObjetivos"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="850"
+		 pageHeight="590"
+		 columnWidth="850"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="0"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false"
+		 resourceBundle="recursos.application">
+	<property name="com.jasperassistant.designer.GridWidth" value="12" />
+	<property name="com.jasperassistant.designer.GridHeight" value="12" />
+	<property name="com.jasperassistant.designer.DataSource" value="Conexao MYSQL" />
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false" />
+	<property name="com.jasperassistant.designer.Grid" value="true" />
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+	<reportFont name="Arial_normal" isDefault="false" fontName="Arial" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<reportFont name="Arial_bold" isDefault="false" fontName="sansserif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<reportFont name="Arial_italic" isDefault="false" fontName="Arial" size="10" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+
+	<parameter name="baseDir" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="tema" isForPrompting="true" class="java.lang.Integer"/>
+	<parameter name="bsc" isForPrompting="true" class="java.lang.Integer"/>
+	<queryString><![CDATA[SELECT DISTINCT MEASURE.ID AS NUM, BSC.ID AS IDMAPA,BSC.NAME AS MAPA,
+PERSPECTIVE.SORTORDER AS ORDEM,
+PERSPECTIVE.ID AS IDPERSPECTIVA,
+PERSPECTIVE.NAME AS NOMEPESPECTIVA,
+ OBJECTIVE.ID AS NUMOBJETIVO,
+ OBJECTIVE.NAME AS NAMEOBJECTIVE,
+ OBJECTIVE.DESCRIPTION AS DESCRIPTIONOBJECTIVE,
+ THEME.ID AS IDTEMA,
+ THEME.NAME AS NAMETEMA,
+ MEASURE.NAME AS NAMEMEASURE,
+MEASURE.DESCRIPTION AS DESCRICAO,
+ MEASUREFACT.VALUE AS ULTIMOVALOR,
+ MEASURE.LAST_DATE AS ULTIMADATA,
+ UNID.NAME AS UNIDADE,
+ TARGET.TARGETVALUEDOWN AS LIMITEINFERIOR,
+ TARGET.TARGETVALUEUP AS LIMITESUPERIOR,
+ CASE WHEN MEASUREFACT.VALUE < TARGET.TARGETVALUEDOWN THEN 0
+ 	WHEN MEASUREFACT.VALUE > TARGET.TARGETVALUEUP THEN 1
+ 	ELSE -1 END AS SINAL,
+ TARGET.INVERT AS INVERSAOLIMITE
+FROM  BSC
+LEFT OUTER JOIN 
+ RELBSC ON
+ RELBSC.BSC_ID = BSC.ID 
+LEFT OUTER JOIN
+ PERSPECTIVE ON 
+ PERSPECTIVE.ID = RELBSC.PERSPECTIVE_ID AND PERSPECTIVE.ACTIVE = 1
+LEFT OUTER JOIN
+ RELPERSPECTIVE ON
+ PERSPECTIVE.ID = RELPERSPECTIVE.PERSPECTIVE_ID 
+LEFT OUTER JOIN
+ OBJECTIVE ON
+ OBJECTIVE.ID = RELPERSPECTIVE.OBJECTIVE_ID AND OBJECTIVE.ACTIVE = 1
+LEFT OUTER JOIN
+ RELTHEME ON
+ RELTHEME.OBJECTIVE_ID = OBJECTIVE.ID 
+LEFT OUTER JOIN
+ THEME ON
+ THEME.ID = RELTHEME.THEME_ID
+LEFT OUTER JOIN
+ MEASURE ON
+ MEASURE.OBJECTIVE_ID = OBJECTIVE.ID AND MEASURE.ACTIVE = 1
+LEFT OUTER JOIN
+ MEASUREFACT ON
+ MEASUREFACT.ID_MEASURE = MEASURE.ID AND MEASUREFACT.DATE = MEASURE.LAST_DATE
+LEFT OUTER JOIN 
+ TARGET ON
+ TARGET.MEASURE_ID = MEASURE.ID 
+LEFT OUTER JOIN
+  UNIDADE AS UNID ON 
+    UNID.ID = MEASURE.UNITS
+WHERE BSC.ID = $P{bsc} AND THEME.ID = $P{tema}
+GROUP BY PERSPECTIVE.SORTORDER,OBJECTIVE.ID,MEASURE.ID 
+ORDER BY PERSPECTIVE.SORTORDER,OBJECTIVE.ID,MEASUREFACT.DATE ASC]]></queryString>
+
+	<field name="num" class="java.lang.Integer"/>
+	<field name="idmapa" class="java.lang.Integer"/>
+	<field name="mapa" class="java.lang.String"/>
+	<field name="idPerspectiva" class="java.lang.Integer"/>
+	<field name="nomePespectiva" class="java.lang.String"/>
+	<field name="idTema" class="java.lang.Integer"/>
+	<field name="nameTema" class="java.lang.String"/>
+	<field name="numObjetivo" class="java.lang.Integer"/>
+	<field name="nameObjective" class="java.lang.String"/>
+	<field name="descriptionObjective" class="java.lang.String"/>
+	<field name="nameMeasure" class="java.lang.String"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="ultimoValor" class="java.lang.Float"/>
+	<field name="ultimaData" class="java.lang.String"/>
+	<field name="unidade" class="java.lang.String"/>
+	<field name="limiteinferior" class="java.lang.Float"/>
+	<field name="limitesuperior" class="java.lang.Float"/>
+	<field name="sinal" class="java.lang.Long"/>
+	<field name="inversaoLimite" class="java.lang.Integer"/>
+
+
+		<group  name="Objective_group" >
+			<groupExpression><![CDATA[$F{nameObjective}]]></groupExpression>
+			<groupHeader>
+			<band height="76"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="Reference"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="42"
+						y="3"
+						width="804"
+						height="17"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField"
+						positionType="Float"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="Arial_bold" fontName="Arial" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nameObjective}]]></textFieldExpression>
+					<anchorNameExpression><![CDATA["Objetivo"]]></anchorNameExpression>
+					<hyperlinkReferenceExpression><![CDATA["../objetivo/detalhar.do?op=objetivoRelatorioDetalha&codMapa=" + $F{idmapa} + "&codObjetivo=" + $F{numObjetivo}]]></hyperlinkReferenceExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="2"
+						y="38"
+						width="844"
+						height="18"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{descriptionObjective}]]></textFieldExpression>
+				</textField>
+				<image  scaleImage="FillFrame" vAlign="Top" hAlign="Left" isUsingCache="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="3"
+						y="3"
+						width="36"
+						height="16"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="image-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<graphicElement stretchType="NoStretch" pen="None" fill="Solid" />
+					<imageExpression class="java.lang.String"><![CDATA[new String($P{baseDir}+"//WEB//imagens//relatorio//objetivo.gif")]]></imageExpression>
+				</image>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="2"
+						y="22"
+						width="845"
+						height="15"
+						backcolor="#CCCCCC"
+						key="textField-6"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$R{bsc.report.descricao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="2"
+						y="58"
+						width="227"
+						height="15"
+						backcolor="#CCCCCC"
+						key="textField-7"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$R{bsc.report.indicador}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="232"
+						y="58"
+						width="449"
+						height="15"
+						backcolor="#CCCCCC"
+						key="textField-8"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$R{bsc.report.descricao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="684"
+						y="58"
+						width="84"
+						height="15"
+						backcolor="#CCCCCC"
+						key="textField-9"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$R{bsc.report.valor}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="771"
+						y="58"
+						width="76"
+						height="15"
+						backcolor="#CCCCCC"
+						key="textField-10"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$R{bsc.report.unidade}]]></textFieldExpression>
+				</textField>
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="3"  isSplitAllowed="true" >
+				<line direction="TopDown">
+					<reportElement
+						x="4"
+						y="1"
+						width="843"
+						height="1"
+						forecolor="#999999"
+						key="line-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+			</groupFooter>
+		</group>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="21"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="3"
+						y="4"
+						width="843"
+						height="17"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-11"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="2Point" bottomBorderColor="#999999"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font fontName="Arial" pdfFontName="Helvetica-Bold" size="12" isBold="true" isItalic="false" isUnderline="false" isPdfEmbedded ="false" pdfEncoding ="Cp1252" isStrikeThrough="false" />
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$R{bsc.report.objetivos}]]></textFieldExpression>
+				</textField>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="17"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="232"
+						y="0"
+						width="448"
+						height="15"
+						forecolor="#000000"
+						backcolor="#CCFFFF"
+						key="textField-1"
+						positionType="Float"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="5" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="Arial_normal" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{descricao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="771"
+						y="0"
+						width="76"
+						height="15"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-4"
+						positionType="Float"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="Arial_normal" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{unidade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="Reference"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="19"
+						y="0"
+						width="210"
+						height="15"
+						forecolor="#000000"
+						backcolor="#CCFFFF"
+						key="textField-5"
+						positionType="Float"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="5" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font reportFont="Arial_normal" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nameMeasure}]]></textFieldExpression>
+					<anchorNameExpression><![CDATA["Indicador"]]></anchorNameExpression>
+					<hyperlinkReferenceExpression><![CDATA["../indicador/detalhar.do?op=indicadorRelatorioDetalha&codMapa=" + $F{idmapa} + "&codPerspectiva=" + $F{idPerspectiva} + "&codIndicador=" + $F{num}]]></hyperlinkReferenceExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="684"
+						y="0"
+						width="84"
+						height="15"
+						key="textField"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Float"><![CDATA[$F{ultimoValor}]]></textFieldExpression>
+				</textField>
+				<image  scaleImage="FillFrame" vAlign="Top" hAlign="Left" isUsingCache="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="2"
+						y="0"
+						width="14"
+						height="14"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="image-2">
+							<printWhenExpression><![CDATA[new Boolean(
+((int)($F{ultimoValor}.intValue())) < ((int)($F{limitesuperior}).intValue())&&
+((int)($F{ultimoValor}.intValue())) > ((int)($F{limiteinferior}).intValue()) )]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<graphicElement stretchType="NoStretch" pen="None" fill="Solid" />
+					<imageExpression class="java.lang.String"><![CDATA[new String($P{baseDir}+"//WEB//imagens//relatorio//velocimetroAmarelo.gif")]]></imageExpression>
+				</image>
+				<image  scaleImage="FillFrame" vAlign="Top" hAlign="Left" isUsingCache="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="2"
+						y="0"
+						width="14"
+						height="14"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="image-3">
+							<printWhenExpression><![CDATA[new Boolean(
+((int)($F{ultimoValor}.intValue())) >= ((int)($F{limitesuperior}).intValue()))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<graphicElement stretchType="NoStretch" pen="None" fill="Solid" />
+					<imageExpression class="java.lang.String"><![CDATA[new String($P{baseDir}+"//WEB//imagens//relatorio//velocimetroVerde.gif")]]></imageExpression>
+				</image>
+				<image  scaleImage="FillFrame" vAlign="Top" hAlign="Left" isUsingCache="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="2"
+						y="0"
+						width="14"
+						height="14"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="image-4">
+							<printWhenExpression><![CDATA[new Boolean(
+((int)($F{ultimoValor}.intValue())) <= ((int)($F{limiteinferior}).intValue()))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<graphicElement stretchType="NoStretch" pen="None" fill="Solid" />
+					<imageExpression class="java.lang.String"><![CDATA[new String($P{baseDir}+"//WEB//imagens//relatorio//velocimetroVermelho.gif")]]></imageExpression>
+				</image>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

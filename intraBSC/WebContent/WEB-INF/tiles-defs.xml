@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+ 	<definition name="intrabsc.layout.base" path="/jsp/layout/template.jsp">
+		<put name="cabecalho" 	  	value="/jsp/layout/cabecalho.jsp"/>
+		<put name="tituloPagina" 	value="Página Inicial"/>
+		<put name="intrabsc"        value="IntraBSC"/>
+		<put name="menu" 	      	value="/jsp/layout/menu.jsp"/>
+		<put name="corpo" />
+		<put name="corpoLista" />
+		<put name="arvore"          value=""/>
+    </definition>
+    
+     <definition name="intrabsc.layout.basePopUp" path="/jsp/layout/templatePopup.jsp">
+		<put name="tituloPagina" 	value=""/>
+        <put name="intrabsc" 		value=""/>
+		<put name="menu" 	      	value=""/>
+		<put name="corpo" />
+    </definition>
+    
+ 	<definition name="intrabsc.layout.base.configuracao" path="/jsp/layout/templateConfiguracao.jsp">
+		<put name="cabecalho" 	  	 value="/jsp/layout/cabecalho.jsp"/>
+		<put name="tituloPagina" 	 value="Página Inicial"/>
+		<put name="intrabsc"         value="IntraBSC"/>
+		<put name="menu" 	      	value="/jsp/layout/menu.jsp"/>
+		<put name="arvore"          value="/jsp/layout/arvoreConfiguracao.jsp"/>
+		<put name="corpo"            value=""/>
+		<put name="menuConfiguracao" value="/jsp/layout/menuConfiguracao.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.configuracao.mapa" extends="intrabsc.layout.base.configuracao">
+    	<put name="tituloPagina" 	 value="Sucesso"/>
+		<put name="corpo"       	 value=""/>
+		<put name="menuConfiguracao" value="/jsp/layout/menuConfiguracao.jsp"/>
+    </definition>
+    
+    <definition name="bsc.mapaEstrategico.incluir" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/mapaEstrategico/incluirMapa.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.autorizacao" extends="intrabsc.layout.base">
+		<put name="corpo"       	  value="/jsp/layout/autorizacao.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.ajuda" extends="intrabsc.layout.base">
+		<put name="corpo"       	  value="/jsp/layout/ajuda.jsp"/>
+    </definition> 
+
+    <definition name="bsc.expirou" extends="intrabsc.layout.base">
+		<put name="corpo"       	  value="/jsp/layout/expirou.jsp"/>
+    </definition>
+    
+    <definition name="bsc.mapaEstrategico.alterar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/mapaEstrategico/alterarMapa.jsp"/>
+		<put name="menuConfiguracao" value="/jsp/layout/menuConfiguracao.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.layout.inicial">		
+		<put name="corpo"       	value="/jsp/layout/inicial.jsp"/>
+    </definition>
+    
+    <definition name="bsc.principal" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/layout/principal.jsp"/>
+    </definition>
+    
+    <definition name="bsc.layout.sucesso.configuracao" extends="intrabsc.layout.base.configuracao">
+    	<put name="tituloPagina" 	value="Sucesso"/>
+		<put name="corpo"       	value="/jsp/pro/layout/branco.jsp"/>
+    </definition>
+    
+    <definition name="bsc.erro.configuracao" extends="intrabsc.layout.base.configuracao">
+		<put name="tituloPagina" 	value="Erro"/>
+		<put name="intrabsc"        value="IntraBSC"/>
+		<put name="corpo"       	value="/jsp/layout/erro.jsp"/>
+    </definition>
+
+	<definition name="bsc.erro" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Erro"/>
+		<put name="intrabsc"        value="IntraBSC"/>
+		<put name="corpo"       	value="/jsp/layout/erro.jsp"/>
+    </definition>
+
+	<definition name="bsc.mapaEstrategico.listar.inicial" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Mapa Estrategico"/>
+		<put name="corpoLista"     	value=""/>
+		<put name="corpo"       	value="/jsp/mapaEstrategico/listarMapaEstrategico.jsp"/>
+    </definition>
+
+	<definition name="bsc.mapaEstrategico.listar.inicial.completo" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Mapa Estrategico"/>
+		<put name="corpoLista"     	value=""/>
+		<put name="corpo"       	value="/jsp/mapaEstrategico/listarMapaEstrategicoCompleto.jsp"/>
+    </definition>
+
+	<definition name="bsc.mapaEstrategico.listar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Mapa Estrategico"/>
+		<put name="corpoLista"     	value=""/>
+		<put name="corpo"       	value="/jsp/mapaEstrategico/listarMapaEstrategico.jsp"/>
+    </definition>
+    
+    <definition name="bsc.usuario.incluir" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/usuario/incluirUsuario.jsp"/>		
+    </definition>
+    
+    <definition name="bsc.usuario.listar" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/usuario/listarUsuarios.jsp"/>		
+    </definition>
+    
+    <definition name="bsc.usuario.pesquisarAlterar" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/usuario/pesquisarAlterarUsuarios.jsp"/>		
+    </definition>
+    
+    <definition name="bsc.usuario.alterar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Alterar Usuários"/>
+		<put name="corpo"       	value="/jsp/usuario/alterarUsuarios.jsp"/>		
+    </definition>
+    
+    <definition name="bsc.usuario.alterarSenha" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Alterar Senha Responsáveis"/>
+		<put name="corpo"       	value="/jsp/usuario/alterarSenha.jsp"/>		
+    </definition>
+    
+    <definition name="bsc.usuario.alterarLogin" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Alterar Login Responsáveis"/>
+		<put name="corpo"       	value="/jsp/usuario/alterarLogin.jsp"/>		
+    </definition>
+    
+    <definition name="bsc.perspectiva" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Perspectiva"/>
+		<put name="corpo"       	value=""/>
+		<put name="corpoLista"     	value="/jsp/perspectiva/listarPerspectivas.jsp"/>
+    </definition>
+
+    <definition name="bsc.meta.incluir" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/meta/incluirMeta.jsp"/>
+		<put name="tituloPagina"       	value="Meta"/>
+    </definition>
+
+    <definition name="bsc.mapaEstrategico.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Mapa Estrategico"/>
+		<put name="corpo"       	value="/jsp/mapaEstrategico/relDetalhaMapaEstrategico.jsp"/>
+		<put name="corpoLista"      value=""/>
+    </definition> 
+
+	<definition name="bsc.mapaGrafico.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Mapa Estrategico"/>
+		<put name="corpo"       	value="/jsp/mapaEstrategico/relDetalhaMapaGrafico.jsp"/>
+		<put name="corpoLista"      value=""/>
+    </definition> 
+
+    <definition name="bsc.perspectiva.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Perspectivas"/>
+		<put name="corpo"       	value="/jsp/perspectiva/relDetalhaPerspectiva.jsp"/>
+		<put name="corpoLista"     	value=""/>
+    </definition> 
+    
+    <definition name="bsc.objetivo" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Objetivo"/>
+		<put name="corpo"       	value=""/>
+		<put name="corpoLista"     	value="/jsp/objetivo/listarObjetivos.jsp"/>
+    </definition>
+    
+    <definition name="bsc.tema" extends="intrabsc.layout.base.configuracao">
+		<put name="tituloPagina" 	value="Tema"/>
+		<put name="corpo"       	value="/jsp/tema/listarTema.jsp"/>
+    </definition>
+    
+       <definition name="bsc.tema.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Tema"/>
+		<put name="corpo"       	value="/jsp/tema/relDetalhaTema.jsp"/>
+		<put name="corpoLista"      value=""/>
+    </definition> 
+    
+    <definition name="bsc.indicador" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Indicadores"/>
+		<put name="corpoLista"      value="/jsp/indicador/listarIndicadores.jsp"/>
+		<put name="corpo"       	value=""/>
+    </definition>    
+
+    <definition name="bsc.objetivo.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Objetivos"/>
+		<put name="corpo"       	value=""/>
+		<put name="corpo"     	value="/jsp/objetivo/relDetalhaObjetivo.jsp"/>
+    </definition> 
+
+    <definition name="bsc.indicador.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Indicador"/>
+		<put name="corpoLista"      value=""/>
+		<put name="corpo"       	value="/jsp/indicador/relDetalhaIndicador.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.meuIndicador.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Indicador"/>
+		<put name="corpoLista"      value=""/>
+		<put name="corpo"       	value="/jsp/indicador/relDetalhaMeuIndicador.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.meuIndicador.detalhar.completo" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Indicador"/>
+		<put name="corpoLista"      value=""/>
+		<put name="corpo"       	value="/jsp/indicador/relDetalhaMeuIndicadorCompleto.jsp"/>
+    </definition>   
+    
+    <definition name="bsc.mapa.incluir" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Incluir Mapa Estrategico"/>
+		<put name="corpoLista"      value=""/>
+		<put name="corpo"       	value="/jsp/mapaEstrategico/incluirMapa.jsp"/>
+    </definition> 
+    
+	<definition name="bsc.unidade.incluir" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/unidade/incluirUnidade.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.unidade.alterar" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/unidade/alterarUnidade.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.unidade.consultar" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/unidade/consultarUnidade.jsp"/>
+    </definition>
+
+	<definition name="bsc.papel.incluir" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/papel/incluirPapel.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.papel.alterar" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/papel/alterarPapel.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.papel.consultar" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/papel/consultarPapel.jsp"/>
+    </definition>
+
+	<definition name="bsc.periodicidade.incluir" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/periodicidade/incluirPeriodicidade.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.periodicidade.alterar" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/periodicidade/alterarPeriodicidade.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.periodicidade.consultar" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/periodicidade/consultarPeriodicidade.jsp"/>
+    </definition>
+    
+    <definition name="bsc.tipoPerspectiva.incluir" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/tipoPerspectiva/incluirTipoPerspectiva.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.tipoPerspectiva.alterar" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/tipoPerspectiva/alterarTipoPerspectiva.jsp"/>
+    </definition> 
+    
+    <definition name="bsc.tipoPerspectiva.consultar" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/tipoPerspectiva/consultarTipoPerspectiva.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminha.arvoreConfiguracao" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/layout/encaminhaArvore.jsp"/>
+		<put name="menuConfiguracao" value="/jsp/layout/menuConfiguracao.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminha.AbrirMapa.configuracao" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/mapaEstrategico/abrirMapa.jsp"/>
+		
+    </definition>
+    
+    <definition name="bsc.encaminha.perspectiva.incluir" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/perspectiva/incluirPerspectiva.jsp"/>
+		<put name="menuConfiguracao" value="/jsp/layout/menuConfiguracao.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminha.perspectiva.alterar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/perspectiva/alterarPerspectiva.jsp"/>
+		<put name="menuConfiguracao" value="/jsp/layout/menuConfiguracao.jsp"/>
+    </definition>
+
+    <definition name="bsc.encaminha.tema.incluir" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/tema/incluirTema.jsp"/>
+		<put name="menuConfiguracao" value="/jsp/layout/menuConfiguracao.jsp"/>
+    </definition>
+
+    <definition name="bsc.encaminha.tema.alterar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/tema/alterarTema.jsp"/>
+    </definition>        
+
+
+    <definition name="bsc.encaminha.objetivo.incluir" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/objetivo/incluirObjetivo.jsp"/>
+    </definition>
+
+    <definition name="bsc.encaminha.objetivo.alterar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/objetivo/alterarObjetivo.jsp"/>
+    </definition>        
+
+    <definition name="bsc.encaminha.causaEfeito.incluir" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/causaEfeito/incluirCausaEfeito.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminha.indicador.incluir" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/indicador/incluirIndicador.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminha.indicador.alterar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/indicador/alterarIndicador.jsp"/>
+    </definition>
+    
+    <definition name="bsc.listar.indicador.fato" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/indicador/listarIndicadorFato.jsp"/>
+    </definition>
+
+    <definition name="bsc.encaminha.meta.incluir" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/meta/incluirMeta.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminha.meta.alterar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/meta/alterarMeta.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminha.meta.consultar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/meta/consultarMeta.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminha.recurso.incluir" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/recurso/incluirRecurso.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminha.recurso.alterar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/recurso/alterarRecurso.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminha.recurso.consultar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/recurso/consultarRecurso.jsp"/>
+    </definition>
+
+
+<!-- ********************************** Configuracao do PRO ***********************************-->
+
+	<definition name="pro.layout.base" path="/jsp/pro/layout/templateTarefa.jsp">
+		<put name="cabecalho" 	  	 value="/jsp/pro/layout/cabecalho.jsp"/>
+		<put name="intrapro" 		 value="IntraBSC"/>
+        <put name="menu" 	      	 value="/jsp/layout/menu.jsp"/>
+        <put name="corpo"/>
+      	<put name="tarefaArvore"	 value="/jsp/pro/tarefa/arvoreTarefa.jsp"/>
+      	<put name="sucesso"	         value="/jsp/pro/layout/mensagem.jsp"/>
+    </definition>
+    
+    <definition name="pro.layout.basePopUp" path="/jsp/pro/layout/templatePopup.jsp">
+		<put name="tituloPagina" 	value=""/>
+        <put name="intrapro" 		value=""/>
+		<put name="menu" 	      	value=""/>
+		<put name="corpo" />
+    </definition>
+
+    <definition name="pro.layout.base.relatorio.final" path="/jsp/pro/layout/templateRelatorio.jsp">
+		<put name="cabecalho" 	  	value=""/>
+		<put name="tituloPagina" 	value=""/>
+        <put name="intrapro" 		value="Tarefas"/>
+		<put name="menu" 	      	value=""/>
+		<put name="corpo" />
+    </definition>
+
+	<definition name="pro.erro" extends="pro.layout.base">
+		<put name="tituloPagina" 	value="Erro"/>
+		<put name="intrapro"        value="IntraBSC"/>
+		<put name="menu" 	      	value=""/>
+		<put name="corpo"       	value="/jsp/pro/layout/erro.jsp"/>
+    </definition>    
+
+    <definition name="pro.menu.acao" extends="pro.layout.base">
+    	<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value=""/>
+    </definition>
+
+	<definition name="pro.menu.relatorio" extends="pro.layout.base">
+    	<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value=""/>
+    </definition>
+
+    <definition name="pro.layout.inicial" extends="pro.layout.base">
+		<put name="corpo"       	value="/jsp/pro/layout/inicial.jsp"/>
+	</definition>
+    
+  
+  <!-- ======================= Processos ========================== -->
+  <definition name="pro.layout.sucesso.configuracao" extends="intrabsc.layout.base">
+    	<put name="tituloPagina" 	value="Sucesso"/>
+		<put name="corpo"       	value="/jsp/layout/mensagem.jsp"/>
+    </definition>
+  
+  
+	 <definition name="pro.encaminha.arvoreConfiguracao" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/pro/layout/encaminhaArvore.jsp"/>
+		<put name="menuConfiguracao" value="/jsp/pro/layout/menuConfiguracao.jsp"/>
+    </definition>
+      
+   <definition name="pro.encaminha.AbrirProcesso.configuracao" extends="intrabsc.layout.base">
+		<put name="corpo"       	value="/jsp/pro/processo/abrirProcesso.jsp"/>
+    </definition>
+  
+  	<definition name="pro.configuracao.processo" extends="intrabsc.layout.base.configuracao">
+    	<put name="tituloPagina" 	 value="Sucesso"/>
+		<put name="corpo"       	 value=""/>
+		<put name="menuConfiguracao" value="/jsp/pro/layout/menuConfiguracao.jsp"/>
+    </definition>
+        
+    <definition name="pro.processo.alterar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/pro/processo/alterarProcesso.jsp"/>
+		<put name="menuConfiguracao" value="/jsp/pro/layout/menuConfiguracao.jsp"/>
+    </definition> 
+    
+    <definition name="pro.processo.listar.inicial" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Processo "/>
+		<put name="corpoLista"     	value=""/>
+		<put name="corpo"       	value="/jsp/pro/processo/listarProcesso.jsp"/>
+    </definition>
+
+	<definition name="pro.processo.listar.inicial.completo" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Processo "/>
+		<put name="corpoLista"     	value=""/>
+		<put name="corpo"       	value="/jsp/pro/processo/listarProcessoCompleto.jsp"/>
+    </definition>
+
+	<definition name="pro.processo.listar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Processo "/>
+		<put name="corpoLista"     	value=""/>
+		<put name="corpo"       	value="/jsp/pro/processo/listarProcesso.jsp"/>
+    </definition>
+ 
+    <definition name="pro.processo.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Processo "/>
+		<put name="corpo"       	value="/jsp/pro/processo/relDetalhaProcesso.jsp"/>
+		<put name="corpoLista"      value=""/>
+    </definition> 
+
+	<definition name="pro.processoGrafico.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Processo "/>
+		<put name="corpo"       	value="/jsp/pro/processo/relDetalhaProcessoGrafico.jsp"/>
+		<put name="corpoLista"      value=""/>
+    </definition> 
+        
+    <definition name="pro.processo.incluir" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Incluir Processo"/>
+		<put name="corpoLista"      value=""/>
+		<put name="corpo"       	value="/jsp/pro/processo/incluirProcesso.jsp"/>
+    </definition>
+  
+  <!-- ======================= Fim de Processos ==================== -->
+  
+  <!-- ======================= Fases ==================== -->
+  
+     <definition name="pro.fase" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Fase"/>
+		<put name="corpo"       	value=""/>
+		<put name="corpoLista"     	value="/jsp/pro/fase/listarFases.jsp"/>
+    </definition>
+  
+  <definition name="pro.fase.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Fases"/>
+		<put name="corpo"       	value="/jsp/pro/fase/relDetalhaFase.jsp"/>
+		<put name="corpoLista"     	value=""/>
+    </definition>
+    
+    <definition name="pro.encaminha.fase.incluir" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/pro/fase/incluirFase.jsp"/>
+		<put name="menuConfiguracao" value="/jsp/pro/layout/menuConfiguracao.jsp"/>
+    </definition>
+    
+    <definition name="pro.encaminha.fase.alterar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/pro/fase/alterarFase.jsp"/>
+		<put name="menuConfiguracao" value="/jsp/pro/layout/menuConfiguracao.jsp"/>
+    </definition>
+   
+  <!-- ======================= Fim de Fases ==================== -->
+  
+  <!-- ======================= Atividade ==================== -->
+  
+   <definition name="pro.atividade" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Atividade"/>
+		<put name="corpo"       	value=""/>
+		<put name="corpoLista"     	value="/jsp/pro/atividade/listarAtividades.jsp"/>
+    </definition>
+    
+      <definition name="pro.atividade.detalhar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Atividades"/>
+		<put name="corpo"       	value=""/>
+		<put name="corpo"     	value="/jsp/pro/atividade/relDetalhaAtividade.jsp"/>
+    </definition>
+  
+    <definition name="pro.encaminha.atividade.incluir" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/pro/atividade/incluirAtividade.jsp"/>
+    </definition>
+
+    <definition name="pro.encaminha.atividade.alterar" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/pro/atividade/alterarAtividade.jsp"/>
+    </definition>        
+  
+   <!-- ======================= Fim de Atividade ==================== -->
+ 
+   <!-- ======================= Transicao ==================== -->
+    
+     <definition name="pro.encaminha.transicao.incluir" extends="intrabsc.layout.base.configuracao">
+		<put name="corpo"       	value="/jsp/pro/transicao/incluirTransicao.jsp"/>
+    </definition>
+ 
+   <!-- ======================= Fim de Interação ==================== -->
+       
+  
+   <!-- *****************Definições dos JSP da Manutenção  das Definições de Tarefa ************** -->
+  
+  
+    <definition name="pro.configTarefa.incluir" extends="pro.layout.base">
+		<put name="tituloPagina" 	value="IntraBSC"/>
+		<put name="corpo"       	value="/jsp/pro/configTarefa/incluirConfigTarefa.jsp"/>
+	    </definition>
+    
+   <definition name="pro.layout.erroExpirou" extends="pro.layout.base">
+		<put name="corpo"       	value="/jsp/pro/layout/erroPaginaExpirou.jsp"/>
+    </definition>
+ 
+    <definition name="pro.configTarefa.alterar" extends="pro.layout.base">		
+		<put name="corpo"       	value="/jsp/pro/configTarefa/alterarConfigTarefa.jsp"/>
+		<put name="tituloPagina" 	value="IntraBSC"/>
+    </definition>
+
+    <definition name="pro.configTarefa.consultarVarios" extends="pro.layout.base">
+		<put name="tituloPagina" 	value="IntraBSC"/>
+		<put name="corpo"       	value="/jsp/pro/configTarefa/pesquisarConfigTarefa.jsp"/>
+    </definition>
+
+ <!-- ***************** Fim das Definições dos JSP da Manutenção Modelos de processo*************** -->
+
+    <definition name="pro.layout.sucesso.popup" extends="pro.layout.basePopUp">
+		<put name="corpo"       	value="/jsp/pro/layout/mensagemPopUp.jsp"/>
+    </definition>
+    
+    <definition name="pro.layout.sucesso" extends="pro.layout.base">
+		<put name="corpo"       	value="/jsp/pro/layout/mensagem.jsp"/>
+    </definition>
+    
+    <definition name="pro.layout.erro.popup" extends="pro.layout.basePopUp">
+		<put name="corpo"       	value="/jsp/pro/layout/erroPopUp.jsp"/>
+    </definition>
+    
+    <definition name="pro.layout.erro" extends="pro.layout.base">
+		<put name="corpo"       	value="/jsp/pro/layout/erro.jsp"/>
+    </definition>
+    
+    <definition name="pro.item.incluir" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/item/incluirItem.jsp"/>
+    </definition> 
+
+    <definition name="pro.item.alterar" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/item/alterarItem.jsp"/>
+    </definition>
+
+ <definition name="pro.formulario.incluir" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/formulario/incluirFormulario.jsp"/>
+    </definition> 
+
+    <definition name="pro.formulario.alterar" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/formulario/alterarFormulario.jsp"/>
+    </definition>
+
+    <definition name="pro.tarefa.incluir" extends="pro.layout.base">
+		<put name="tituloPagina" 	value="IntraBSC"/>
+		<put name="corpo"       	value="/jsp/pro/tarefa/incluirTarefa.jsp"/>
+    </definition>
+    
+    <!-- Utilizado para inclusao do mapa -->
+   <definition name="pro.tarefa.incluir.mapa" extends="pro.layout.base">
+		<put name="tituloPagina" 	value="IntraBSC"/>
+		<put name="corpo"       	value="/jsp/pro/tarefa/incluirTarefa.jsp"/>
+    </definition>
+   
+   
+   <definition name="pro.item.consultarVarios" extends="pro.layout.base">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/item/pesquisarItem.jsp"/>
+    </definition>
+
+   <definition name="pro.formulario.consultarVarios" extends="pro.layout.base">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/formulario/pesquisarFormulario.jsp"/>
+    </definition>
+
+
+	
+	<definition name="pro.tarefa.alterar" extends="pro.layout.base">
+		<put name="tituloPagina" 	value="IntraBSC"/>
+		<put name="corpo"       	value="/jsp/pro/tarefa/alterarTarefa.jsp"/>
+	</definition>
+
+	<definition name="pro.itemTarefa.incluir" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/tarefa/alterarItemsTarefa.jsp"/>
+    </definition>
+
+<definition name="pro.formularioTarefa.incluir" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/tarefa/alterarFormulariosTarefa.jsp"/>
+    </definition>
+
+	<definition name="pro.tarefa.justificativa" extends="pro.layout.base">
+		<put name="tituloPagina" 	value="Justificativa da Tarefa"/>
+		<put name="corpo"       	value="/jsp/pro/tarefa/justificativaTarefa.jsp"/>
+    </definition>
+
+	<definition name="pro.solicitante.consultar" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value="Incluir Solicitante"/>
+		<put name="corpo"       	value="/jsp/pro/solicitante/pesquisarSolicitanteTarefa.jsp"/>
+    </definition>
+
+	<definition name="pro.anexo.incluir" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/anexo/incluirAnexo.jsp"/>
+    </definition>
+ 
+    <definition name="pro.tarefa.consultarVarios" extends="pro.layout.base">
+		<put name="tituloPagina" 	value="Pesquisar Tarefas"/>
+		<put name="corpo"       	value="/jsp/pro/tarefa/pesquisarTarefa.jsp"/>
+	</definition>
+    
+    <definition name="pro.anotacao.visualizar" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/anotacao/visualizarAnotacao.jsp"/>
+    </definition>
+    
+    <definition name="pro.anotacao.incluir" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/anotacao/incluirAnotacao.jsp"/>
+    </definition>
+         
+    <definition name="pro.executante.pesquisa" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/participante/pesquisarExecutante.jsp"/>
+    </definition>
+
+    <definition name="pro.acompanhamento.pesquisar" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/acompanhamento/pesquisarAcompanhamento.jsp"/>
+    </definition>
+
+      	
+	<!--  Participantes do Modelo de Processo -->
+	
+    <definition name="pro.visualiza.participanteExecutanteConfigTarefas" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/participanteConfigTarefa/pesquisarParticipanteConfigTarefaExecutante.jsp"/>
+    </definition>
+    
+    <definition name="pro.visualiza.participanteAcompanhamentoConfigTarefas" extends="pro.layout.basePopUp">
+		<put name="tituloPagina" 	value=""/>
+		<put name="corpo"       	value="/jsp/pro/participanteConfigTarefa/pesquisarParticipanteConfigTarefaAcompanhamento.jsp"/>
+    </definition>
+
+	<!--  FIM dos Participantes da Definição da Tarefa -->
+    
+    
+    <definition name="pro.visualiza.tiposTarefas.arvore" extends="pro.layout.base">
+		<put name="tituloPagina" 	value="IntraBSC"/>
+		<put name="corpo"       	value="/jsp/pro/layout/branco.jsp"/>
+    </definition>    
+    
+    <definition name="pro.visualiza.listaTarefas" extends="pro.layout.base">
+		<put name="tituloPagina" 	value="Visualizar Tarefas"/>
+		<put name="corpo"       	value="/jsp/pro/tarefa/listarTarefasPorTipos.jsp"/>
+    </definition>
+      
+    <!-- *****************************Definicoes dos Relatorios******************************* -->
+
+	<definition name="pro.layout.base.relatorio" path="/jsp/pro/layout/template.jsp">
+		<put name="cabecalho" 	  	value="/jsp/pro/layout/cabecalho.jsp"/>
+        <put name="intrapro" 		value="IntraBSC"/>
+		<put name="menu" 	      	value="/jsp/pro/layout/menu.jsp"/>
+		<put name="corpo" />
+    </definition>
+
+	<definition name="pro.relatorio.final" extends="pro.layout.base.relatorio.final">
+		<put name="tituloPagina" 	value="Relatório"/>
+		<put name="corpo"       	value="/jsp/pro/relatorio/relatorioFinal.jsp"/>
+    </definition>
+    
+    <definition name="pro.pesquisa.visao.resumo" extends="pro.layout.base.relatorio">
+		<put name="tituloPagina" 	value="Resumo das Tarefas"/>
+		<put name="corpo"       	value="/jsp/pro/relatorio/pesquisarRelatorioListarTarefa.jsp"/>
+    </definition>
+    
+    <definition name="pro.pesquisa.planejamento" extends="pro.layout.base.relatorio">
+		<put name="intrapro" 	value="Agenda Tarefas"/>
+		<put name="corpo"       	value="/jsp/pro/relatorio/pesquisarRelatorioAgendaTarefa.jsp"/>
+    </definition>
+    
+    <definition name="pro.pesquisa.gantt" extends="pro.layout.base.relatorio">
+		<put name="intrapro" 	value="Cronograma Tarefas"/>
+		<put name="corpo"       	value="/jsp/pro/relatorio/pesquisarRelatorioGanttTarefa.jsp"/>
+    </definition>
+    
+    <definition name="relatorio.tarefa.grupo" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Mapa Estrategico"/>
+		<put name="corpo"       	value="/jsp/pro/tarefa/relGrupoTarefa.jsp"/>
+		<put name="corpoLista"      value=""/>
+    </definition> 
+    
+    <!-- Grupo -->
+	<definition name="bsc.encaminhar.grupo.incluir" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Incluir Grupo"/>
+		<put name="corpo"       	value="/jsp/grupo/incluirGrupo.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminhar.grupo.consultar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Consultar Grupo"/>
+		<put name="corpo"       	value="/jsp/grupo/consultarGrupo.jsp"/>
+    </definition>
+    
+    <definition name="bsc.encaminhar.grupo.alterar" extends="intrabsc.layout.base">
+		<put name="tituloPagina" 	value="Alterar Grupo"/>
+		<put name="corpo"       	value="/jsp/grupo/alterarGrupo.jsp"/>
+    </definition>
+
+
+</tiles-definitions>

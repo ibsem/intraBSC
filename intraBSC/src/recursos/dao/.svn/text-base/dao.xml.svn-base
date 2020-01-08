@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+
+<!DOCTYPE daoConfig
+	PUBLIC "-//iBATIS.com//DTD DAO Configuration 2.0//EN"
+	"http://www.ibatis.com/dtd/dao-2.dtd">
+
+<daoConfig>
+	<properties resource="recursos/dao/dao.properties" />	
+	<context>
+		<transactionManager type="JDBC">
+			<property name="DataSource" value="JNDI"/>
+			<property name="DBJndiContext" value="${jndi.ctx.db}"/>
+		</transactionManager>
+		
+		<dao interface="br.com.intraBSC.persistencia.UsuarioDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.UsuarioDAOJDBC" />
+			 
+		<dao interface="br.com.intraBSC.persistencia.MapaEstrategicoDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.MapaEstrategicoDAOJDBC" />
+			 
+		<dao interface="br.com.intraBSC.persistencia.PerspectivaDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.PerspectivaDAOJDBC" />
+			 
+		<dao interface="br.com.intraBSC.persistencia.ObjetivoDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.ObjetivoDAOJDBC" />
+			 
+		<dao interface="br.com.intraBSC.persistencia.MetaDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.MetaDAOJDBC" />
+
+		<dao interface="br.com.intraBSC.persistencia.IndicadorDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.IndicadorDAOJDBC" />
+		
+		<dao interface="br.com.intraBSC.persistencia.TemaDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.TemaDAOJDBC" />
+		
+		<dao interface="br.com.intraBSC.persistencia.UnidadeDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.UnidadeDAOJDBC" />
+		
+		<dao interface="br.com.intraBSC.persistencia.PapelDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.PapelDAOJDBC" />
+		 
+		<dao interface="br.com.intraBSC.persistencia.PeriodicidadeDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.PeriodicidadeDAOJDBC" />
+			 
+		<dao interface="br.com.intraBSC.persistencia.TipoPerspectivaDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.TipoPerspectivaDAOJDBC" />	
+
+		<dao interface="br.com.intraBSC.persistencia.RelacionamentosDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.RelacionamentosDAOJDBC" />
+			 
+        <dao interface="br.com.intraBSC.persistencia.CausaEfeitoDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.CausaEfeitoDAOJDBC" />
+			 			 
+		<dao interface="br.com.intraBSC.persistencia.RecursoDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.RecursoDAOJDBC" />
+			 
+		<dao interface="br.com.intraBSC.persistencia.IndicadorFatoDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.IndicadorFatoDAOJDBC" />
+		
+		<dao interface="br.com.intraBSC.persistencia.GrupoDAO"
+			 implementation="br.com.intraBSC.persistencia.JDBC.GrupoDAOJDBC" />
+			 
+			 
+		<!-- PRO -->
+		
+		
+		<dao interface="br.com.intraPRO.persistencia.ConfigTarefaDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.ConfigTarefaDAOImpl" />
+
+		<dao interface="br.com.intraPRO.persistencia.ItemDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.ItemDAOImpl" />
+
+		<dao interface="br.com.intraPRO.persistencia.FormularioDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.FormularioDAOImpl" />
+				
+		<dao interface="br.com.intraPRO.persistencia.TarefaDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.TarefaDAOImpl" />
+
+		<dao interface="br.com.intraPRO.persistencia.ParticipanteDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.ParticipanteDAOImpl" />
+
+		<dao interface="br.com.intraPRO.persistencia.AnexoDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.AnexoDAOImpl" />		
+
+		<dao interface="br.com.intraPRO.persistencia.ConteudoItemTarefaDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.ConteudoItemTarefaDAOImpl" />
+			 
+		<dao interface="br.com.intraPRO.persistencia.ConteudoFormularioTarefaDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.ConteudoFormularioTarefaDAOImpl" />
+			 		
+		<dao interface="br.com.intraPRO.persistencia.FracaoAnexoDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.FracaoAnexoDAOImpl" />
+
+		<dao interface="br.com.intraPRO.persistencia.AnotacaoTarefaDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.AnotacaoTarefaDAOImpl" />
+
+		<dao interface="br.com.intraPRO.persistencia.RelatorioDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.RelatorioDAOImpl" />
+			
+		<dao interface="br.com.intraPRO.persistencia.ParticipanteConfigTarefaDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.ParticipanteConfigTarefaDAOImpl" />
+				 
+		<dao interface="br.com.intraPRO.persistencia.ListaOpcaoItemDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.ListaOpcaoItemDAOImpl" />
+			 
+		<dao interface="br.com.intraPRO.persistencia.ListaOpcaoFormularioDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.ListaOpcaoFormularioDAOImpl" />
+			 
+		<dao interface="br.com.intraPRO.persistencia.ProcessoDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.ProcessoDAOJDBC" />
+			 
+		<dao interface="br.com.intraPRO.persistencia.FaseDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.FaseDAOJDBC" />
+			 
+		<dao interface="br.com.intraPRO.persistencia.AtividadeDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.AtividadeDAOJDBC" />
+			 
+		<dao interface="br.com.intraPRO.persistencia.TransicaoDAO"
+			 implementation="br.com.intraPRO.persistencia.jdbc.TransicaoDAOJDBC" />
+
+
+		
+	</context>
+</daoConfig>

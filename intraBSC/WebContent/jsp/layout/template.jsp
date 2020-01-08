@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/2006/xhtml" >
+<%@ taglib uri="/tags/struts-html" prefix="html" %>
+<%@ taglib uri="/tags/struts-logic" prefix="logic" %>
+<%@ taglib uri="/tags/struts-tiles" prefix="tiles" %>
+<%@ taglib uri="/tags/struts-bean" prefix="bean" %>
+<%@ taglib uri="/tags/c" prefix="c"%>
+<%@ include file="/jsp/layout/definicaoMenuPerfil.jsp"%>
+<c:if test="${empty applicationScope.base}">
+	<c:choose>
+		<c:when test="${pageContext.request.contextPath eq '/'}">
+			<c:set var="base" value="" scope="application" />
+		</c:when>
+		<c:otherwise>
+			<c:set var="base" value="${pageContext.request.contextPath}" scope="application" />
+		</c:otherwise>
+	</c:choose>
+</c:if>
+<HTML>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<HEAD>
+	    <meta name="title" content="IntraBSC - Solução em Planejamento Estratégico" />
+		<meta name="url" content="www.intrabsc.com" />
+		<meta name="description" content="Solução em Planejamento Estratégico e Gestão de Planos de Ação" />
+		<meta name="keywords" content="BSC, Balanced Scorecard" />
+		<meta name="charset" content="ISO-8859-1" />
+		<script type="text/javascript" src="<c:out value="${base}"/>/WEB/js/funcoes.js"></script>
+		<link rel="stylesheet" href="<c:out value="${base}"/>/WEB/css/intraBSC.css" type="text/css">
+		<link rel="stylesheet" href="<c:out value="${base}"/>/WEB/css/menu.css" type="text/css">
+		<link rel="stylesheet" href="<c:out value="${base}"/>/WEB/css/displaytag.css" type="text/css">
+		<script type="text/javascript" src="<c:out value="${base}"/>/WEB/js/dtree.js"></script>
+	</HEAD>
+	<BODY> 
+
+    
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+		<tr>
+  			<td width="100%" border="0" align="center">
+  				<tiles:insert attribute="cabecalho"/>
+  			</td>
+  		</tr>
+	</table>
+	<!-- Corpo -->
+	<div align="center"  style="position: relative;top:-45px;width:100%;height:450px;">
+	<table border="0"  cellpadding="0" border="0" cellspacing="0">  	
+		<tr>
+			<td colspan="2" width="100%" valign="top"><tiles:insert attribute="menu"/></td>
+		</tr>
+		<tr>
+			<td valign="top">
+	         	<table border="0" height="430px" width="916px" cellspacing="0" cellpadding="0">
+		        	<tr>
+		        		<td  valign="top" align="center">
+							<div id="conteudo" style="position:relative;overflow:none;width:916;height:630px;top:6px;border-style:groove;">
+								<tiles:insert attribute="corpo"/>
+							</div>
+							</td>
+					</tr>
+			   		</table>
+			  </td>
+			</tr>
+		</table>
+	</div>
+		<div name="explode" id="explode">
+			<%@ include file = "/jsp/layout/arvoreFlutuante.jsp"%>
+		</div>
+		<div name="explodeItem" id="explodeitem" style="top:0px;left:<c:out value="${leftMenuConfigTarefa}"/>;width:117px;height:47px">
+			<%@ include file="/jsp/pro/layout/menuConfigTarefa.jsp"%>
+		</div>
+		<div name="explodeAcao" id="explodeacao" style=" border:1px ;top:0px;left:275px;width:130px;height:119px">
+			<%@ include file="/jsp/pro/layout/menuTarefas.jsp"%>
+		</div>
+		<div name="explodeConfig" id="explodeconfig" style="top:0px;left:<c:out value="${leftMenuCongifMapa}"/>;width:118px;height:109px">
+			<%@ include file="/jsp/layout/menuMapaConfiguracao.jsp"%>
+		</div>
+		<div name="explodeUsuario" id="explodeusuario" style="top:0px;left:<c:out value="${leftMenuCongifUsuario}"/>;width:<c:out value="${widthMenuCongifUsuario}"/>;height:<c:out value="${heightMenuCongifUsuario}"/>">
+			<%@ include file="/jsp/layout/menuUsuario.jsp"%>
+		</div>
+		<c:if test="${usuarioBSC.perfil eq 'administrador'}">
+		<div name="explodeGrupo" id="explodegrupo" style="top:125px;left:10px;width:156px;height:425px">
+			<%@ include file="/jsp/layout/menuAdministracao.jsp"%>
+		</div>
+		</c:if>
+		<c:if test="${(usuarioBSC.perfil eq 'funcionario') or 
+						  (usuarioBSC.perfil eq 'gerentegeral') or 
+						  (usuarioBSC.perfil eq 'gerenteplanejamento') or 
+						  (usuarioBSC.perfil eq 'funcionarioplanejamento') or
+						  (usuarioBSC.perfil eq 'gerenteprocesso') or 
+						  (usuarioBSC.perfil eq 'funcionarioprocesso') }">
+		<div name="explodeGrupo" id="explodegrupo" style="top:125px;left:10px;width:156px;height:350px">
+			<%@ include file="/jsp/layout/menuAdministracao.jsp"%>
+		</div>
+		</c:if>
+	</BODY>	
+	</HTML>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IndicadorSubValor" pageWidth="190" pageHeight="165" orientation="Landscape" columnWidth="190" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" scriptletClass="br.com.intraBSC.util.IndicadorScriptlet" resourceBundle="recursos.application">
+	<property name="ireport.scriptlethandling" value="2"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="ultimoValor" class="java.lang.Float" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$F{ultimoValor}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="targetValueUp" class="java.lang.Float" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$F{targetvalueup}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="targetValueDown" class="java.lang.Float" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$F{targetvaluedown}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="perspectiva" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="indicador" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="bsc" class="java.lang.Integer" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[SELECT BSC.NAME AS NAMEBSC, OWNER.NAME AS NAMEOWNER, OWNER.EMAILADRESS AS EMAIL,
+OWNER.PHONE AS FONE, OWNER.TYPE_OWNER AS PERFIL, PERSPECTIVE.SORTORDER AS ORDEM, PERSPECTIVE.ID AS IDPERSPECTIVA,
+PERSPECTIVE.NAME AS NAMEPERSPECTIVE, THEME.ID AS IDTEMA, THEME.NAME AS TEMA, OBJECTIVE.ID AS NUMOBJETIVO,
+OBJECTIVE.NAME AS NAMEOBJECTIVE, MEASURE.NAME AS NAMEMEASURE,  MEASURE.DESCRIPTION AS DESCRIPTION,
+ MEASUREFACT.VALUE AS ULTIMOVALOR, MEASURE.LAST_DATE AS ULTIMADATA, UNID.NAME AS UNIDADE,
+ TARGET.TARGETVALUEDOWN AS TARGETVALUEDOWN, TARGET.NAME AS META,
+TARGET.TARGETVALUEUP AS TARGETVALUEUP,   CASE WHEN MEASUREFACT.VALUE < TARGET.TARGETVALUEDOWN
+THEN 0 WHEN MEASUREFACT.VALUE > TARGET.TARGETVALUEUP THEN 1 ELSE -1 END AS SINAL,
+TARGET.INVERT AS INVERSAOLIMITE, CASE WHEN TARGET.INVERT = 2
+THEN ((MEASUREFACT.VALUE/TARGET.TARGETVALUEUP)-1)
+WHEN TARGET.INVERT = 1
+THEN ((TARGET.TARGETVALUEDOWN/MEASUREFACT.VALUE)-1) END AS DESVIO,
+CASE WHEN  TASK.ID_MEASURE <> 0 THEN 'S' END AS TAREFAS,PERI.NAME AS NAMEPERIODI
+   FROM  BSC
+   LEFT OUTER JOIN RELBSC ON RELBSC.BSC_ID = BSC.ID
+   LEFT OUTER JOIN PERSPECTIVE ON  PERSPECTIVE.ID = RELBSC.PERSPECTIVE_ID AND PERSPECTIVE.ACTIVE = 1
+   LEFT OUTER JOIN RELPERSPECTIVE ON PERSPECTIVE.ID = RELPERSPECTIVE.PERSPECTIVE_ID
+   LEFT OUTER JOIN OBJECTIVE ON OBJECTIVE.ID = RELPERSPECTIVE.OBJECTIVE_ID AND OBJECTIVE.ACTIVE = 1
+   LEFT OUTER JOIN RELTHEME ON RELTHEME.OBJECTIVE_ID = OBJECTIVE.ID
+   LEFT OUTER JOIN THEME ON THEME.ID = RELTHEME.THEME_ID
+   LEFT OUTER JOIN MEASURE ON MEASURE.OBJECTIVE_ID = OBJECTIVE.ID AND MEASURE.ACTIVE = 1
+   LEFT OUTER JOIN MEASUREFACT ON MEASUREFACT.ID_MEASURE = MEASURE.ID AND MEASUREFACT.DATE = MEASURE.LAST_DATE
+   LEFT OUTER JOIN TARGET ON TARGET.MEASURE_ID = MEASURE.ID AND TARGET.ACTIVE = 1
+   LEFT OUTER JOIN UNIDADE AS UNID ON UNID.ID = MEASURE.UNITS
+   LEFT OUTER JOIN PERIODICIDADE AS PERI ON PERI.ID = MEASURE.UPDATEFREQUENCY
+   LEFT OUTER JOIN TASK ON TASK.ID_MEASURE = MEASURE.ID AND TASK.FK_STATUS_TASK < 4
+   LEFT OUTER JOIN OWNER ON  OWNER.ID = MEASURE.OWNER_ID
+   WHERE BSC.ID = $P{bsc}  AND PERSPECTIVE.ID = $P{perspectiva} AND MEASURE.ID = $P{indicador}
+ ORDER BY PERSPECTIVE.SORTORDER,THEME.ID,OBJECTIVE.COL,OBJECTIVE.NAME,MEASURE.NAME ASC]]>
+	</queryString>
+	<field name="namePerspective" class="java.lang.String"/>
+	<field name="nameObjective" class="java.lang.String"/>
+	<field name="nameMeasure" class="java.lang.String"/>
+	<field name="targetvalueup" class="java.lang.Float"/>
+	<field name="ultimoValor" class="java.lang.Float"/>
+	<field name="ultimaData" class="java.sql.Date"/>
+	<field name="unidade" class="java.lang.String"/>
+	<field name="targetvaluedown" class="java.lang.Float"/>
+	<field name="nameOwner" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="namePeriodi" class="java.lang.String"/>
+	<field name="tema" class="java.lang.String"/>
+	<field name="desvio" class="java.lang.Float"/>
+	<field name="meta" class="java.lang.String"/>
+	<field name="fone" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="perfil" class="java.lang.String"/>
+	<variable name="Chart" class="net.sf.jasperreports.engine.JRRenderable" resetType="None" calculation="System"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="160" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center" isUsingCache="false" hyperlinkType="Reference">
+				<reportElement key="image" x="1" y="0" width="189" height="160" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean ($V{Chart}!=null)]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<imageExpression class="net.sf.jasperreports.engine.JRRenderable"><![CDATA[$V{Chart}]]></imageExpression>
+				<hyperlinkReferenceExpression><![CDATA[]]></hyperlinkReferenceExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

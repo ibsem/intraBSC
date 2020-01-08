@@ -1,0 +1,75 @@
+<%@ taglib uri="/tags/struts-html" prefix="html" %>
+<%@ taglib uri="/tags/struts-logic" prefix="logic" %>
+<%@ taglib uri="/tags/struts-bean" prefix="bean" %>
+<%@ taglib uri="/tags/displaytag" prefix="displaytag" %>
+<%@ taglib uri="/tags/c" prefix="c" %>
+<%@ taglib uri="/tags/fmt" prefix="fmt" %>
+<script language = "JavaScript">
+	function consultarVarios(){
+		document.grupoForm.action = "<c:out value="${base}"/>/grupo/consultar.do?op=consultarVarios";
+		document.grupoForm.submit();
+	}
+</script>
+<html:html>
+	<html:form action="/grupo/consultar.do">
+		<table border="0" cellspacing="0" cellpadding="0" width="400px">
+			<tr height="3">
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+			    <td valign = "center" class="titulo"style="border-bottom:thin; border-bottom-style:solid;"><bean:message key="titulo.grupo.consultar"/></td>  
+			</tr>
+						
+			<tr>
+				<td></br><bean:message key="bsc.campo.descricao"/></td>
+			</tr>
+			<tr>
+				<td><html:text property="descricao" maxlength="100" size="70"/></td>
+			</tr>
+			<tr>
+				<td align="right"></br>
+					&nbsp;&nbsp;
+					<button type="button"  onclick="consultarVarios();" class="botaoPreto">
+						<img src="<c:out value="${base}"/>/WEB/imagens/comum/pesquisar.gif" border="0" style="vertical-align: text-bottom"/>
+						<bean:message key="pro.botao.pesquisar"/>
+					</button>
+				</td>
+			</tr>
+		</table></br>
+		<table border="0" width="400px">
+			<logic:notEmpty name="listaGrupo">
+			<tr height="4">
+					<td colspan="3" >&nbsp;
+					</td>
+				</tr>
+				
+			</logic:notEmpty>
+			<tr>
+				<td colspan="3">
+					<displaytag:table width="400px" name="listaGrupo" id="grupo" styleClass="its" pagesize="10" requestURI="" scope="request">
+						<displaytag:column style="width:15%;" title="Código"  align="left">
+							<a href="<c:out value="${base}"/>/grupo/encaminhar/alterar.do?op=encaminharAlterar&codigo=<c:out value='${grupo.codigo}'/>">
+								<c:out value="${grupo.codigo}"/>
+							</a>
+						</displaytag:column>
+						<displaytag:column style="width:70%;" title="Descrição" align="left">
+							<a href="<c:out value="${base}"/>/grupo/encaminhar/alterar.do?op=encaminharAlterar&codigo=<c:out value='${grupo.codigo}'/>">
+								<c:out value="${grupo.descricao}"/>
+							</a>
+						</displaytag:column>
+						<displaytag:column style="width:15%;" title="Ativo" align="left">
+							<a href="<c:out value="${base}"/>/grupo/encaminhar/alterar.do?op=encaminharAlterar&codigo=<c:out value='${grupo.codigo}'/>">
+								<c:if test="${grupo.ativo == 1}">
+									<bean:message key="bsc.label.sim"/>
+								</c:if>
+								<c:if test="${grupo.ativo == 2}">
+									<bean:message key="bsc.label.nao"/>
+								</c:if>
+							</a>
+						</displaytag:column>
+					</displaytag:table>
+				</td>
+			</tr>
+		</table>	
+	</html:form>
+</html:html>

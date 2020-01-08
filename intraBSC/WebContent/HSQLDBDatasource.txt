@@ -1,0 +1,48 @@
+<Resource name="jdbc/hsqldb" auth="Container" type="javax.sql.DataSource" />
+	         <ResourceParams name="jdbc/hsqldb">
+			<parameter>
+              		<name>removeAbandoned</name>
+		              <value>true</value>
+            	         </parameter>
+
+			<parameter>
+				<name>factory</name>
+					<value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+			</parameter>
+
+			<parameter>
+       			<name>driverClassName</name>
+			       <value>org.hsqldb.jdbcDriver</value>
+		    	</parameter>
+
+			<parameter>
+				<name>url</name>
+				<value>jdbc:hsqldb:hsql://localhost/</value>
+			</parameter>
+
+			<parameter>
+				<name>maxActive</name>
+				<value>10</value>
+			</parameter>
+
+			<parameter>
+				<name>maxIdle</name>
+				<value>5</value>
+			</parameter>
+
+			<parameter>
+				<name>maxWait</name>
+				<value>8000</value>
+			</parameter>
+
+			<parameter>
+				<name>username</name>
+				<value>SA</value>
+			</parameter>
+
+			<parameter>
+				<name>password</name>
+				<value></value>
+			</parameter>
+
+	       </ResourceParams>

@@ -1,0 +1,910 @@
+# -- standard errors --
+#errors.header=<UL>
+#errors.prefix=<LI>
+#errors.suffix=</LI>
+#errors.footer=</UL>
+# -- validator --
+errors.validaDiasNegativos={0} só deve conter valores positivos.
+errors.invalid={0} inválido.
+errors.maxlength={0} não pode ter mais de {1} caracteres.
+errors.minlength={0} não pode ter menos de {2} caracteres.
+errors.range={0} deve está no intervalo de {1} e {2}.
+errors.required={0} Campo obrigatório.
+errors.byte={0} deve ser byte.
+errors.date={0} deve ter o formato {2}.
+errors.double={0} deve ser um número de decimal.
+errors.float={0} deve ser um número de decimal.
+errors.integer={0} deve ser um número inteiro.
+errors.long={0} deve ser um número long.
+errors.short={0} deve ser um número short.
+errors.creditcard={0} é um número de cartão inválido.
+errors.email={0} é um endereço de e-mail inválido.
+errors.date.fields=O intervalo entre as duas datas de início e fim devem ser de no máximo {3} dias.
+errors.cancel=Operation cancelled.
+errors.detail={0}
+errors.general=The process did not complete. Details should follow.
+errors.token=Request could not be completed. Operation is not in sequence.
+errors.anexo.tamanhoMaximoArquivo={0} não poder ter mais de {2} MB.
+errors.exception.transacaoBatch = O processamento da transação não foi completado.<br>{0}
+errors.exception.transacaoOnline = O processamento da requisição não foi completado.<br>{0}
+errors.exception = O processamento da requisição não foi completado.<br>{0}
+errors.valorInvalido = Valor digitado inválido.
+pro.mensagem.autorizacao=Usuário sem autorização para essa operação.
+pro.mensagem.expirou=O tempo de utilização do sistema expirou, <br></br>entre em contato com o administrador do sistema 
+# -- welcome --
+welcome.title=Struts Blank Application
+welcome.heading=Welcome!
+welcome.message=To get started on your own application, copy the struts-blank.war to a new WAR file using the name for your application. Place it in your container's "webapp" folder (or equivalent), and let your container auto-deploy the application. Edit the skeleton configuration files as needed, restart your container, and you are on your way! (You can find the application.properties file with this message in the /WEB-INF/src/java/resources folder.)
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#===BOTAO===
+bsc.botao.login=Login
+bsc.botao.senha=Senha
+bsc.botao.salvar=Salvar
+bsc.botao.consultar=Consultar
+bsc.botao.excluir=Excluir
+bsc.botao.incluir=Incluir
+bsc.botao.entrar=Entrar
+bsc.botao.causaEfeito=Causa/Efeito
+bsc.botao.tarefa=Tarefa
+bsc.botao.incluirTarefa=Incluir Tarefa
+bsc.botao.incluirModeloTarefa= Def. Tarefa Incluir
+bsc.botao.alterarModeloTarefa= Def. Tarefa Alterar
+bsc.botao.meta=Meta
+bsc.botao.recurso=Recurso
+bsc.botao.voltar=Voltar
+bsc.botao.ok=Ok
+bsc.botao.alterar=Alterar
+bsc.botao.importarMapa= Importar Mapa XML
+bsc.botao.alterarSenha=Alterar Senha
+bsc.botao.alterarLogin=Alterar Login
+bsc.botao.relatorioAcoes=Plano de Acões
+bsc.botao.relatorioCrossTable= do Mapa
+bsc.botao.relatorioGrafico=Mapa Gráfico
+bsc.botao.relatorioCronograma=Cronograma
+
+#===CAMPOS===
+bsc.campo.administracao=Administração
+bsc.label.ajuda=Ajuda
+bsc.label.bemvindo=Bem Vindo
+bsc.campo.vincular=Vincular
+bsc.campo.id=Id
+bsc.campo.login=Login
+bsc.campo.senha=Senha
+bsc.campo.senhaAtual=Senha Atual
+bsc.campo.nome=Nome
+bsc.campo.confirmaSenha=Confirmar
+bsc.campo.email=E-Mail
+bsc.campo.telefone=Telefone
+bsc.campo.IntraBSC=IntraBSC
+bsc.campo.codigo=Código
+bsc.campo.descricao=Descrição
+bsc.campo.indicador=Indicador
+bsc.campo.linha=Linha
+bsc.campo.coluna=Coluna
+bsc.campo.limiteSuperior=Limite Superior
+bsc.campo.limiteInferior=Limite Inferior
+bsc.campo.responsavel=Responsável
+bsc.campo.ativo=Ativo
+bsc.campo.inversaoLimite=Inversão de Limites
+bsc.label.sim=Sim
+bsc.label.nao=Não
+bsc.campo.numeroOrdem=Ordem
+bsc.campo.tipoPerspectiva=Tipo Perspectiva
+bsc.campo.tema=Tema
+bsc.campo.perspectiva=Perspectiva
+bsc.campo.objetivo=Objetivo
+bsc.campo.objetivos=Objetivos
+bsc.campo.causa=Causa
+bsc.campo.efeito=Efeito
+bsc.campo.interacao=Interação
+bsc.campo.intensidade=Intensidade
+bsc.campo.valor=Valor
+bsc.campo.unidade=Unidade
+bsc.campo.papel=Papel
+bsc.campo.periodicidade=Periodicidade
+bsc.campo.ultimoValor=Último Valor
+bsc.campo.ultimaData=Última Data
+bsc.campo.dataInicial=Data Inicial
+bsc.campo.dataFinal=Data Final
+bsc.campo.data=Data
+bsc.campo.datacontrato=Data de Contrato
+bsc.campo.formatoData=DD/MM/YYYY
+bsc.campo.perfil=Perfil
+bsc.campo.missao=Missão
+bsc.campo.visao=Visão
+bsc.campo.fatorescriticos=Fatores Críticos de Sucesso
+bsc.label.dias=dias.
+bsc.label.finaldatarefaem= Final da Tarefa em  
+bsc.label.data=Data
+bsc.label.valor=Valor
+bsc.label.vigente=Vigência
+bsc.label.tipo=Tipo
+bsc.label.ordem=Ordem
+bsc.label.fone=Fone
+bsc.label.descricao=Descrição
+bsc.label.ativo=Ativo
+bsc.label.codigo=Código
+bsc.label.nome=Nome
+bsc.label.grupo=Grupo
+bsc.label.perfil=Perfil
+bsc.label.login=Login
+bsc.label.metas=Metas
+bsc.label.acoes=Ações
+bsc.label.planejamento=Planejamento
+bsc.label.entrelogin=Entre com Login:
+bsc.label.menosseis=-seis
+bsc.label.menoscinco=-cinco
+bsc.label.menosquatro=-quatro
+bsc.label.menostres=-três
+bsc.label.menosdois=-dois
+bsc.label.menosum=-um
+bsc.label.zero=zero
+bsc.label.um=um
+bsc.label.dois=dois
+bsc.label.tres=três
+bsc.label.quatro=quatro
+bsc.label.cinco=cinco
+bsc.label.seis=seis
+bsc.label.manutencaoValores=Inclusão dos Valores do Indicador
+bsc.label.valoresindicador=Valores do Indicador
+bsc.label.mapas=Mapas
+bsc.label.mapa=Mapa
+bsc.label.importarxml= Mapa Importar XML
+bsc.label.perspectiva=Perspectiva
+bsc.label.objetivo=Objetivo
+bsc.label.indicador=Indicador
+bsc.label.indicadores=Indicadores
+bsc.label.mapav=Mapa vinculado
+bsc.label.perspectivav=Perspectiva vinculada
+bsc.label.objetivov=Objetivo vinculado
+bsc.label.indicadorv=Indicador vinculado
+bsc.label.home=Home
+bsc.label.sair=Sair
+bsc.label.abrir=Abrir
+bsc.label.unidade=Unidade
+bsc.label.papel=Papel
+bsc.label.periodicidade=Periodicidade
+bsc.label.configmapa= Alterar Mapa
+bsc.label.indicadores=Indicadores
+bsc.label.pesquisarmapa=Pesquisar Mapas
+bsc.label.incluirmapaestrategico=Incluir Mapas Estratégicos
+bsc.label.alterarmapaestrategico=Alterar Mapas Estratégicos
+bsc.label.incluirperspectiva=Incluir Perspectiva
+bsc.label.alterarperspectiva=Alterar Perspectiva 
+bsc.label.incluirobjetivo=Incluir Objetivo
+bsc.label.alterarobjetivo=Alterar Objetivo
+bsc.label.incluirindicador=Incluir Indicador
+bsc.label.alterarindicador=Alterar Indicador
+bsc.label.incluirtema=Incluir Tema
+bsc.label.alterartema=Alterar Tema
+bsc.label.pesquisartema=Pesquisar Tema
+bsc.label.alterarmeta=Alterar Meta
+bsc.label.incluirmeta=Incluir Meta
+bsc.label.pesquisarmeta=Pesquisar Meta
+bsc.label.incluircausaefeito=Incluir Causa Efeito
+bsc.label.incluirunidade=Incluir Unidade
+bsc.label.incluirpapel=Incluir Papel
+bsc.label.alterarunidade=Alterar Unidade
+bsc.label.alterarpapel=Alterar Papel
+bsc.label.pesquisarunidade=Pesquisar Unidade
+bsc.label.pesquisarpapel=Pesquisar Papel
+bsc.label.incluirperiodicidade=Incluir Periodicidade
+bsc.label.alterarperiodicidade=Alterar Periodicidade
+bsc.label.pesquisarperiodicidade=Pesquisar Periodicidade
+bsc.label.incluirtipoperspectiva=Incluir Tipo de Perspectiva
+bsc.label.alterartipoperspectiva=Alterar Tipo de Perspectiva
+bsc.label.pesquisartipoperspectiva=Pesquisar Tipo de Perspectiva
+bsc.option.positivo=Positivo
+bsc.option.negativo=Negativo
+bsc.option.fraco=Fraco
+bsc.option.forte=Forte
+bsc.option.medio=Médio
+bsc.option.perfil.administrador=Administrador
+bsc.option.perfil.funcionario=Funcionário
+bsc.option.perfil.gerente.geral=Gerente Geral
+bsc.option.perfil.gerente.planejamento=Gerente de Planejamento
+bsc.option.perfil.gerente.processo=Gerente de Processo
+bsc.option.perfil.funcionario.planejamento=Funcionário de Planejamento
+bsc.option.perfil.funcionario.processo=Funcionário de Processo
+bsc.campo.tarefasVinculadas=Tarefas Vinculadas
+bsc.report.planoestrategico=PLANO ESTRATÉGICO
+bsc.report.planotatico=PLANO TÁTICO
+bsc.report.planooperacional=PLANO OPERACIONAL
+bsc.report.meusindicadores=Indicadores
+bsc.report.ultimaanotacao=ÚLTIMA ANOTAÇÃO
+bsc.report.data=DATA
+bsc.report.responsavel=RESPONSÁVEL
+bsc.report.indicadores=INDICADORES
+bsc.report.perspectivas=PERSPECTIVAS
+pro.report.objetivos=OBJETIVOS
+bsc.report.valor=VALOR
+bsc.report.unidade=UNIDADE
+bsc.report.papel=PAPEL
+bsc.report.ultimadata=ÚLT. DATA
+bsc.report.mapa=MAPA
+bsc.report.perspectiva=PERSPECTIVA
+bsc.report.objetivo=OBJETIVO
+bsc.report.objetivos=Objetivos
+bsc.report.indicador=INDICADOR
+bsc.report.desvio=DESVIO
+bsc.report.tarefa=TAREFA
+bsc.report.meta=META
+bsc.report.desempenho=Desempenho
+bsc.report.desempenhomes=Desempenho no Mês
+bsc.report.tarefas=Tarefas
+bsc.report.numero=NÚM
+bsc.report.numero=NOME
+bsc.report.prazo=PRAZO
+bsc.report.estado=ESTADO
+bsc.report.criticidade=CRITICIDADE
+bsc.report.descricao=DESCRIÇÃO
+bsc.report.tema=TEMA
+bsc.report.responsavel=RESPONSÁVEL
+bsc.report.periodicidade=PERIODICIDADE
+bsc.report.limiteinferior=LIM INFERIOR 
+bsc.report.limitesuperior=LIM SUPERIOR
+bsc.report.acao=AÇÃO
+bsc.report.cronograma=CRONOGRAMA
+bsc.report.tarefasvinculadaspontos=Tarefas Vinculadas...
+bsc.report.temefeito=Tem Efeito nos Objetivos...
+bsc.report.objetivosvinculados=Objetivos Vinculados...
+bsc.report.mensuradoindicadores=Mensurado pelo(s) Indicador(es)...
+bsc.report.descritivo=DESCRITIVO
+bsc.report.planoestrategico=PLANO ESTRATÉGICO
+#==MENSAGEM==
+bsc.mensagem.autorizacao=Usuário sem autorização para essa operação.
+bsc.mensagem.sucesso=Operação realizada com sucesso.
+
+#===ERRO===
+bsc.erro.login.errado=Login ou Senha inválidos.
+bsc.erro.login=Ocorreu um erro ao efetuar o login: {0}
+bsc.erro.incluir.usuario=Ocorreu um erro na inclusao do usuário. {0}
+bsc.erro.alterar.usuario=Ocorreu um erro na alteracao do usuário. {0}
+bsc.erro.excluir.usuario=Ocorreu um erro na exclusao do usuário. {0}
+bsc.erro.consultar.usuario=Ocorreu um erro na consulta do usuário. {0}
+bsc.erro=Ocorreu um erro nessa operacao: {0}
+
+#==SUCESSO INCLUSAO==
+bsc.sucesso.inclusao.usuario=Usuário incluído com sucesso.
+
+#==SUCESSO EXCLUSAO==
+bsc.sucesso.exclusao.usuario=Usuário excluído com sucesso.
+
+#==SUCESSO ALTERACAO==
+bsc.sucesso.alteracao.usuario=Usuário alterado com sucesso.
+
+#==ALERTA==
+bsc.jaExiste.inclusao.usuario=Usuário ja cadastrado com esse Login.
+bsc.naoExiste.usuario=Nenhum dados foi encontrado.
+
+#==MAPA ESTRATEGICO==
+bsc.mapaEstrategico.vazio=Nenhum Mapa cadastrado para esse Usuário.
+bsc.erro.consultar.mapaEstrategico=Ocorreu um erro ao detalhar o Relatorio do Mapa: {0}
+bsc.erro.mapaEstrategico=Ocorreu um erro ao {0} um Mapa: {1}
+
+
+#==PERSPECTIVA==
+bsc.erro.consultar.perspectiva=Ocorreu um erro na pesquisa de Perspectiva: {0}
+bsc.erro.consultar.relatorio.perspectiva=Ocorreu um erro ao detalhar o Relatorio da Perspectiva:{0}
+bsc.erro.erspectiva=Ocorreu um erro ao {0} uma Perspectiva: {1}
+
+#==OBJETIVO==
+bsc.erro.consultar.objetivo=Ocorreu um erro na pesquisa de objetivo: {0}
+bsc.erro.consultar.relatorio.objetivo=Ocorreu um erro ao detalhar o Relatorio da Objetivo:{0}
+bsc.erro.objetivo=Ocorreu um erro ao {0} um Objetivo: {1}
+bsc.objetivo.coluna=O campo coluna nao pode ser ZERO.
+
+#==INDICADOR==
+bsc.erro.consultar.indicador=Ocorreu um erro na pesquisa de Indicador: {0}
+bsc.erro.consultar.relatorio.indicador=Ocorreu um erro ao detalhar o Relatorio do Indicador:{0}
+bsc.erro.indicador=Ocorreu um erro ao {0} um Indicador: {1}
+
+#==TEMA==
+bsc.erro.consultar.tema=Ocorreu um erro na pesquisa de Tema: {0}
+bsc.erro.tema=Ocorreu um erro ao {0} um Tema: {1}
+bsc.erro.consultar.relatorio.tema = Ocorreu um erro ao detalhar Relatório de Tema: {0}
+bsc.lista.vazia.tema=Tema não encontrado para este usuário.
+
+#==Recurso==
+bsc.erro.recurso=Ocorreu um erro ao {0} um Recurso: {1}
+
+#==Meta==
+bsc.erro.meta=Ocorreu um erro ao {0} um Meta: {1}
+
+#==SUCESSO GERAL==
+bsc.sucesso=Operação realizado com Sucesso.
+
+
+
+
+
+#==********************************************PRO************************
+#================================================| MENSAGENS PADRAO - GENERICO |=======================
+#----------| VALIDACAO |-------------------------------------------------------------------------------
+errors.validaDiasNegativos={0} só deve conter valores positivos.
+errors.invalid={0} inválido.
+errors.maxlength={0} não pode ter mais de {1} caracteres.
+errors.minlength={0} não pode ter menos de {2} caracteres.
+errors.range={0} deve está no intervalo de {1} e {2}.
+errors.required={0} Campo obrigatório.
+errors.byte={0} deve ser byte.
+errors.date={0} deve ter o formato {2}.
+errors.double={0} deve ser um número de decimal.
+errors.float={0} deve ser um número de decimal.
+errors.integer={0} deve ser um número inteiro.
+errors.long={0} deve ser um número long.
+errors.short={0} deve ser um número short.
+errors.creditcard={0} é um número de cartão inválido.
+errors.email={0} é um endereço de e-mail inválido.
+errors.date.fields=O intervalo entre as duas datas de início e fim devem ser de no máximo {3} dias.
+errors.cancel=Operation cancelled.
+errors.detail={0}
+errors.general=The process did not complete. Details should follow.
+errors.token=Request could not be completed. Operation is not in sequence.
+errors.anexo.tamanhoMaximoArquivo={0} não poder ter mais de {2} MB.
+errors.autorizacao = Você não tem acesso para esta página. 
+errors.anexo.extensaoArquivo={0} não poder ter extensão: {3}.
+errors.exception = O processamento da requisição não pode ser completado.<br>{0}
+pro.anexo.erro.anexo.tamanho.invalido=Tamanho inválido: {0}
+pro.anexo.erro.anexo.selecione.arquivo=Erro excluindo arquivo: {0}
+pro.anexo.erro.anexo.download=Erro fazendo download.: {0}
+pro.anexo.lista.exluir.required=Selecione o anexo que será exluído.
+pro.errorValidacao.espacosBrancos=Nome não pode iniciar com espaços em branco.
+pro.errorValidacao.caracteresInvalido=Uso de caractere inválido.
+pro.errorValidacao.numDiasPrevistos=Número de dias previstos deve conter apenas números.
+pro.errorValidacao.minNumDiasPrevistos=Deve haver ao menos um dia para o campo número de dias previstos.
+pro.erroValidacao.quantDiasExec=Campo Quantidade de Dias para Execução deve conter apenas números.
+pro.erroValidacao.codigoConfigTarefa=Selecione o Fluxo de Trabalho.
+pro.erroValidacao.numDiasPrevistos=Número de dias previstos 
+pro.campoObrigatorio= * Campo obrigatório
+pro.msg.listaTarefaVazia=Nenhuma tarefa sob sua responsabilidade.
+pro.erro.paginaExpirou="Esta Página Expirou."
+pro.erro.login.errado=Login ou senha inválidos.
+pro.erro.login=Ocorreu um erro ao efetuar o login: {0}
+pro.erro.incluir.usuario=Ocorreu um erro na inclusao do usuário.
+pro.erro.alterar.usuario=Ocorreu um erro na alteracao do usuário.
+pro.erro.excluir.usuario=Ocorreu um erro na exclusao do usuário.
+pro.erro.consultar.usuario=Ocorreu um erro na consulta do usuário.
+pro.sucesso.inclusao.usuario=Usuário incluído com sucesso.
+pro.sucesso.exclusao.usuario=Usuário excluído com sucesso.
+pro.sucesso.alteracao.usuario=Usuário alterado com sucesso.
+pro.sucesso.vinculacao = Usuário Vinculado com sucesso.
+pro.jaExiste.inclusao.usuario=Usuário ja cadastrado com este Login.
+pro.naoExiste.usuario=Nenhum usuário foi encontrado.
+
+
+#------------------------------------------------| FORMATACAO DATA E HORA - GENERICO |-------------
+org.apache.struts.taglib.bean.format.date=dd/MM/yyyy
+org.apache.struts.taglib.bean.format.sql.date=dd/MM/yyyy
+org.apache.struts.taglib.bean.format.sql.timestamp=dd/MM/yyyy HH:mm:ss
+
+
+#----------|FIM VALIDACAO |----------------------------------------------------------------------------
+
+# ------------| Label IntraPRO|-----------------------
+
+pro.campo.IntraPRO = IntraPRO
+pro.botao.login=Login
+pro.campo.login=Login
+pro.erro.login.errado=Login ou senha inválidos.
+pro.erro.login=Ocorreu um erro ao efetuar o login: {0}
+pro.jaExiste.inclusao.usuario=Usuário ja cadastrado com este Login.
+pro.botao.senha = Senha
+
+#----------| BOTOES |----------------------------------------------------------------------------------
+pro.botao.ok 		= Ok
+pro.botao.avancar 	= Avançar
+pro.botao.adicionar = Adicionar
+pro.botao.vincular = Vincular
+pro.botao.add = Adicionar
+pro.botao.adicionar.formulario = Adicionar itens na Lista à fazer
+pro.botao.incluir	= Incluir
+pro.botao.importarXPDL = Importar XPDL
+pro.botao.excluir	= Excluir 
+pro.botao.excluirItem = Excluir Item
+pro.botao.enviar 	= Enviar
+pro.botao.enviarEmail 	= Enviar E-mail
+pro.botao.fechar 	= Fechar
+pro.botao.voltar	= Voltar
+pro.botao.listar 	= Listar
+pro.botao.limpar 	= Excluir todos
+pro.botao.anexar 	= Anexar
+pro.botao.imprimir 	= Imprimir
+pro.botao.pdf 	    = PDF/Imprimir
+pro.botao.cancelar	= Cancelar
+pro.botao.download 	= Download
+pro.botao.pesquisar = Pesquisar
+pro.botao.atualizar = Atualizar
+pro.botao.consultar = Consultar
+pro.botao.salvar 	= Salvar
+pro.botao.concluir 	= Concluir
+pro.botao.alterar 	= Alterar
+pro.botao.anotacao = Anotações
+pro.botao.anexo 	= Anexos
+pro.botao.adicionar = Adicionar
+pro.botao.incluiranotacao = Incluir Anotações
+pro.botao.item	= Itens
+pro.botao.formulario = Formulario
+pro.botao.gerarRelatorio= Gerar Relatório
+pro.botao.adicionarExcluir= Anexar Arquivos
+
+#----------| FIM BOTOES |------------------------------------------------------------------------------
+
+#----------| SUCESSO |---------------------------------------------------------------------------------
+pro.mensagem.sucesso.incluir = Registro Incluído com Sucesso!
+pro.mensagem.incluir = Operação realizada com sucesso.
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+
+#----------| PROCESSO |-----------------------------------------------------------------------------
+
+pro.campo.perspectiva=Fase
+pro.campo.atividade=Atividade
+pro.campo.objetivos=Objetivos
+pro.campo.pre=Pré-condição
+pro.campo.pos=Pos-condição
+pro.campo.caminho=Arquivo XPDL
+pro.label.processos=Processos
+pro.label.processo=Processo
+pro.label.incluirprocesso = Incluir Processo
+pro.label.pesquisarprocesso = Pesquisar Processo
+pro.label.alterarprocesso = Alterar Processo
+pro.label.fase=Fase
+pro.label.atividade=Atividade
+pro.label.processov=Processo vinculado
+pro.label.fasev=Fase vinculada
+pro.label.atividadev=Atividade vinculado
+pro.label.incluirtransicao=Incluir Transição
+pro.option.positivo=Positivo
+pro.option.negativo=Negativo
+pro.option.fraco=Fraco
+pro.option.forte=Forte
+pro.option.medio=Médio
+
+#==Processo ==
+pro.processo.vazio=Nenhum Processo cadastrado para esse Usuário.
+pro.erro.consultar.processo=Ocorreu um erro ao detalhar o Relatorio do Processo: {0}
+pro.erro.processo=Ocorreu um erro ao {0} um Processo: {1}
+
+
+#==Fase==
+pro.erro.consultar.fase=Ocorreu um erro na pesquisa de Fase: {0}
+pro.erro.consultar.relatorio.fase=Ocorreu um erro ao detalhar o Relatorio da Fase:{0}
+pro.erro.fase=Ocorreu um erro ao {0} uma Fase: {1}
+
+#==Atividade==
+pro.erro.consultar.atividade=Ocorreu um erro na pesquisa de atividade: {0}
+pro.erro.consultar.relatorio.atividade=Ocorreu um erro ao detalhar o Relatorio da Atividade:{0}
+pro.erro.atividade=Ocorreu um erro ao {0} uma Atividade: {1}
+
+
+#----------| FIM PROCESSO |-----------------------------------------------------------------------------
+
+#----------| LABELS |----------------------------------------------------------------------------------
+pro.label.ator = Ator
+pro.label.alterarexecucaotarefa = Alterar Tarefa
+pro.label.incluirexecucaotarefa = Incluir Tarefa
+pro.label.listatarefasemexecucao = Tarefas em execução
+pro.label.processo = Processos
+pro.label.definTarefa = Definição Tarefa
+pro.label.tarefasporgrupo = Tarefas
+pro.label.option.selecionar=Selecionar
+pro.label.option.sim=Sim
+pro.label.option.nao=Não
+pro.label.optionValueSim=S
+pro.label.optionValueNao=N
+pro.label.aviso=Aviso
+pro.label.nome=Nome
+pro.label.datasestatus= Datas & Status
+pro.label.incluirdefinicaotarefa= Incluir Def. Tarefa
+pro.label.alterardefinicaotarefa= Alterar Def. Tarefa
+pro.label.pesquisardefinicaotarefa= Pesquisar Def. Tarefa
+pro.label.caracteresdisponiveis= Caracteres disponíveis.
+pro.label.conteudo=Conteúdo
+pro.label.item=Item
+pro.label.formulario=Formulario
+pro.label.sinal=Sinal
+pro.label.listartarefas = Listar Tarefas
+pro.label.pesquisartarefas = Pesquisar Tarefas
+pro.label.escolherfiltros = Escolher os filtros
+pro.label.execucao= Participantes
+pro.label.dentrodoprazo = Dentro do prazo
+pro.label.menosde50doprazo = Menos de 50% do prazo
+pro.label.comprazovencido = Com prazo vencido
+pro.label.nomeItem=Informe o nome do campo,
+pro.label.configTarefa=Def. Tarefa
+pro.label.numeroInformacao=Ordem 
+pro.label.nomeCampoItem= Item
+pro.label.nomeCampoInformacao= Item 
+pro.label.numDiasPrevistos=Tempo estimado 
+pro.label.sucesso=Sucesso
+pro.label.vigente= Vigente
+pro.label.critico=Crítico
+pro.label.diasPrevistos=Tempo estimado
+pro.label.diasPrevistosTotal=Tempo estimado
+pro.label.codigo=Código
+pro.label.preRequisito=Pré-Requisito
+pro.label.quantidadeDiasExecucao=Quantidade de dias para execução
+pro.label.codigoConfigTarefa=Selecione o Fluxo de Trabalho,
+pro.label.medio=Média
+pro.label.alta=Alta
+pro.label.baixa=Baixa
+pro.label.tarefa.solicitadapor = Aberta por:
+pro.label.tarefa.alteradapor = Alterada por:
+pro.label.tarefa=Tarefa 
+pro.label.tarefa.naoIniciada=Criada
+pro.label.tarefa.iniciada=Iniciada
+pro.label.tarefa.concluida=Concluída
+pro.label.tarefa.cancelada=Cancelada
+pro.label.tarefa.validada=Validada
+pro.label.naoIniciada=NI
+pro.label.iniciada=I
+pro.label.validar=C
+pro.label.periodo=Período
+pro.label.relativoA=Relativo a
+pro.label.resultadopesquisa=Resultado da Pesquisa
+pro.label.a=a
+pro.label.anotacao=Anotações
+pro.label.estado=Estado
+pro.label.resumo=Resumo
+pro.lavel.anotacao.pesquisar=Pesquisar Anotações da Tarefa
+pro.label.tipoAnotacao=Tipo de Anotação
+pro.label.chaveResponsavel=Id Ator
+pro.label.responsavel=Responsável
+pro.label.chaveSolicitante=Id Ator Cliente
+pro.label.exibirUltimoAnotacao=Exibir ùltima Anotação
+pro.label.exibirAvisoAnexo=Exibir Aviso de Anexo
+pro.label.exibirNoResultado=Exibir 
+pro.label.anexo.tamanho.arquivo=Tamanho máximo por anexo: 10Mb
+pro.label.anexo.tamanho = Tamanho
+pro.label.anexo.incluidopor = Incluído por
+pro.label.anexo.datainclusao = Data da inclusão
+pro.label.item=Item
+pro.label.nomeInicialTarefa=Nome da Tarefa (opcional)
+pro.label.solicitacaoInicialTarefa=Técnicas & Ferramentas (opcional)
+pro.label.estaInicialTarefa=Status Inicial
+pro.label.criticidadeInicialTarefa=Prioridade Inicial
+pro.label.Texto=Texto
+pro.label.numero=Número
+pro.label.data=Data
+pro.label.combo=Combo
+pro.label.box=Box
+pro.label.Tipo=Tipo
+pro.label.listaafazer=Checklist
+pro.label.formulario=Formulário
+pro.label.dataConclusao=Data de Conclusão
+pro.label.URL=URL
+pro.label.servico=Serviço
+pro.label.numeroOrdem=Número Ordem
+pro.label.tamanho=Tamanho
+pro.label.datainclusao=Data Incl.
+pro.texto.pesquisa.usuario=Vincule um Ator a esta Tarefa:
+pro.texto.pesquisa.detalha.usuario=Busca Detalhada:
+pro.texto.necessario:(se necessário):
+
+# --- Label do Relatorio ---
+pro.relatorio.solicitante=Cliente
+pro.relatorio.participante=Ator 
+pro.relatorio.nomeSolicitante=Nome do Cliente
+pro.relatorio.nomeParticipante=Nome do Ator
+
+#----------| FIM LABELS |------------------------------------------------------------------------------
+
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.incluir.jaCadastrado=Objeto já Cadastrado.
+pro.erro.nenhumDadoEncontrado = Nenhum dado encontrado.
+pro.erro.usuarioNaoEncontrado=Usuario não Encontrado.
+bsc.erro.naoAutorizado=Usuário não Autorizado.
+#----------| FIM ERRO |------------------------------------------------------------------------
+#================================================| FIM MENSAGENS PADRAO |==============================
+
+
+#================================================| Tarefa |=============================
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.configTarefa.listaVaiza=Nenhuma Tarefa foi encontrada.
+pro.configTarefa.alterar.sucesso=Tarefa alterado com sucesso.
+pro.erro.configTarefa.incluir = Nenhum Item encontrada.
+pro.erro.configTarefa.pesquisar=Ocorreu um erro na pesquisa de Tarefa:{0}
+pro.sucesso.configTarefa.incluir=Tarefa incluída com sucesso.
+pro.erro.configTarefa.nome.obrigatorio=Nome não pode conter espaços no início.
+pro.erro.configTarefa.incluir=Ocorreu um erro na inclusão da Tarefa: {0}
+pro.erro.configTarefa.alterar=Ocorreu um erro na alteração da Tarefa: {0}
+pro.erro.configTarefa.encaminharConsulta=Ocorreu um erro no encaminhamento da consulta: {0}
+pro.erro.configTarefa.encaminharInclusao=Ocorreu um erro no encaminhamento da inclusão: {0}
+pro.erro.configTarefa.campoNumericoDiasPrevistos=Campo Número de Dias Previstos obrigatório. Valor mínimo: 1 e valor máximo: 999.
+pro.mensagem.configTarefa.asteriscoCamposObrigatorios=(*) Campo obrigatório.
+pro.validacao.configTarefa.campoNumericoDiasPrevistos=Campo Número de Dias Previstos obrigatório. Valor mínimo: 1 e valor máximo: 999.
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================| fim Tarefa |================================
+
+#================================================| Tarefa |=============================
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.configTarefa.listaVaiza=Nenhuma Tarefa foi encontrada.
+pro.configTarefa.alterar.sucesso=Tarefa alterada com sucesso.
+pro.erro.configTarefa.incluir = Nenhuma informação encontrada.
+pro.erro.configTarefa.pesquisar=Ocorreu um erro na pesquisa da Tarefa:{0}
+pro.sucesso.configTarefa.incluir=Tarefa incluído com sucesso.
+pro.erro.configTarefa.nome.obrigatorio=Nome não pode conter espaços no início.
+pro.erro.configTarefa.incluir=Ocorreu um erro na inclusão da Tarefa: {0}
+pro.erro.configTarefa.alterar=Ocorreu um erro na alteração da Tarefa: {0}
+pro.erro.configTarefa.encaminharConsulta=Ocorreu um erro no encaminhamento da consulta: {0}
+pro.erro.configTarefa.encaminharInclusao=Ocorreu um erro no encaminhamento da inclusão: {0}
+pro.erro.configTarefa.campoNumericoDiasPrevistos=Campo Número de Dias Previstos obrigatório. Valor mínimo: 1 e valor máximo: 999.
+pro.mensagem.configTarefa.asteriscoCamposObrigatorios=(*) Campo obrigatório.
+pro.validacao.configTarefa.campoNumericoDiasPrevistos=Campo Número de Dias Previstos obrigatório. Valor mínimo: 1 e valor máximo: 999.
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================| Fim Tarefa |================================
+
+
+
+
+#================================================| Anotações da tarefa |=============================
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.anotacaoTarefa.incluir=Ocorreu um erro na inclusão das anotações: {0}
+pro.label.anotacoes = Anotações
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================|fim Anotações da tarefa |================================
+
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.anotacaoTarefa.incluir=Anotação incluída com sucesso.
+
+
+#================================================| Item |===================================
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.item.incluir=Item incluído com sucesso.
+pro.sucesso.item.alterar=Item alterado com sucesso.
+pro.erro.item.incluir = Problemas na inclusão do Item.
+pro.label.item.opcoes.combo=Opções para o Combo
+
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.item.incluir=Ocorreu um erro na inclusão do Item: {0}
+pro.erro.item.consultar=Ocorreu um erro na consulta do Item: {0}
+pro.erro.item.alterar=Ocorreu um erro na alteração do Item: {0}
+pro.erro.item.consultar.naoExiste=Nenhum Item foi encontrado.
+pro.erro.items.criticos=Erro ao consultar Itens. {0}
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================| Fim Item |======================================
+
+#================================================| Formulario |===================================
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.formulario.incluir=Fomulario incluído com sucesso.
+pro.sucesso.formulario.alterar=Formulario alterado com sucesso.
+pro.erro.formulario.incluir = Problemas na inclusão do Formulario.
+pro.label.formulario.opcoes.combo=Opções para o Combo
+
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.formulario.incluir=Ocorreu um erro na inclusão do Formulario: {0}
+pro.erro.formulario.consultar=Ocorreu um erro na consulta do Formulario: {0}
+pro.erro.formulario.alterar=Ocorreu um erro na alteração do Formulario: {0}
+pro.erro.formulario.consultar.naoExiste=Nenhum Formulario foi encontrado.
+pro.erro.formualrios.criticos=Erro ao consultar Formularios. {0}
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================| Fim Formulario |======================================
+
+#================================================| INICIO Atores|===================================
+pro.erro.participante.encaminhar.vincular=Erro pesquisando dos participantes: {0}
+pro.label.nomeParticipante=Nome
+pro.label.chaveParticipante=Codigo
+pro.erro.participante.incluir=Erro incluindo Participante: {0}
+pro.erro.participante.excluir=Erro excluindo Participante: {0}
+pro.erro.participante.limpar=Erro limpando Participantes: {0}
+pro.erro.participante.consulta.solicitante=Erro consultando Cliente: {0}
+pro.erro.participante.visualizar=Erro visualizando Participante: {0}
+
+#================================================| Fim Atores|===================================
+
+
+#================================================| Execução da Tarefa|===================================
+#----------|INICIO LABELS |----------------------------------------------------------------------------
+pro.label.formulario.nr = Nrº
+pro.label.item.nr = Nrº
+
+pro.label.numero=Número
+pro.label.numeroTarefa=Número
+pro.label.nomeTarefa=Nome
+pro.label.estado=Estado
+pro.label.incluirExecucao=Participantes iniciais
+pro.label.execucao=Participantes
+pro.label.criticidade=Prioridade
+pro.label.prazo=Prazo
+pro.label.solicitacao=Técnicas & Ferramentas
+pro.label.descricao=Técnicas & Ferramentas
+pro.label.inicio=Início 
+pro.label.fim=Fim 
+pro.label.solicitante=Cliente
+pro.label.justificativa=Justificativa da alteração
+pro.label.justificativa.radioAnotacao=Justificativa informada na Anotação?
+pro.label.cricao=Criação
+pro.label.modificacao=Modificação
+pro.label.tarefas = Tarefas
+pro.label.relatorios = Relatórios
+pro.label.minhastarefas = Minhas Tarefas
+pro.label.tarefasmes=Tarefas do mês
+pro.label.definicaotarefas = Def. Tarefa
+pro.validacao.nomeTarefa=Preencha o Nome Tarefa,
+pro.validacao.solicitacao=Preencha Técnicas & Ferramentas.
+pro.validacao.codConfigTarefa=Informe a Def. Tarefa,
+pro.validacao.codUsuSolicitante=Preencha o id do Cliente,
+pro.validacao.dtLimite=Informe o Prazo,
+pro.validacao.dataLimiteFormato=Data de Prazo inválida.
+pro.validacao.dataPrevInicio=Data Previsão Início inválida.
+pro.validacao.dataPrevFim=Data Previsão Fim inválida.
+pro.validacao.dataInicio=Data Início inválida.
+pro.validacao.dataFim=Data de Fim inválida.
+pro.errorValidacao.maior=Técnicas & Ferramentas é maior que 1024.
+pro.sucesso.tarefa.incluir=Tarefa incluída com sucesso.
+pro.validacao.dtPrazoInicioPesq=Data de Prazo Início inválida.
+pro.validacao.dtPrazoFimPesq=Data de Prazo Fim inválida.
+pro.validacao.dtPeriodoInicioPesq=Data de Período Início inválida.
+pro.validacao.dtPeriodoFimPesq=' de Período Fim inválida.
+
+
+#----------| FIM LABELS |------------------------------------------------------------------------------
+
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.tarefa.alterar=Tarefa alterada com sucesso.
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.anotacao.incluir=Anotação incluída com sucesso.
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.tarefa.alterar=Ocorreu um erro na alteração da Tarefa: {0}
+pro.erro.tarefa.encaminhar.alterar=Ocorreu um erro na exibição da Tarefa: {0}
+pro.erro.tarefa.consultar=Ocorreu um erro na consulta da Tarefa: {0}
+pro.erro.tarefa.incluir=Ocorreu um erro na inclusão da Tarefa: {0}
+pro.erro.tarefa.visualizar=Ocorreu um erro na visualização das Tarefas: {0}	
+pro.erro.tarefa.consutlarSolicitanteChave=Usuário não encontrado.
+pro.erro.tarefa.pesquisa=Ocorreu um erro na pesquisa de Tarefas: {0}
+pro.listaVazia.pesquisar=Nenhuma Tarefa foi encontrada.
+pro.errorValidacao.numTarefa=Número da Tarefa deve conter apenas números.
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+
+#----------| INICIO MENSAGENS |------------------------------------------------------------------------
+pro.label.nomeTarefacaracInvalidos=Caracter inválido para Nome da Tarefa.
+pro.label.configTarefaRequerido=Informe a Def. Tarefa.
+pro.label.textoSolicitacao=Preencha "Técnicas & Ferramentas" da Tarefa.
+pro.label.dtLimitePrazo=Informe o Prazo.
+pro.label.papelParticipante=Informe o Papel do Participante.
+#----------| FIM MENSAGENS |---------------------------------------------------------------------------
+#================================================| FIM TAREFA |=====================================
+
+
+#================================================| INICIO ANEXO |======================================
+#----------| INICIO LABELS |---------------------------------------------------------------------------
+pro.anexo.label.anexo=Anexo
+pro.anexo.label.anexos=Anexos
+pro.label.anexo.num= Nrº
+#----------| FIM LABELS |------------------------------------------------------------------------------
+
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.anexo.incluir=Arquivo anexado com sucesso.
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+
+#----------| INICIO ERROS |----------------------------------------------------------------------------
+pro.anexo.erro.anexoInvalido=Tipo de arquivo inválido: {0}
+pro.anexo.erro.buscarDados=Ocorreu um erro ao tentar buscar os dados dos anexos desta Tarefa.
+pro.anexo.erro.buscarDadosAnexo=Ocorreu um erro ao buscar os dados do arquivo.
+pro.erro.anexo.tamanhoInvalido=Erro: Tamanho máximo do arquivo permitido = 15mb.
+#----------| FIM ERROS |-------------------------------------------------------------------------------
+
+#----------| INICIO MENSAGENS |------------------------------------------------------------------------
+pro.anexo.arquivo.required=Informe o arquivo.
+#----------| FIM MENSAGENS |---------------------------------------------------------------------------
+#================================================| FIM ANEXO |=========================================
+
+
+#================================================| INICIO SOLICITANTE |================================
+
+#----------|INICIO LABELS |----------------------------------------------------------------------------
+pro.label.chaveSolicitante=Id Cliente
+pro.label.nomeSolicitante=Nome
+pro.solicitante.listaVazia=Não foi encontrados nenhum registro referênte a sua pesquisa. 
+#----------| FIM LABELS |------------------------------------------------------------------------------
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.listarSolicitante=Ocorreu um erro na consulta de Solicitante: {0}
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================| FIM SOLICITANTE |===================================
+ 
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.gtr.consultarNomeChave=Ocorreu um erro na pesquisa: {0}
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+
+pro.mensagem.email1=Foi criada a tarefa 
+pro.mensagem.email3=&codigo=
+pro.mensagem.email.de=De
+pro.mensagem.email.para=Para
+pro.mensagem.email.erro=Ocorreu um erro ao enviar os E-Mails:{0}
+pro.mensagem.email.sucesso=E-Mail enviado com sucesso.
+pro.mensagem.telaPrincipal=Tarefas em azul são novas e em negrito são tarefas modificadas e não visualizadas.
+#================================================| INICIO RELATORIO |===================================
+
+#ERRO --------
+pro.relatorio.gerenteGeral=Ocorreu um erro na geração do Relatório: {0}
+pro.relatorio.solicitante.required=Id Cliente
+pro.relatorio.participante.required=Id Ator
+pro.relatorio.nomeSolicitante.required=Nome do Cliente
+pro.relatorio.nomeParticipante.required=Nome do Ator
+#=================================================| FIM RELATORIO |=====================================
+
+#================================================| INICIO LISTA OPCAO de Item |===================================
+pro.lista.opcaoItem.incluir.erro=Ocorreu um erro na inclusão da opção de Item: {0}
+pro.lista.opcaoItem.alterar.erro=Ocorreu um erro na alteração da opção de Item: {0}
+pro.lista.opcaoItem.consultarVarios.erro=Ocorreu um erro na pesquisa da opção de Item: {0}
+
+#================================================| INICIO LISTA OPCAO ITEM |===================================
+
+#================================================| INICIO LISTA OPCAO de Formulario |===================================
+pro.lista.opcaoFormulario.incluir.erro=Ocorreu um erro na inclusão da opção de Formulario: {0}
+pro.lista.opcaoFormulario.alterar.erro=Ocorreu um erro na alteração da opção de Formulario: {0}
+pro.lista.opcaoFormulario.consultarVarios.erro=Ocorreu um erro na pesquisa da opção de Formulario: {0}
+
+#================================================| INICIO LISTA OPCAO Formulario |===================================
+
+
+#================================================| INICIO TIPO SERVICO |===========================================
+pro.erro.tipoServico.incluir=Ocorreu um erro na inclusão dos dados de Tipo de Serviço: {0}
+pro.sucesso.tipoServico.incluir=Tipo de Serviço incluído com Sucesso.
+pro.sucesso.tipoServico.alterar=Tipo de Serviço alterado com Sucesso.
+pro.erro.tipoServico.alterar=Ocorreu um erro na alteração dos dados de Tipo de Serviço: {0}
+pro.erro.tipoServico.pesquisa=Ocorreu um erro na pesquisa dos dados de Tipo de Serviço: {0}
+
+
+#==============================================| Usuario |============================
+pro.campo.login=Login
+pro.campo.senha=Senha
+pro.campo.nome=Nome
+pro.campo.confirmaSenha=Confirma Senha
+pro.campo.email=E-Mail
+pro.campo.telefone=Telefone
+pro.campo.IntraBSC=IntraBSC
+pro.report.participante=PARTICIPANTE
+pro.report.email=E-MAIL
+pro.report.fone=FONE
+pro.report.nome=NOME
+pro.report.item=ITEM
+pro.report.formulario=FORMULÁRIO
+pro.report.tarefa=Tarefa
+pro.report.tarefaM=TAREFA
+pro.report.numero=NUMERO
+pro.report.inicio=INÍCIO
+pro.report.sinalizacao=SINALIZAÇÃO
+pro.report.prazo=PRAZO
+pro.report.solicitante=SOLICITANTE
+pro.report.criticidade=CRITICIDADE
+pro.report.estado=ESTADO
+pro.report.anotacoes=ANOTAÇÕES
+pro.report.formulario=FORMULÁRIO
+pro.report.checklist=Checklist
+pro.report.maichecklist=CHECKLIST
+pro.report.participantes=Participantes
+pro.report.maiparticipantes=PARTICIPANTES
+pro.report.responsavel=RESPONSÁVEL
+pro.report.data=DATA
+pro.report.planoacoes=PLANO DE AÇÕES
+pro.report.perspectivaobjindi=PERSPECTIVA/OBJETIVO/INDICADOR
+
+# ==== Grupo ====
+titulo.grupo.consultar=Consultar grupo
+titulo.grupo.alterar=Alterar Grupo
+titulo.grupo.incluir=Incluir Grupo
+validacao.grupo.descricao=Descrição
+validacao.grupo.ativo=Ativo
+bsc.campo.grupo=Grupo
+bsc.campo.relatoriogrupo=Grupo Tarefas
+bsc.label.usuario=Usuário
+bsc.label.incluirusuario=Incluir Usuário
+bsc.label.consultarusuario=Consultar Usuário
+bsc.label.alterarusuario=Alterar Usuário
+
+# === Tela Principal ===
+msg.mapaEstrategico.usuarioSemDados=Este usuário não possui Mapa, Tarefa e Indicador cadastrados.
+msg.mapaEstrategico.usuarioSemIndicador=Este usuário não possui Indicador cadastrado.
+msg.mapaEstrategico.usuarioSemTarefa=Este usuário não possui</br> Tarefa cadastrada.
+msg.mapaEstrategico.usuarioSemMapa=Este usuário não possui</br> Mapas cadastrados.

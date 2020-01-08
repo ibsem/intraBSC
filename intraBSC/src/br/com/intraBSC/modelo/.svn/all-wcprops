@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo
+END
+IndicadorTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/IndicadorTO.java
+END
+GrupoTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/GrupoTO.java
+END
+PapelTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/PapelTO.java
+END
+IndicadorFatoTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/IndicadorFatoTO.java
+END
+MapaEstrategicoTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/MapaEstrategicoTO.java
+END
+UnidadeTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/UnidadeTO.java
+END
+TipoPerspectivaTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/TipoPerspectivaTO.java
+END
+ObjetivoTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/ObjetivoTO.java
+END
+RecursoTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/RecursoTO.java
+END
+RelacionamentosTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/RelacionamentosTO.java
+END
+PerspectivaTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/PerspectivaTO.java
+END
+PeriodicidadeTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/PeriodicidadeTO.java
+END
+TemaTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/TemaTO.java
+END
+MetaTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/MetaTO.java
+END
+UsuarioTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/UsuarioTO.java
+END
+CausaEfeitoTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraBSC/modelo/CausaEfeitoTO.java
+END

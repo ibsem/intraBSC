@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="planoAcoesSubObjetivo" pageWidth="850" pageHeight="842" columnWidth="850" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="recursos.application">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="baseDir" class="java.lang.String"/>
+	<parameter name="bsc" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT MAPA.NAME AS NOMEMAPA, PERS.NAME AS NOMEPERSPECTIVA,OBJE.NAME AS NOMEOBJETIVO,
+CONCAT(TAREFAS.PK_YEAR_START_TASK,CONCAT('/',TAREFAS.PK_NUMBER_SEQUENCE_TASK)) AS SEQUENCIAL,
+TAREFAS.NAME_TASK AS TAREFA, TAREFAS.PK_YEAR_START_TASK AS ANO, TAREFAS.PK_NUMBER_SEQUENCE_TASK AS NUMERO,
+TAREFAS.TX_DESCRIPTION_TASK AS DESCRICAO,  ANOTACOES.TX_TASKEVENTDESCRIPTION AS ANOTACAO,
+ANOTACOES.PK_TS_TASKEVENTDESCRIPTION AS ULTIMADATA, RESPANOTACAO.NAME AS RESPONSAVEL,
+CASE WHEN (TAREFAS.FK_PRIORITY_TASK = 1) THEN 'BAIXA'
+WHEN (TAREFAS.FK_PRIORITY_TASK = 2) THEN 'MÉDIA' WHEN (TAREFAS.FK_PRIORITY_TASK = 3) THEN 'ALTA'
+END  AS CRITICIDADE, CASE WHEN (TAREFAS.FK_STATUS_TASK = 1) THEN 'CRIADA'
+WHEN (TAREFAS.FK_STATUS_TASK = 2) THEN 'INICIADA' WHEN (TAREFAS.FK_STATUS_TASK = 5) THEN 'VALIDADA' WHEN (TAREFAS.FK_STATUS_TASK = 3) THEN 'CONCLUÍDA' END  AS ESTADO, TAREFAS.FK_STATUS_TASK AS ESTADONUMERICO,
+TAREFAS.DT_BEGIN_TASK AS INICIO, TAREFAS.DT_END_TASK AS FIM,
+CONCAT(CASE WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 1) THEN 'JAN'
+WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 2) THEN 'FEV' WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 3) THEN 'MAR'
+WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 4) THEN 'ABR' WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 5) THEN 'MAI'
+WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 6) THEN 'JUN' WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 7) THEN 'JUL'
+WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 8) THEN 'AGO' WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 9) THEN 'SET'
+WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 10) THEN 'OUT' WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 11) THEN 'NOV'
+WHEN (MONTH(TAREFAS.DT_LIMIT_END_TASK) = 12) THEN 'DEZ' END,CONCAT(' / ', YEAR(TAREFAS.DT_LIMIT_END_TASK))) AS MESANO,
+OWNSOL.NAME AS SOLICITANTE, TAREFAS.DT_LIMIT_END_TASK AS PRAZO
+FROM BSC AS MAPA
+LEFT OUTER JOIN RELBSC ON RELBSC.BSC_ID = MAPA.ID
+LEFT OUTER JOIN OWNER ON  OWNER.ID = MAPA.ID_OWNER
+LEFT OUTER JOIN PERSPECTIVE PERS ON  PERS.ID = RELBSC.PERSPECTIVE_ID AND PERS.ACTIVE = 1
+LEFT OUTER JOIN RELPERSPECTIVE ON PERS.ID = RELPERSPECTIVE.PERSPECTIVE_ID
+LEFT OUTER JOIN OBJECTIVE OBJE ON OBJE.ID = RELPERSPECTIVE.OBJECTIVE_ID AND OBJE.ACTIVE = 1
+LEFT OUTER JOIN TASK TAREFAS ON TAREFAS.ID_OBJECTIVE = OBJE.ID AND TAREFAS.FK_STATUS_TASK <> 4
+
+
+LEFT OUTER JOIN TASKEVENTDESCRIPTION AS ANOTACOES ON TAREFAS.PK_YEAR_START_TASK = ANOTACOES.PK_YEAR_START_TASK AND
+ TAREFAS.PK_NUMBER_SEQUENCE_TASK = ANOTACOES.PK_NUMBER_SEQUENCE_TASK AND
+ PK_TS_TASKEVENTDESCRIPTION =
+(SELECT MAX(PK_TS_TASKEVENTDESCRIPTION) AS ULTIMADATA
+ FROM TASKEVENTDESCRIPTION AS ANOTACOES2
+ WHERE  ANOTACOES.PK_YEAR_START_TASK=ANOTACOES.PK_YEAR_START_TASK
+ AND ANOTACOES2.PK_NUMBER_SEQUENCE_TASK = ANOTACOES.PK_NUMBER_SEQUENCE_TASK)
+
+LEFT OUTER JOIN OWNER AS RESPANOTACAO ON ANOTACOES.FK_ACTOR = RESPANOTACAO.ID
+INNER JOIN OWNER AS OWNSOL ON OWNSOL.ID = TAREFAS.FK_ACTOR_INIT_TASK
+WHERE MAPA.ID = $P{bsc}
+GROUP BY TAREFA, NUMERO
+ORDER BY PERS.NAME , OBJE.NAME, ANOTACOES.PK_TS_TASKEVENTDESCRIPTION DESC]]>
+	</queryString>
+	<field name="NOMEMAPA" class="java.lang.String"/>
+	<field name="NOMEPERSPECTIVA" class="java.lang.String"/>
+	<field name="NOMEOBJETIVO" class="java.lang.String"/>
+	<field name="SEQUENCIAL" class="java.lang.String"/>
+	<field name="TAREFA" class="java.lang.String"/>
+	<field name="ANO" class="java.lang.Integer"/>
+	<field name="NUMERO" class="java.lang.Integer"/>
+	<field name="DESCRICAO" class="java.lang.String"/>
+	<field name="ANOTACAO" class="java.lang.String"/>
+	<field name="ULTIMADATA" class="java.sql.Timestamp"/>
+	<field name="RESPONSAVEL" class="java.lang.String"/>
+	<field name="CRITICIDADE" class="java.lang.String"/>
+	<field name="ESTADO" class="java.lang.String"/>
+	<field name="ESTADONUMERICO" class="java.lang.Integer"/>
+	<field name="INICIO" class="java.sql.Date"/>
+	<field name="FIM" class="java.sql.Date"/>
+	<field name="MESANO" class="java.lang.Object"/>
+	<field name="SOLICITANTE" class="java.lang.String"/>
+	<field name="PRAZO" class="java.sql.Date"/>
+	<variable name="HOJE" class="java.util.Date">
+		<variableExpression><![CDATA[new java.util.Date()]]></variableExpression>
+	</variable>
+	<variable name="DIFERENCA" class="java.lang.Long">
+		<variableExpression><![CDATA[new Long (($F{PRAZO}.getTime() - $V{HOJE}.getTime()) / ( 1000*60*60*24 ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Long (0)]]></initialValueExpression>
+	</variable>
+	<variable name="CONTADOR" class="java.lang.Integer">
+		<variableExpression><![CDATA[new Integer(($V{CONTADOR}).intValue() + (int)(1))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(0)]]></initialValueExpression>
+	</variable>
+	<group name="Objetivo">
+		<groupExpression><![CDATA[$F{NOMEOBJETIVO}]]></groupExpression>
+		<groupHeader>
+			<band height="22" splitType="Stretch">
+				<textField isBlankWhenNull="true">
+					<reportElement key="textField-11" x="24" y="3" width="824" height="18" isRemoveLineWhenBlank="true"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{NOMEOBJETIVO}]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement key="image-3" x="5" y="4" width="14" height="14" isRemoveLineWhenBlank="true">
+						<printWhenExpression><![CDATA[new Boolean(($F{NOMEOBJETIVO}) != null)]]></printWhenExpression>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<imageExpression class="java.lang.String"><![CDATA[new String($P{baseDir}+"//WEB//imagens//arvore//config.gif")]]></imageExpression>
+				</image>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="49" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-1" mode="Opaque" x="770" y="18" width="78" height="13" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{pro.report.prazo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-2" mode="Opaque" x="515" y="18" width="253" height="13" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{pro.report.sinalizacao}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-3" mode="Opaque" x="5" y="18" width="69" height="13" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{pro.report.numero}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-4" mode="Opaque" x="76" y="18" width="437" height="13" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{pro.report.tarefaM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-5" mode="Opaque" x="5" y="3" width="843" height="13" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{pro.report.objetivos}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-15" mode="Opaque" x="284" y="33" width="564" height="13" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{bsc.report.ultimaanotacao}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-16" mode="Opaque" x="5" y="33" width="104" height="13" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{bsc.report.data}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-17" mode="Opaque" x="111" y="33" width="171" height="13" backcolor="#CCCCCC"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{bsc.report.responsavel}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true" hyperlinkType="Reference">
+				<reportElement key="textField-6" mode="Transparent" x="77" y="6" width="436" height="16" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{TAREFA}]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Tarefas"]]></anchorNameExpression>
+				<hyperlinkReferenceExpression><![CDATA["../tarefa/encaminhar/alterarStatus.do?op=alterarStatusModificado&anoCriacao=" + $F{ANO} + "&codigo=" + $F{NUMERO}]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-9" mode="Transparent" x="5" y="6" width="70" height="16" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{SEQUENCIAL}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement key="line-1" x="6" y="2" width="842" height="1" forecolor="#CCCCCC"/>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-12" mode="Transparent" x="5" y="25" width="105" height="18" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{ULTIMADATA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-13" mode="Transparent" x="112" y="25" width="170" height="18" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{RESPONSAVEL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-14" mode="Transparent" x="284" y="25" width="564" height="18" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ANOTACAO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-13" x="737" y="6" width="27" height="16">
+					<printWhenExpression><![CDATA[new Boolean ((($F{ESTADONUMERICO}.intValue()) == 5)||(($F{ESTADONUMERICO}.intValue()) == 3) )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Fim:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="513" y="6" width="93" height="16">
+					<printWhenExpression><![CDATA[new Boolean ((($F{ESTADONUMERICO}.intValue()) != 5)&&(($F{ESTADONUMERICO}.intValue()) != 3) )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ESTADO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement key="textField-17" mode="Transparent" x="513" y="6" width="93" height="16" isPrintWhenDetailOverflows="true" forecolor="#339900">
+					<printWhenExpression><![CDATA[new Boolean ((($F{ESTADONUMERICO}.intValue()) == 5)||(($F{ESTADONUMERICO}.intValue()) == 3) )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ESTADO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-7" mode="Transparent" x="766" y="6" width="82" height="16" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean ((($F{ESTADONUMERICO}.intValue()) != 5)&&(($F{ESTADONUMERICO}.intValue()) != 3))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{PRAZO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-3" mode="Transparent" x="606" y="6" width="60" height="16" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[new Boolean (($V{HOJE}.getTime())>($F{PRAZO}.getTime())&&(($F{ESTADONUMERICO}.intValue()) != 5)&&(($F{ESTADONUMERICO}.intValue()) != 3))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[passaram]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-12" x="613" y="6" width="38" height="16">
+					<printWhenExpression><![CDATA[new Boolean ((($F{ESTADONUMERICO}.intValue()) == 5)||(($F{ESTADONUMERICO}.intValue()) == 3) )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[Início:]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Left" vAlign="Top" isUsingCache="true">
+				<reportElement key="image-1" mode="Transparent" x="740" y="6" width="25" height="16" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean (($V{HOJE}.getTime())<($F{PRAZO}.getTime())&&(($F{ESTADONUMERICO}.intValue()) != 5)&&(($F{ESTADONUMERICO}.intValue()) != 3))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+				<imageExpression class="java.lang.String"><![CDATA[new String($P{baseDir}+"//WEB//imagens//relatorio//verdeNoPrazo.gif")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement key="staticText-2" mode="Transparent" x="606" y="6" width="56" height="16" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[new Boolean (($V{HOJE}.getTime())<($F{PRAZO}.getTime())&&(($F{ESTADONUMERICO}.intValue()) != 5)&&(($F{ESTADONUMERICO}.intValue()) != 3))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[faltam]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-14" mode="Transparent" x="662" y="6" width="72" height="16" forecolor="#339900" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean ((($F{ESTADONUMERICO}.intValue()) == 5)||(($F{ESTADONUMERICO}.intValue()) == 3) )]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{INICIO}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" hAlign="Left" vAlign="Top" isUsingCache="true">
+				<reportElement key="image-2" mode="Transparent" x="740" y="6" width="25" height="16" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean (($V{HOJE}.getTime())>($F{PRAZO}.getTime())&&(($F{ESTADONUMERICO}.intValue()) != 5)&&(($F{ESTADONUMERICO}.intValue()) != 3))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+				<imageExpression class="java.lang.String"><![CDATA[new String($P{baseDir}+"//WEB//imagens//relatorio//vermelhoNoPrazo.gif")]]></imageExpression>
+			</image>
+			<textField pattern="###0;(###0)" isBlankWhenNull="false">
+				<reportElement key="textField-8" mode="Transparent" x="668" y="6" width="41" height="16" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[new Boolean ((($F{ESTADONUMERICO}.intValue()) != 5)&&(($F{ESTADONUMERICO}.intValue()) != 3))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$V{DIFERENCA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-1" mode="Transparent" x="710" y="6" width="27" height="16" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[new Boolean ((($F{ESTADONUMERICO}.intValue()) != 5)&&(($F{ESTADONUMERICO}.intValue()) != 3))]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[dias]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement key="textField-15" mode="Transparent" x="769" y="6" width="73" height="16" forecolor="#339900" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean ((($F{ESTADONUMERICO}.intValue()) == 5)||(($F{ESTADONUMERICO}.intValue()) == 3) )]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{FIM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

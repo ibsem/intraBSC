@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+
+
+<struts-config>
+
+    <form-beans>
+    	<form-bean name="usuarioForm" type="br.com.intraBSC.usuario.visao.UsuarioForm"/>
+        <form-bean name="mapaEstrategicoForm" type="br.com.intraBSC.mapaEstrategico.visao.MapaEstrategicoForm"/>
+        <form-bean name="perspectivaForm" type="br.com.intraBSC.perspectiva.visao.PerspectivaForm"/>
+        <form-bean name="objetivoForm" type="br.com.intraBSC.objetivo.visao.ObjetivoForm"/>
+        <form-bean name="metaForm" type="br.com.intraBSC.meta.visao.MetaForm"/>
+        <form-bean name="temaForm" type="br.com.intraBSC.tema.visao.TemaForm"/>
+        <form-bean name="indicadorForm" type="br.com.intraBSC.indicador.visao.IndicadorForm"/>
+        <form-bean name="unidadeForm" type="br.com.intraBSC.unidade.visao.UnidadeForm"/>
+        <form-bean name="papelForm" type="br.com.intraBSC.papel.visao.PapelForm"/>
+        <form-bean name="periodicidadeForm" type="br.com.intraBSC.periodicidade.visao.PeriodicidadeForm"/>
+        <form-bean name="tipoPerspectivaForm" type="br.com.intraBSC.tipoPerspectiva.visao.TipoPerspectivaForm"/>
+        <form-bean name="causaEfeitoForm" type="br.com.intraBSC.causaEfeito.visao.CausaEfeitoForm"/>
+        <form-bean name="recursoForm" type="br.com.intraBSC.recurso.visao.RecursoForm"/>
+        <form-bean name="grupoForm" type="br.com.intraBSC.grupo.visao.GrupoForm"/>
+    </form-beans>
+
+	<global-forwards>
+    	 <forward name="inicio" path="/encaminhaLogon.do"/>
+	 </global-forwards>
+	 	
+    <action-mappings>
+		<action
+            path="/autorizacao"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="bsc.autorizacao"/>
+            
+         <action
+            path="/expirou"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="bsc.expirou"/>
+		
+	<action
+            path="/encaminhaLogon"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/jsp/layout/logon.jsp"/>
+         <action
+            path="/ajuda"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="bsc.ajuda"/>
+
+              
+        <action
+            path="/logon"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/principal.do?op=telaPrincipal"/>
+        
+<!-- ============================== Mapa ===================================== -->
+	<action path="/mapaEstrategico/exportar"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.mapaEstrategico.listar.inicial"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+
+		<action path="/mapaEstrategico/tarefa"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false">
+			<forward name="sucesso" path="/mapaEstrategico/consultar.do?op=consultarUm"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+				
+		<action path="/mapaEstrategico/manutencao"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="true"
+			input="erro">
+		 <forward name="sucesso" path="/mapaEstrategico/abrir.do?op=consultarArvoreConfiguracao"/>
+		 <forward name="sucessoAlterar" path="/mapaEstrategico/consultar.do?op=consultarUm"/>   	
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/mapaEstrategico/consultar"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false">
+			<forward name="sucesso" path="/mapaEstrategico/encaminha/alterar.do"/>
+			<forward name="sucessoArvore" path="bsc.encaminha.arvoreConfiguracao"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/mapaEstrategico/abrir"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false">
+			<forward name="sucessoConsulta" path="bsc.encaminha.AbrirMapa.configuracao"/>
+			<forward name="sucessoArvore" path="bsc.encaminha.arvoreConfiguracao"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/mapaEstrategico/relatorioCrossTable"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.encaminha.AbrirMapa.configuracao"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+
+		<action path="/mapaEstrategico/encaminha/abrirArvore"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="bsc.encaminha.AbrirMapa.configuracao"/>
+				
+		<action path="/mapaEstrategico/encaminha/incluir"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false" >
+			<forward name="sucesso" path="bsc.mapaEstrategico.incluir"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+				
+				
+		<action path="/mapaEstrategico/encaminha/alterar"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="bsc.mapaEstrategico.alterar"/>
+			
+
+				
+		<action path="/mapaEstrategico/inicial/listar"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false" >
+			<forward name="sucesso" path="bsc.mapaEstrategico.listar.inicial"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/mapaEstrategico/inicial/listarCompleto"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false" >
+			<forward name="sucesso" path="bsc.mapaEstrategico.listar.inicial.completo"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		
+		<action path="/principal"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false" >
+			<forward name="sucesso" path="bsc.principal"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+				
+  		<!-- NAO UTILIZADO<action path="/mapaEstrategico/listar"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false" >
+			<forward name="sucesso" path="bsc.mapaEstrategico.listar"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		 -->
+		<action path="/mapaEstrategico/detalhar"
+			type="br.com.intraBSC.mapaEstrategico.controle.MapaEstrategicoAction"
+			parameter="op"
+			scope="request"
+			name="mapaEstrategicoForm"
+			validate="false" >
+			<forward name="sucesso" path="bsc.mapaEstrategico.detalhar"/>
+			<forward name="applet" path="bsc.mapaGrafico.detalhar"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+
+<!-- ============================ Perspectiva Configuracao======================= -->
+
+	   <action path="/perspectiva/tarefa"
+			type="br.com.intraBSC.perspectiva.controle.PerspectivaAction"
+			parameter="op"
+			scope="request"
+			name="perspectivaForm"
+			validate="false">
+			<forward name="sucesso" path="/perspectiva/encaminha.do?op=encaminhaAlterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+	   </action>
+
+	   <action path="/perspectiva/encaminha"
+			type="br.com.intraBSC.perspectiva.controle.PerspectivaAction"
+			parameter="op"
+			scope="request"
+			name="perspectivaForm"
+			validate="false">
+			<forward name="sucessoIncluir" path="bsc.encaminha.perspectiva.incluir"/>
+			<forward name="sucessoAlterar" path="bsc.encaminha.perspectiva.alterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/perspectiva/manutencao"
+			type="br.com.intraBSC.perspectiva.controle.PerspectivaAction"
+			parameter="op"
+			scope="request"
+			name="perspectivaForm"
+			validate="true"
+			input="erro">
+			<forward name="sucessoIncluir" path="bsc.layout.sucesso.configuracao"/>  
+			<forward name="sucessoAlterar" path="/perspectiva/encaminha.do?op=encaminhaAlterar"/> 
+		<!-- <forward name="sucessoAlterar" path="bsc.layout.sucesso.configuracao"/> -->
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/perspectiva/detalhar"
+			type="br.com.intraBSC.perspectiva.controle.PerspectivaAction"
+			parameter="op"
+			scope="request"
+			name="perspectivaForm"
+			validate="false" >
+			<forward name="sucesso" path="bsc.perspectiva.detalhar"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		
+<!-- ============================== Usuario ===================================== -->
+		
+		<action
+            path="/usuario/imprimir"
+            type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false"
+			input="bsc.usuario.incluir">
+			<forward name="sucesso" path="bsc.usuario.listar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action
+            path="/usuario/encaminhar"
+            type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false"
+			input="bsc.usuario.incluir">
+			<forward name="sucesso" path="bsc.usuario.incluir"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+            
+            
+        <action path="/usuario/incluir"
+			type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="true"
+			input="bsc.usuario.incluir">
+			<forward name="sucesso" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/usuario/excluir"
+			type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false">
+			<forward name="sucesso" path="/encaminhar/usuario.do"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/usuario/alterar"
+			type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false"
+			input="bsc.usuario.alterar">
+			<forward name="sucesso" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucessoSenha" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/usuario/alterarSenha"
+			type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.usuario.alterar"/>
+			<forward name="sucessoSenha" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action
+            path="/usuario/encaminhar/alterarSenha"
+            type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.usuario.alterarSenha"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+         </action>
+         
+         <action
+            path="/usuario/encaminhar/alterarLogin"
+            type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.usuario.alterarLogin"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+         </action>
+         
+          <action
+            path="/usuario/alterarLogin"
+            type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+         </action>
+		
+		<action path="/usuario/consultar"
+			type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.usuario.listar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/usuario/consultarUm"
+			type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.usuario.alterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+			<action path="/usuario/pesquisar/alterar"
+			type="br.com.intraBSC.usuario.controle.UsuarioAction"
+			parameter="op"
+			scope="request"
+			name="usuarioForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.usuario.pesquisarAlterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		
+		
+		
+<!-- ============================== Perspectiva ===================================== -->
+	<!-- 	NAO ESTA SENDO UTILZIADO<action path="/perspectiva/consultarVarios"
+			type="br.com.intraBSC.perspectiva.controle.PerspectivaAction"
+			parameter="op"
+			scope="request"
+			name="perspectivaForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.perspectiva"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		 -->
+
+
+<!-- ============================== Objetivo ===================================== -->
+		<!-- NAO ESTA SENDO UTILZIADO<action path="/objetivo/consultarVarios"
+			type="br.com.intraBSC.objetivo.controle.ObjetivoAction"
+			parameter="op"
+			scope="request"
+			name="objetivoForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.objetivo"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action> -->
+		
+		<action path="/objetivo/tarefa"
+			type="br.com.intraBSC.objetivo.controle.ObjetivoAction"
+			parameter="op"
+			scope="request"
+			name="objetivoForm"
+			validate="false">
+			<forward name="sucesso" path="/objetivo/encaminha.do?op=encaminharAlterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+	   </action>
+		
+		<action path="/objetivo/detalhar"
+			type="br.com.intraBSC.objetivo.controle.ObjetivoAction"
+			parameter="op"
+			scope="request"
+			name="objetivoForm"
+			validate="false" >
+			<forward name="sucesso" path="bsc.objetivo.detalhar"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/objetivo/encaminha"
+			type="br.com.intraBSC.objetivo.controle.ObjetivoAction"
+			parameter="op"
+			scope="request"
+			name="objetivoForm"
+			validate="false">
+			<forward name="sucessoIncluir" path="bsc.encaminha.objetivo.incluir"/>
+			<forward name="sucessoAlterar" path="bsc.encaminha.objetivo.alterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/objetivo/manutencao"
+			type="br.com.intraBSC.objetivo.controle.ObjetivoAction"
+			parameter="op"
+			scope="request"
+			name="objetivoForm"
+			validate="true"
+			input="erro">
+			<forward name="sucessoIncluir" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucesso" path="bsc.layout.sucesso.configuracao"/> 
+			<forward name="sucessoAlterar" path="/objetivo/encaminha.do?op=encaminharAlterar"/> 
+			<!-- <forward name="sucessoAlterar" path="bsc.layout.sucesso.configuracao"/>  -->
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>		
+		
+<!-- ============================== Indicador ===================================== -->
+		<!-- NAO ESTA SENDO UTILIZADO<action path="/indicador/consultarVarios"
+			type="br.com.intraBSC.indicador.controle.IndicadorAction"
+			parameter="op"
+			scope="request"
+			name="indicadorForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.indicador"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action> -->
+		
+		<action path="/indicador/detalhar"
+			type="br.com.intraBSC.indicador.controle.IndicadorAction"
+			parameter="op"
+			scope="request"
+			name="indicadorForm"
+			validate="false" >
+			<forward name="sucesso" path="bsc.indicador.detalhar"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/meuIndicador/detalhar"
+			type="br.com.intraBSC.indicador.controle.IndicadorAction"
+			parameter="op"
+			scope="request"
+			name="indicadorForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.meuIndicador.detalhar"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/meuIndicador/detalharCompleto"
+			type="br.com.intraBSC.indicador.controle.IndicadorAction"
+			parameter="op"
+			scope="request"
+			name="indicadorForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.meuIndicador.detalhar.completo"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+								
+		<action path="/indicador/encaminha"
+			type="br.com.intraBSC.indicador.controle.IndicadorAction"
+			parameter="op"
+			scope="request"
+			name="indicadorForm"
+			validate="false">
+			<forward name="sucessoIncluir" path="bsc.encaminha.indicador.incluir"/>
+			<forward name="sucessoAlterar" path="bsc.encaminha.indicador.alterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/indicador/excluir/tarefa"
+			type="br.com.intraBSC.indicador.controle.IndicadorAction"
+			parameter="op"
+			scope="request"
+			name="indicadorForm"
+			validate="false">
+			<forward name="sucesso" path="/indicador/encaminha.do?op=encaminharAlterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/indicador/manutencao"
+			type="br.com.intraBSC.indicador.controle.IndicadorAction"
+			parameter="op"
+			scope="request"
+			name="indicadorForm"
+			validate="true"
+			input="bsc.erro.configuracao">
+			<forward name="sucesso" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucessoAlterar" path="/indicador/encaminha.do?op=encaminharAlterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/indicadorFato/manutencao"
+			type="br.com.intraBSC.indicador.controle.IndicadorAction"
+			parameter="op"
+			scope="request"
+			name="indicadorForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.indicador.detalhar"/>
+			<forward name="sucessoConfiguracao" path="bsc.listar.indicador.fato"/>
+			<forward name="erroApresentacao" path="bsc.erro"/>
+		</action>
+		
+		<action path="/indicadorFato/manutencao/configuracao"
+			type="br.com.intraBSC.indicador.controle.IndicadorAction"
+			parameter="op"
+			scope="request"
+			name="indicadorForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.listar.indicador.fato"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+<!-- ============================== Tema ===================================== -->
+		<action path="/tema/consultarVarios"
+			type="br.com.intraBSC.tema.controle.TemaAction"
+			parameter="op"
+			scope="request"
+			name="temaForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.tema"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/tema/encaminha"
+			type="br.com.intraBSC.tema.controle.TemaAction"
+			parameter="op"
+			scope="request"
+			name="temaForm"
+			validate="false">
+			<forward name="sucessoIncluir" path="bsc.encaminha.tema.incluir"/>
+			<forward name="sucessoAlterar" path="bsc.encaminha.tema.alterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/tema/manutencao"
+			type="br.com.intraBSC.tema.controle.TemaAction"
+			parameter="op"
+			scope="request"
+			name="temaForm"
+			validate="true"
+			input="bsc.erro.configuracao">
+			<forward name="sucessoIncluir" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucessoAlterar" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/tema/detalhar"
+			type="br.com.intraBSC.tema.controle.TemaAction"
+			parameter="op"
+			scope="request"
+			name="temaForm"
+			validate="false" >
+			<forward name="sucesso" path="bsc.tema.detalhar"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		
+<!-- ============================== Causa Efeito ===================================== -->
+		
+		<action path="/causaEfeito/manutencao"
+			type="br.com.intraBSC.causaEfeito.controle.CausaEfeitoAction"
+			parameter="op"
+			scope="session"
+			name="causaEfeitoForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.encaminha.causaEfeito.incluir"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+    
+		
+<!-- ============================== Recurso ===================================== -->
+		
+		<action path="/recurso/manutencao"
+			type="br.com.intraBSC.recurso.controle.RecursoAction"
+			parameter="op"
+			scope="session"
+			name="recursoForm"
+			validate="true"
+			input="erro">
+			<forward name="sucessoIncluir" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucessoAlterar" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucessoExcluir" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/recurso/encaminha"
+			type="br.com.intraBSC.recurso.controle.RecursoAction"
+			parameter="op"
+			scope="session"
+			name="recursoForm"
+			validate="false">
+			<forward name="sucessoIncluir" path="bsc.encaminha.recurso.incluir"/>
+			<forward name="sucessoAlterar" path="bsc.encaminha.recurso.alterar"/>
+			<forward name="sucessoConsultar" path="bsc.encaminha.recurso.consultar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+<!-- ================================ Meta ======================================== -->
+	<!-- Metodo utilizado para a ferramenta de Visualizacao -->
+	<!--	NAO ESTA SENDO UTILIZADO<action path="/meta/incluir"
+			type="br.com.intraBSC.meta.controle.MetaAction"
+			parameter="op"
+			scope="request"
+			name="metaForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.meta.incluir"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>-->
+			
+		<action path="/meta/encaminhar"
+			type="br.com.intraBSC.meta.controle.MetaAction"
+			parameter="op"
+			scope="request"
+			name="metaForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.meta.incluir"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<!-- Metodo utilizado para a ferramenta de Configuracao -->
+		<action path="/meta/manutencao"
+			type="br.com.intraBSC.meta.controle.MetaAction"
+			parameter="op"
+			scope="request"
+			name="metaForm"
+			validate="true"
+			input="erro">
+			<forward name="sucessoIncluir" path="bsc.encaminha.meta.incluir"/>
+			<forward name="sucessoAlterar" path="bsc.encaminha.meta.alterar"/>
+			<forward name="sucessoExcluir" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/meta/encaminhar/configuracao"
+			type="br.com.intraBSC.meta.controle.MetaAction"
+			parameter="op"
+			scope="request"
+			name="metaForm"
+			validate="false">
+			<forward name="sucessoIncluir" path="bsc.encaminha.meta.incluir"/>
+			<forward name="sucessoAlterar" path="bsc.encaminha.meta.alterar"/>
+			<forward name="sucessoConsultar" path="bsc.encaminha.meta.consultar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+	<!-- ============================== Unidade ===================================== -->
+		<action path="/unidade/manutencao"
+			type="br.com.intraBSC.unidade.controle.UnidadeAction"
+			parameter="op"
+			scope="request"
+			name="unidadeForm"
+			validate="true"
+			input="erro">
+			<forward name="sucessoFinaliza" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucessoConsultar" path="bsc.unidade.consultar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/unidade/consultar"
+			type="br.com.intraBSC.unidade.controle.UnidadeAction"
+			parameter="op"
+			scope="request"
+			name="unidadeForm"
+			validate="false">
+			<forward name="sucesso" path="/unidade/encaminha/alterar.do"/>
+			<forward name="sucessoConsultar" path="bsc.unidade.consultar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+				
+		<action path="/unidade/encaminha/incluir"
+			type="br.com.intraBSC.unidade.controle.UnidadeAction"
+			parameter="op"
+			scope="request"
+			name="unidadeForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.unidade.incluir"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/unidade/encaminha/consultar"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="bsc.unidade.consultar"/>
+				
+		<action path="/unidade/encaminha/alterar"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="bsc.unidade.alterar"/>
+
+<!-- ============================== Papel ===================================== -->
+		<action path="/papel/manutencao"
+			type="br.com.intraBSC.papel.controle.PapelAction"
+			parameter="op"
+			scope="request"
+			name="papelForm"
+			validate="true"
+			input="erro">
+			<forward name="sucessoFinaliza" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucessoConsultar" path="bsc.papel.consultar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/papel/consultar"
+			type="br.com.intraBSC.papel.controle.PapelAction"
+			parameter="op"
+			scope="request"
+			name="papelForm"
+			validate="false">
+			<forward name="sucesso" path="/papel/encaminha/alterar.do"/>
+			<forward name="sucessoConsultar" path="bsc.papel.consultar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+				
+		<action path="/papel/encaminha/incluir"
+			type="br.com.intraBSC.papel.controle.PapelAction"
+			parameter="op"
+			scope="request"
+			name="papelForm"
+			validate="false">
+			<forward name="sucesso" path="bsc.papel.incluir"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/papel/encaminha/consultar"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="bsc.papel.consultar"/>
+				
+		<action path="/papel/encaminha/alterar"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="bsc.papel.alterar"/>
+
+	<!-- ============================== Periodicidade ===================================== -->
+		<action path="/periodicidade/manutencao"
+			type="br.com.intraBSC.periodicidade.controle.PeriodicidadeAction"
+			parameter="op"
+			scope="request"
+			name="periodicidadeForm"
+			validate="true"
+			input="erro">
+			<forward name="sucessoFinaliza" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucessoConsultar" path="bsc.periodicidade.consultar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/periodicidade/consultar"
+			type="br.com.intraBSC.periodicidade.controle.PeriodicidadeAction"
+			parameter="op"
+			scope="request"
+			name="periodicidadeForm"
+			validate="false">
+			<forward name="sucessoEncaminhaAlterar" path="/periodicidade/encaminha/alterar.do"/>
+			<forward name="sucessoConsultar" path="bsc.periodicidade.consultar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/periodicidade/encaminha/incluir"
+				type="br.com.intraBSC.periodicidade.controle.PeriodicidadeAction"
+				parameter="op"
+				scope="request"
+				name="periodicidadeForm"
+				validate="false"
+				input="erro">
+				<forward name="sucesso" path="bsc.periodicidade.incluir"/>
+				<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/periodicidade/encaminha/consultar"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="bsc.periodicidade.consultar"/>
+				
+		<action path="/periodicidade/encaminha/alterar"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="bsc.periodicidade.alterar"/>
+				
+	<!-- ============================== Tipo Perspectiva ===================================== -->
+		<action path="/tipoPerspectiva/manutencao"
+			type="br.com.intraBSC.tipoPerspectiva.controle.TipoPerspectivaAction"
+			parameter="op"
+			scope="request"
+			name="tipoPerspectivaForm"
+			validate="true"
+			input="erro">
+			<forward name="sucessoFinaliza" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/tipoPerspectiva/consultar"
+			type="br.com.intraBSC.tipoPerspectiva.controle.TipoPerspectivaAction"
+			parameter="op"
+			scope="request"
+			name="tipoPerspectivaForm"
+			validate="false">
+			<forward name="sucessoConsultarVarios" path="/tipoPerspectiva/encaminha/consultar.do"/>
+			<forward name="sucessoConsultarUm" path="/tipoPerspectiva/encaminha/alterar.do"/>			
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/tipoPerspectiva/encaminha/incluir"
+				type="br.com.intraBSC.tipoPerspectiva.controle.TipoPerspectivaAction"
+				parameter="op"
+				scope="request"
+				name="tipoPerspectivaForm"
+				validate="false"
+				input="erro">
+				<forward name="sucesso" path="bsc.tipoPerspectiva.incluir"/>
+				<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/tipoPerspectiva/encaminha/consultar"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="bsc.tipoPerspectiva.consultar"/>
+				
+		<action path="/tipoPerspectiva/encaminha/alterar"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="bsc.tipoPerspectiva.alterar"/>				
+
+		<action path="/imprimirRelatorio"
+				type="br.com.intraBSC.util.ImprimirRelatorioAction"
+				parameter="op"
+				scope="request"
+				name="imprimirForm"
+				validate="false">
+				<forward name="sucessoMapa" path="bsc.mapaEstrategico.detalhar"/>
+		</action>
+		
+		<!-- Grupo -->
+		<action path="/grupo/encaminhar/incluir"
+				type="br.com.intraBSC.grupo.controle.GrupoAction"
+				parameter="op"
+				scope="request"
+				name="grupoForm"
+				validate="false">
+				<forward name="sucesso" path="bsc.encaminhar.grupo.incluir"/>
+		</action>
+		
+		<action path="/grupo/incluir"
+				type="br.com.intraBSC.grupo.controle.GrupoAction"
+				parameter="op"
+				scope="request"
+				name="grupoForm"
+				validate="true">
+				<forward name="sucesso" path="bsc.encaminhar.grupo.incluir"/>
+				<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/grupo/encaminhar/alterar"
+				type="br.com.intraBSC.grupo.controle.GrupoAction"
+				parameter="op"
+				scope="request"
+				name="grupoForm"
+				validate="false">
+				<forward name="sucesso" path="bsc.encaminhar.grupo.alterar"/>
+				<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/grupo/alterar"
+				type="br.com.intraBSC.grupo.controle.GrupoAction"
+				parameter="op"
+				scope="request"
+				name="grupoForm"
+				validate="true">
+				<forward name="sucesso" path="bsc.encaminhar.grupo.alterar"/>
+				<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/grupo/encaminhar/consultar"
+				type="br.com.intraBSC.grupo.controle.GrupoAction"
+				parameter="op"
+				scope="request"
+				name="grupoForm"
+				validate="false">
+				<forward name="sucesso" path="bsc.encaminhar.grupo.consultar"/>
+				<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/grupo/consultar"
+				type="br.com.intraBSC.grupo.controle.GrupoAction"
+				parameter="op"
+				scope="request"
+				name="grupoForm"
+				validate="false">
+				<forward name="sucesso" path="bsc.encaminhar.grupo.consultar"/>
+				<forward name="erro" path="bsc.erro"/>
+		</action>
+
+    </action-mappings>
+   
+    <controller processorClass="br.com.intraBSC.controle.BSCRequestProcessor"/>
+    <message-resources parameter="recursos.application"/>
+    
+	 <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+		<set-property property="definitions-parser-validate" value="false" />
+	 </plug-in>
+	 
+	 <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+	 </plug-in>
+	 
+	 	 <!-- ========== FabricaDAO plugin =============== -->
+      <plug-in className="br.com.intraBSC.persistencia.FabricaDAO" >
+		<set-property property="daoConfig" value="/recursos/dao/dao.xml"/>
+	  </plug-in>
+    
+</struts-config>
+

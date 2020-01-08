@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+	<tlibversion>1.2</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>tmpl</shortname>
+	<tag>
+		<name>include</name>
+		<tagclass>br.com.bb.apoioatendimento.web.taglibs.templates.Include</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>Faz a inclusão de uma página estática ou template, no contexto da aplicação ou no CONFIG-INF, passando os parâmetros informados no corpo da tag (se houverem).</info>
+		<attribute>
+			<name>URI</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>paginaErro</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>expiracao</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>cachePOST</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>origem</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>param</name>
+		<tagclass>br.com.bb.apoioatendimento.web.taglibs.templates.SubtemplateParam</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Passa um parâmetro para o subtemplate.</info>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>regras</name>
+		<tagclass>br.com.bb.apoioatendimento.web.taglibs.templates.SubtemplateRegras</tagclass>
+		<bodycontent>tagdependent</bodycontent>
+		<info>Passa regras para o subtemplate.</info>
+	</tag>
+	<!-- versão antiga da tag include -->
+	<tag>
+		<name>subtemplate</name>
+		<tagclass>br.com.bb.apoioatendimento.web.taglibs.templates.Subtemplate</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>Versão antiga da tag include - Faz a inclusão de um subtemplate (JSP), passando os parâmetros informados no corpo da tag.</info>
+		<attribute>
+			<name>URI</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>paginaErro</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>expiracao</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>cachePOST</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

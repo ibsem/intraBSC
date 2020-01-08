@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia
+END
+ListaOpcaoItemDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/ListaOpcaoItemDAO.java
+END
+FaseDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/FaseDAO.java
+END
+FormularioDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/FormularioDAO.java
+END
+ConteudoItemTarefaDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/ConteudoItemTarefaDAO.java
+END
+RelacionamentosDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/RelacionamentosDAO.java
+END
+ParticipanteDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/ParticipanteDAO.java
+END
+TransicaoDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/TransicaoDAO.java
+END
+FracaoAnexoDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/FracaoAnexoDAO.java
+END
+ConfigTarefaDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/ConfigTarefaDAO.java
+END
+AtividadeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/AtividadeDAO.java
+END
+ParticipanteConfigTarefaDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/ParticipanteConfigTarefaDAO.java
+END
+ProcessoDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/ProcessoDAO.java
+END
+ListaOpcaoFormularioDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/ListaOpcaoFormularioDAO.java
+END
+ItemDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/ItemDAO.java
+END
+RelatorioDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/RelatorioDAO.java
+END
+TarefaDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/TarefaDAO.java
+END
+ConteudoFormularioTarefaDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/ConteudoFormularioTarefaDAO.java
+END
+AnotacaoTarefaDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/AnotacaoTarefaDAO.java
+END
+AnexoDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/WEB-INF/src/br/com/intraPRO/persistencia/AnexoDAO.java
+END

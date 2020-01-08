@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MapaSubPerspectivaObjetivos" pageWidth="720" pageHeight="696" orientation="Landscape" columnWidth="720" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true">
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="Conexao MYSQL"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<reportFont name="Arial_normal" isDefault="false" fontName="Arial" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<reportFont name="Arial_bold" isDefault="false" fontName="sansserif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<reportFont name="Arial_italic" isDefault="false" fontName="Arial" size="10" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<style name="Crosstab Data Text" isDefault="false" hAlign="Center"/>
+	<parameter name="baseDir" class="java.lang.String"/>
+	<parameter name="perspectiva" class="java.lang.Integer"/>
+	<parameter name="bsc" class="java.lang.Integer"/>
+	<parameter name="idIndicador" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT  		MEA.NAME,
+
+			CONCAT(CONCAT(YEAR(MEAFACT.DATE),'/') , CASE WHEN (MONTH(MEAFACT.DATE) = 1) THEN '01'
+			WHEN (MONTH(MEAFACT.DATE) = 2) THEN '02'
+			WHEN (MONTH(MEAFACT.DATE) = 3) THEN '03'
+			WHEN (MONTH(MEAFACT.DATE) = 4) THEN '04'
+			WHEN (MONTH(MEAFACT.DATE) = 5) THEN '05'
+			WHEN (MONTH(MEAFACT.DATE) = 6) THEN '06'
+			WHEN (MONTH(MEAFACT.DATE) = 7) THEN '07'
+			WHEN (MONTH(MEAFACT.DATE) = 8) THEN '08'
+			WHEN (MONTH(MEAFACT.DATE) = 9) THEN '09'
+			WHEN (MONTH(MEAFACT.DATE) = 10) THEN '10'
+			WHEN (MONTH(MEAFACT.DATE) = 11) THEN '11'
+			WHEN (MONTH(MEAFACT.DATE) = 12) THEN '12'
+			END) AS MESANO,
+        	(MEAFACT.VALUE) AS VALORES,
+        	TAR.TARGETVALUEDOWN AS TARGETDOWN,
+        	TAR.TARGETVALUEUP AS TARGETUP,
+        	TAR.INVERT AS INVERTER
+
+        	FROM UNIDADE AS UNID, RELPERSPECTIVE AS RELPER,
+        	BSC AS BSC,PERSPECTIVE AS PER,OBJECTIVE AS OBJ
+        	LEFT OUTER JOIN MEASURE AS MEA ON MEA.OBJECTIVE_ID = OBJ.ID
+        	LEFT OUTER JOIN MEASUREFACT AS MEAFACT ON MEAFACT.ID_MEASURE = MEA.ID
+        	LEFT OUTER JOIN TARGET AS TAR ON TAR.MEASURE_ID = MEA.ID AND TAR.ACTIVE = 1
+        	LEFT OUTER JOIN OWNER AS OWN ON MEA.OWNER_ID = OWN.ID
+        	INNER JOIN (SELECT MAX(MEAFACT.DATE) AS ULTIMADATA, MONTH(MEAFACT.DATE) AS MESANO FROM MEASUREFACT AS MEAFACT, MEASURE AS MEA
+ WHERE MEAFACT.ID_MEASURE = $P{idIndicador} GROUP BY  MESANO ORDER BY ULTIMADATA ASC) AS B ON B.ULTIMADATA = MEAFACT.DATE
+        	WHERE BSC.ID= $P{bsc}  AND PER.ID = $P{perspectiva}  AND MEA.ID = $P{idIndicador}
+        	AND RELPER.PERSPECTIVE_ID = PER.ID
+        	AND RELPER.OBJECTIVE_ID = OBJ.ID AND UNID.ID = MEA.UNITS
+        	ORDER BY MEAFACT.DATE ASC
+        	limit 12]]>
+	</queryString>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="MESANO" class="java.lang.String"/>
+	<field name="VALORES" class="java.lang.Float"/>
+	<field name="TARGETDOWN" class="java.lang.Float"/>
+	<field name="TARGETUP" class="java.lang.Float"/>
+	<field name="INVERTER" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="37" splitType="Stretch">
+			<crosstab>
+				<reportElement x="0" y="0" width="720" height="36"/>
+				<rowGroup name="NAME" width="1">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{NAME}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<topPen lineWidth="0.0"/>
+								<leftPen lineWidth="0.0"/>
+								<bottomPen lineWidth="0.0"/>
+								<rightPen lineWidth="0.0"/>
+							</box>
+							<textField isBlankWhenNull="true">
+								<reportElement style="Crosstab Data Text" mode="Opaque" x="0" y="0" width="0" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+								<box leftPadding="3">
+									<pen lineColor="#FFFFFF"/>
+									<topPen lineColor="#FFFFFF"/>
+									<leftPen lineColor="#FFFFFF"/>
+									<bottomPen lineColor="#FFFFFF"/>
+									<rightPen lineColor="#FFFFFF"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="false"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{NAME}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="MESANO" height="15">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{MESANO}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+								<topPen lineColor="#FFFFFF"/>
+								<leftPen lineColor="#FFFFFF"/>
+								<bottomPen lineColor="#FFFFFF"/>
+								<rightPen lineColor="#FFFFFF"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" mode="Opaque" x="0" y="0" width="60" height="15" forecolor="#000000" backcolor="#CCCCCC"/>
+								<box>
+									<pen lineColor="#FFFFFF"/>
+									<topPen lineColor="#FFFFFF"/>
+									<leftPen lineColor="#FFFFFF"/>
+									<bottomPen lineColor="#FFFFFF"/>
+									<rightPen lineColor="#FFFFFF"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" size="10" isBold="false"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{MESANO}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="VALORESMeasure" class="java.lang.Float" calculation="Sum">
+					<measureExpression><![CDATA[$F{VALORES}]]></measureExpression>
+				</measure>
+				<crosstabCell width="60" height="20">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+							<topPen lineColor="#FFFFFF"/>
+							<leftPen lineColor="#FFFFFF"/>
+							<bottomPen lineColor="#FFFFFF"/>
+							<rightPen lineColor="#FFFFFF"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="60" height="20"/>
+							<box bottomPadding="0" rightPadding="3">
+								<pen lineColor="#FFFFFF"/>
+								<topPen lineColor="#FFFFFF"/>
+								<leftPen lineColor="#FFFFFF"/>
+								<bottomPen lineColor="#FFFFFF"/>
+								<rightPen lineColor="#FFFFFF"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Arial" size="11"/>
+							</textElement>
+							<textFieldExpression class="java.lang.Float"><![CDATA[$V{VALORESMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="20" rowTotalGroup="NAME">
+					<cellContents backcolor="#FFE6E6" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="20"/>
+							<textElement/>
+							<textFieldExpression class="java.lang.Float"><![CDATA[$V{VALORESMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="MESANO">
+					<cellContents backcolor="#FFE6E6" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="20"/>
+							<textElement/>
+							<textFieldExpression class="java.lang.Float"><![CDATA[$V{VALORESMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="NAME" columnTotalGroup="MESANO">
+					<cellContents backcolor="#FFE6E6" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="20"/>
+							<textElement/>
+							<textFieldExpression class="java.lang.Float"><![CDATA[$V{VALORESMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

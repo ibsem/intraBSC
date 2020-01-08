@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+  <head>
+    <meta name="generator" content="HelpNDoc Freeware Edition">
+    <link rel="StyleSheet" href="toc.css" type="text/css"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.cookie.js"></script>
+    <script type="text/javascript" src="jquery.treeview.min.js"></script>
+    <script type="text/javascript" src="jquery.rich-array-hnd.js"></script>
+    <script type="text/javascript" src="searchdata.js"></script>
+    <script type="text/javascript"><!--
+      $(document).ready(function(){
+        $("#toc").treeview(
+        {collapsed: true}
+        )
+        $("#keywords").treeview({collapsed: true});
+        $(document.body).click(function(e){var $target = $(e.target); if($target.is("a")) return; hidePopup();});
+        $(function(){var tabContainers = $("div.tabs > div");tabContainers.hide().filter(":first").show();$("div.tabs ul.tabNavigation a").click(function(){tabContainers.hide();
+        tabContainers.filter(this.hash).show();$("div.tabs ul.tabNavigation a").removeClass("selected");$(this).addClass("selected");return false;}).filter(":first").click();});
+      });
+      function hidePopup() {if($("#popupMenu")) $("#popupMenu").remove();}
+      function showPopup(oSender,aLinks){hidePopup();if (aLinks==0) return true;var oParentDiv=document.createElement("DIV");oParentDiv.id="popupMenu";var oLink,oBr=null;
+      for (var nCnt=0;nCnt<aLinks.length;nCnt++){oLink=document.createElement("A");oLink.innerHTML=aLinks[nCnt][0];oLink.href=aLinks[nCnt][1];oLink.target="FrameMain";oLink.onclick=hidePopup;
+      oParentDiv.appendChild(oLink);if (nCnt<aLinks.length-1){oBr=document.createElement("BR");oParentDiv.appendChild(oBr);}}document.body.appendChild(oParentDiv);var pos=$(oSender).offset(); 
+      var height=$(oSender).height();$(oParentDiv).css({"backgroundColor": "#EEEEEE","border": "1px solid #999999","position": "absolute","left": (pos.left+20)+"px","top": (pos.top+height+5)+"px",
+      "padding": 5+"px"});$(oParentDiv).show();return false;}
+      function performSearch(){sValue = $("#search_value").val().toLowerCase();var aValues = sValue.split(" ");var aFinalResults = [];for (var nValue = 0; nValue < aValues.length; nValue++){if (aValues[nValue] == "") continue;var aResults = oSearchData[aValues[nValue]];if (aResults && aResults.length > 0){if (nValue == 0) aFinalResults = aResults
+else aFinalResults = jQuery.richArray.intersect(aFinalResults, aResults);}else{aFinalResults = [];break;}}if (aFinalResults.length > 0){$("#search_results").html("Found " + aFinalResults.length + " results");for (var nCnt = 0; nCnt < aFinalResults.length; nCnt++){var oElmt = document.createElement("DIV");oElmt.innerHTML = "<a href='" + aFinalResults[nCnt][0] + "?search=" + sValue + "' target='FrameMain'>" + aFinalResults[nCnt][1] + "</a> (" + aFinalResults[nCnt][2] + ")<br/>";$(oElmt).appendTo($("#search_results"));}}else{$("#search_results").html("No result found");}}
+    //--></script>
+    <style type="text/css">
+      ul.tabNavigation{list-style: none;margin: 0;padding: 10px;}ul.tabNavigation li{display: inline;}ul.tabNavigation li A{padding: 3px 5px;background-color: #ccc;color: #000;
+      text-decoration: none;}ul.tabNavigation li A.selected,ul.tabNavigation li A:hover{background-color: #333;color: #fff;}ul.tabNavigation li A:focus{outline: 0;}
+      </style>
+  </head>
+
+  <body>
+  
+    <div class="tabs">
+      <ul class="tabNavigation">
+        <li><a href="#tab_toc">Contents</a></li>
+        <li><a href="#tab_keywords">Index</a></li>
+        <li><a href="#tab_search">Search</a></li>
+      </ul>
+      <div id="tab_toc">
+        <ul id="toc" class="filetree">
+          
+          <li>
+            <a href="{83CF4304-CD92-424D-B437-CF7B73445A3C}.htm" class="folder" target="FrameMain">Configurar Planejamento</a>
+            <ul>
+              
+              <li>
+                <a href="{92B77C45-AEEA-4716-B88E-AC35078C2E8E}.htm" class="file" target="FrameMain">Incluir Mapa</a>
+              </li>
+              
+              <li>
+                <a href="{4D047105-899F-4FE2-98D5-5001D307E9FD}.htm" class="file" target="FrameMain">Alterar Mapa</a>
+              </li>
+              
+              <li>
+                <a href="{4516631C-A971-4870-ADD1-937233077D79}.htm" class="file" target="FrameMain">Incluir Perspectiva</a>
+              </li>
+              
+              <li>
+                <a href="{C349508D-D0FF-43E7-924E-FE443AA2BD54}.htm" class="file" target="FrameMain">Alterar Perspectiva</a>
+              </li>
+              
+              <li>
+                <a href="{20283684-AB85-4D05-817E-39E417BC0F65}.htm" class="file" target="FrameMain">Incluir Temas</a>
+              </li>
+              
+              <li>
+                <a href="{2FB66A2D-0247-4579-87E9-19D208727C2B}.htm" class="file" target="FrameMain">Alterar Temas</a>
+              </li>
+              
+              <li>
+                <a href="{73640CFD-356A-43B8-82D5-4E3A77F81A47}.htm" class="file" target="FrameMain">Incluir Objetivos</a>
+              </li>
+              
+              <li>
+                <a href="{6DD33855-4CA9-467E-A194-578FACD50A38}.htm" class="file" target="FrameMain">Alterar Objetivos</a>
+              </li>
+              
+              <li>
+                <a href="{7B4690E7-FF90-4DCB-90E2-B3F21D4F34BC}.htm" class="file" target="FrameMain">Incluir ou Alterar Causa Efeito</a>
+              </li>
+              
+              <li>
+                <a href="{31263A5D-31D4-4E77-83F7-CEA19751C6D1}.htm" class="file" target="FrameMain">Incluir Indicadores</a>
+              </li>
+              
+              <li>
+                <a href="{3F80C684-8063-4738-945F-0D72BA7762F6}.htm" class="file" target="FrameMain">Alterar Indicadores</a>
+              </li>
+              
+              <li>
+                <a href="{1BEBC2D6-23A9-4CAC-9088-74FF72B481FC}.htm" class="file" target="FrameMain">Incluir ou Alterar Metas</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="{FA42A504-9D68-4250-969B-C04CC71F7DA8}.htm" class="folder" target="FrameMain">Executar Planejamento</a>
+            <ul>
+              
+              <li>
+                <a href="{1C2E4F6E-DA82-4280-89D7-A0486222694E}.htm" class="file" target="FrameMain">Mapa Estratégico</a>
+              </li>
+              
+              <li>
+                <a href="{FD4BE013-82DD-4DDD-A2BB-6DEC7B78AE18}.htm" class="file" target="FrameMain">Descritivo do Mapa</a>
+              </li>
+              
+              <li>
+                <a href="{DDE4EE63-67F8-4458-9ACC-842CC73BB1EC}.htm" class="file" target="FrameMain">Mapa Gráfico</a>
+              </li>
+              
+              <li>
+                <a href="{CAFD3306-145D-4BA6-A0D9-1F66EA42043D}.htm" class="file" target="FrameMain">Temas</a>
+              </li>
+              
+              <li>
+                <a href="{5F1C5B94-AB12-45D9-800D-168744778241}.htm" class="file" target="FrameMain">Perspectivas</a>
+              </li>
+              
+              <li>
+                <a href="{AF2AC886-8A5E-4230-858D-4C85AF2FCC51}.htm" class="file" target="FrameMain">Objetivos</a>
+              </li>
+              
+              <li>
+                <a href="{D2790083-A968-45CF-952E-47239386083A}.htm" class="file" target="FrameMain">Indicadores</a>
+              </li>
+              
+              <li>
+                <a href="{817FB3EB-EA7C-40F1-8BC9-1A370663AFD3}.htm" class="file" target="FrameMain">Valores do Indicador</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="{8ECF4012-8965-40BC-B1E1-73F12AFF53CD}.htm" class="folder" target="FrameMain">Configurar Definições de Tarefas</a>
+            <ul>
+              
+              <li>
+                <a href="{88BBB4D0-74C0-4C2F-BEF3-7654421E5F86}.htm" class="file" target="FrameMain">Incluir/Alterar Def. Tarefa</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="{6391FBDD-FD6E-4435-B33D-8413C7A3F1DB}.htm" class="folder" target="FrameMain">Executar Tarefas</a>
+            <ul>
+              
+              <li>
+                <a href="{A42B0C96-8462-4D0D-8C47-C6C997B5DC41}.htm" class="file" target="FrameMain">Cronograma</a>
+              </li>
+              
+              <li>
+                <a href="{EFFAF73B-6CF0-44B5-9B5B-E6F3F847C50F}.htm" class="file" target="FrameMain">Plano de Ações</a>
+              </li>
+              
+              <li>
+                <a href="{0016A777-46E7-4C95-8B31-D0D61A3AADBD}.htm" class="file" target="FrameMain">Tarefas por Prazo</a>
+              </li>
+              
+              <li>
+                <a href="{1AF9364E-9D84-488D-A665-AFA5D5070083}.htm" class="file" target="FrameMain">Tarefas por Modelo</a>
+              </li>
+              
+              <li>
+                <a href="{904ADA59-BE2F-4270-B777-97263DA63C58}.htm" class="file" target="FrameMain">Tarefas do Mês</a>
+              </li>
+              
+              <li>
+                <a href="{83E42286-B8FD-40FF-B7E3-2C66F0E98D3C}.htm" class="folder" target="FrameMain">Tarefas</a>
+                <ul>
+                  
+                  <li>
+                    <a href="{8E8260F2-5D6B-4BD8-AB4A-A9996423D89C}.htm" class="file" target="FrameMain">Prazos</a>
+                  </li>
+                  
+                  <li>
+                    <a href="{DEE545D3-075F-4CCD-8414-F9DB7F39DC7E}.htm" class="file" target="FrameMain">Participantes</a>
+                  </li>
+                  
+                  <li>
+                    <a href="{F19AA237-8239-47EC-8456-8C0842F0A6A5}.htm" class="file" target="FrameMain">Anotações </a>
+                  </li>
+                  
+                  <li>
+                    <a href="{5913E949-198B-43B8-854B-19022436B598}.htm" class="file" target="FrameMain">Formulário</a>
+                  </li>
+                  
+                  <li>
+                    <a href="{0E023E42-265D-4A44-87E1-69EFBD304376}.htm" class="file" target="FrameMain">Checklist</a>
+                  </li>
+                  
+                  <li>
+                    <a href="{0701751E-9BEB-4A64-88DF-7C5A5A8EEDBE}.htm" class="file" target="FrameMain">Anexos</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="{695A1A6A-236F-409B-AF64-C84126BEC077}.htm" class="folder" target="FrameMain">Administração</a>
+            <ul>
+              
+              <li>
+                <a href="{0F576B4C-D42B-4522-B918-0EB89FF9C0B0}.htm" class="file" target="FrameMain">Usuários Incluir / Alterar</a>
+              </li>
+              
+              <li>
+                <a href="{1F31F94B-F296-4330-AD87-B9D5709C0D1A}.htm" class="file" target="FrameMain">Unidades</a>
+              </li>
+              
+              <li>
+                <a href="{2AB6DB45-C29B-47F8-8A68-5D13BCF1908A}.htm" class="file" target="FrameMain">Periodicidade</a>
+              </li>
+              
+              <li>
+                <a href="{C2BC00C5-88C9-42C0-91CD-9688F2C0021A}.htm" class="file" target="FrameMain">Tipos de Perspectiva</a>
+              </li>
+            </li>
+        </ul>
+      </div>
+      
+      <div id="tab_keywords">
+        <ul id="keywords" class="filetree">
+        </ul>
+      </div>
+      <div id="tab_search" style="padding:10px">
+        Search: <form onsubmit="performSearch(); return false;"><input id="search_value"></input><input type="submit" value="search"/></form><div id="search_results"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

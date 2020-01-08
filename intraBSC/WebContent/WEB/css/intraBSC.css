@@ -1,0 +1,481 @@
+
+
+
+table.its tr.even {
+	background-color: #FFFFFF;
+
+}
+
+table.its tr.odd {
+  background-color: #ffffff
+}
+
+table.nocol tbody td,table.nocol tbody th{
+	border-left: none;
+	border-right: none;
+
+}
+
+table.its th.sorted a, table.its th.sortable a {
+	background-repeat:no-repeat;
+	background-position: center;
+	display: block;
+	width: 100%;
+	background-color: #CCD0D4;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	text-align : left;
+}
+
+A:link {
+	text-decoration: none;
+	color: #000000;
+	}
+
+A:Visited {
+	text-decoration: none;
+	color:#000000;
+}
+
+A:Hover {
+	color:#0000f0;
+	}
+
+table {  
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px;
+	color: #000000; 
+	}
+
+select { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	background-color: #FFFFFF;
+	}
+textarea {  
+	font-family: Arial, Helvetica, sans-serif; 
+ 	font-size: 12px;
+	color: #000000; 
+	background-color: #FFFFFF;
+	border: 1px #000000 solid; 
+	}
+.menuPreto { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	}
+.menuPreto:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	color: #000000;
+	text-decoration: underline;
+	}
+.botaoPreto { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	}
+.botaoPreto:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	font-weight: bold;
+	color: blue;
+	text-decoration: none;
+	}
+
+
+
+.menuBranco { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	}
+.menuBranco:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: underline;
+	}
+.menuAzulEscuro { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	color: #22407B;
+	text-decoration: none;
+	}
+.menuAzulEscuro:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	color: #22407B;
+	text-decoration: underline;
+	}
+.menuAzulClaro { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	color: #006FA8;
+	text-decoration: none;
+	}
+.menuAzulClaro:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	color: #006FA8;
+	text-decoration: underline;
+	}
+.menuVerdeEscuro { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 13px; 
+	font-weight: bold;
+	color: #186606;
+	text-decoration: none;
+	}
+.menuVerdeEscuro:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 13px; 
+	font-weight: bold;
+	color: #22407B;
+	text-decoration: underline;
+	}
+.txtPreto { 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px; 
+	color: #000000;
+	text-decoration: none;
+	}
+.txtPreto:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #000000;
+	text-decoration: bold;
+	}
+.txtBranco { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #FFFFFF;
+	text-decoration: none;
+	}
+.txtBranco:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #FFFFFF;
+	text-decoration: underline;
+	}
+	
+.titulo2 { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 20px; 
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+	vertical-align: top;
+	}
+.titulo3 { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 16px; 
+	color: #000000;
+	text-decoration: none;
+	font-weight: normal;
+	vertical-align: top;
+	}
+
+
+.texto1 {
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 14px; 
+	color: #000000;
+	text-decoration: none;
+	font-weight: normal;
+	}
+
+.titulo { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 16px; 
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+	}
+.titulo:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 13px; 
+	color: #000000;
+	text-decoration: underline;
+	font-weight: bold;
+	}
+.tituloVerde { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 16px; 
+	color: #186606;
+	text-decoration: none;
+	font-weight: normal;
+	}
+.tituloVerde1 { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 16px; 
+	color: #186606;
+	text-decoration: none;
+	font-weight: bold;
+	}
+.tituloVerde:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 15px; 
+	color: #186606;
+	text-decoration: underline;
+	font-weight: bold;
+	}
+.txtAzulEscuro { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #22407B;
+	text-decoration: none;
+	}
+.txtAzulEscuro:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #22407B;
+	text-decoration: underline;
+	}
+.txtAzulClaro { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px;
+	color: #006FA8;
+	text-decoration: none;
+	}
+.txtAzulClaro:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #006FA8;
+	text-decoration: underline;
+	}
+.txtVerde { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #186606;
+	text-decoration: none;
+	}
+.txtVerde:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #186606;
+	text-decoration: underline;
+	}
+.txtAzul11 { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #22407B;
+	text-decoration: none;
+	}
+.txtAzul11:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #22407B;
+	text-decoration: underline;
+	}
+.txtPreto11 { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #000000;
+	text-decoration: none;
+	}
+.txtPreto11:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #000000;
+	text-decoration: bold;
+	}
+.linkPreto {
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #000000;
+	text-decoration: underline;
+	}
+.linkPreto:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #000000;
+	text-decoration: underline;
+	}
+.linkBranco { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #FFFFFF;
+	text-decoration: underline;
+	}
+.linkBranco:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #FFFFFF;
+	text-decoration: underline;
+	}
+.linkAzulEscuro { 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px; 
+	color: #22407B;
+	text-decoration: underline;
+	}
+.linkAzulEscuro:hover { 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px; 
+	color: #22407B;
+	text-decoration: underline;
+	}
+.linkAzulClaro { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #006FA8;
+	text-decoration: underline;
+	}
+.linkAzulClaro:hover { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #006FA8;
+	text-decoration: underline;
+	}
+.alerta { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 13px; 
+	font-weight: bold;
+	color: #EA0000; 
+	}
+.quebra {
+	page-break-before: always;
+	}
+ button{
+ 	vertical-align: middle;
+ 	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+ }
+.menuBorda { 
+	border: 1px outset #000000 
+	}
+	
+	.dtree{FONT-SIZE:11px; COLOR: #070d5b; FONT-FAMILY: Arial, Helvetica, sans-serif;left:50%;white-space: nowrap;border:thin}
+	.dtree img{border: 0px;vertical-align: middle;}
+	.dtree a{FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-WEIGHT: normal; text-decoration: none;}
+	.dtree a.node, .dtree a.nodeSel{white-space: nowrap;padding: 1px 2px 1px 2px;}
+	.dtree a.node:hover, .dtree a.nodeSel:hover{color: #333;text-decoration: none;}
+	.dtree a.nodeSel{background-color: #c0d2ec;}
+	.dtree .clip{overflow: hidden;}
+	.linkunderline {FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-WEIGHT: normal; text-decoration: underline;}
+	
+#explode {
+	position : absolute;
+	overflow:auto;
+	left : 200px;
+	top : 100px;
+	background :#ffffff;
+	width : 400px;
+	height : 300px;
+	text-align : left;
+	display : none;
+	border-style:ridge;
+	border-width:thick;
+	border-color:silver;
+}
+
+#explodeconfig {
+	position : absolute;
+	overflow:auto;
+	left : 110px;
+	top : 138px;
+	background :#ffffff;
+	width : 76px;
+	height : 52px;
+	text-align : left;
+	display : none;
+	}
+
+#explodeitem {
+	position : absolute;
+	overflow:auto;
+	left : 175px;
+	top : 138px;
+	background :#ffffff;
+	width : 79px;
+	height : 42px;
+	text-align : left;
+	display : none;
+	}
+
+#explodeacao {
+	position : absolute;
+	overflow:auto;
+	left : 210px;
+	top : 138px;
+	background :#ffffff;
+	width : 76px;
+	height : 42px;
+	text-align : left;
+	display : none;
+	}
+
+#explodetema {
+	position : absolute;
+	overflow:auto;
+	left : 110px;
+	top : 138px;
+	background :#ffffff;
+	width : 76px;
+	height : 42px;
+	text-align : left;
+	display : none;
+	}
+
+#explodegrupo {
+	position : absolute;
+	overflow:auto;
+	left : 110px;
+	top : 138px;
+	background :#ffffff;
+	width : 76px;
+	height : 42px;
+	text-align : left;
+	display : none;
+	}
+	
+#explodeusuario {
+	position : absolute;
+	overflow:auto;
+	left : 110px;
+	top : 138px;
+	background :#ffffff;
+	width : 76px;
+	height : 42px;
+	text-align : left;
+	display : none;
+	}
+
+login{
+	width: 50px;
+	left : 200px;
+	height: 1px;
+	top : 100px;
+	padding: 0px;background-color: #FFF;
+    font: 100.01% "Arial,Trebuchet MS",Verdana,sans-serif}
+	h1,h2,p{margin: 0 5px}
+	h1{font-size: 80%;color: #000000}
+	h2{font-size: 200%;color: #f0f0f0}
+	p{padding-bottom:1em}
+	h2{padding-top: 0.3em}
+	div#nifty{ margin: 0 10%;background: #d37a80}
+	b.rtop, b.rbottom{display:block;background: #FFF; align:right;}	
+	b.rtop b, b.rbottom b{display:block;height: 1px;overflow: hidden; background: #d37a80}
+	b.r1{margin: 0 3px}
+	b.r2{margin: 0 2px}
+	b.r3{margin: 0 1px}
+	b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 1px}

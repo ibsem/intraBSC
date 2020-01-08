@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+ 
+<struts-config>
+	 <form-beans>
+    	<form-bean name="configTarefaForm" type="br.com.intraPRO.configTarefa.visao.ConfigTarefaForm"/> 
+        <form-bean name="transicaoForm" type="br.com.intraPRO.transicao.visao.TransicaoForm"/>
+        <form-bean name="processoForm" type="br.com.intraPRO.processo.visao.ProcessoForm"/>
+        <form-bean name="faseForm" type="br.com.intraPRO.fase.visao.FaseForm"/>
+        <form-bean name="atividadeForm" type="br.com.intraPRO.atividade.visao.AtividadeForm"/>
+        <form-bean name="itemForm" type="br.com.intraPRO.item.visao.ItemForm"/>
+        <form-bean name="formularioForm" type="br.com.intraPRO.formulario.visao.FormularioForm"/> 
+        <form-bean name="tarefaForm" type="br.com.intraPRO.tarefa.visao.TarefaForm"/> 
+        <form-bean name="anexoForm" type="br.com.intraPRO.anexo.visao.AnexoForm"/> 
+        <form-bean name="anotacaoTarefaForm" type="br.com.intraPRO.anotacaoTarefa.visao.AnotacaoTarefaForm"/> 
+        <form-bean name="anotacaoTarefaFormIncluir" type="br.com.intraPRO.anotacaoTarefa.visao.AnotacaoTarefaForm"/>
+        <form-bean name="conteudoItemTarefaForm" type="br.com.intraPRO.conteudoItemTarefa.visao.ConteudoItemTarefaForm"/>        
+        <form-bean name="conteudoFormularioTarefaForm" type="br.com.intraPRO.conteudoFormularioTarefa.visao.ConteudoFormularioTarefaForm"/>
+        <form-bean name="participanteForm" type="br.com.intraPRO.participante.visao.ParticipanteForm"/>
+		<form-bean name="tarefaFormConsulta" type="br.com.intraPRO.tarefa.visao.TarefaForm"/> 
+		<form-bean name="anexoMigracaoForm" type="br.com.intraPRO.anexo.visao.AnexoMigracaoForm"/> 
+		<form-bean name="relatorioForm" type="br.com.intraPRO.relatorio.visao.RelatorioForm"/>
+		<form-bean name="participanteConfigTarefaForm" type="br.com.intraPRO.participanteConfigTarefa.visao.ParticipanteConfigTarefaForm"/>		
+		<form-bean name="listaOpcaoItemForm" type="br.com.intraPRO.item.visao.ListaOpcaoItemForm"/>
+		<form-bean name="listaOpcaoFormularioForm" type="br.com.intraPRO.formulario.visao.ListaOpcaoFormularioForm"/>
+	</form-beans>
+
+		 <action-mappings>
+		 
+		 <action path="/folder"
+					type="br.com.intraPRO.relatorio.controle.RelatorioAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="relatorioForm">
+	  		<forward name="sucesso" path="/encaminhaLogon.do"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		 
+			<action path="/imprimir"
+					type="org.apache.struts.actions.ForwardAction"	
+					parameter="/jsp/pro/layout/popupImpressao.jsp"/>
+
+			<action path="/encaminhar/incluir/configTarefa" 
+					type="br.com.intraPRO.configTarefa.controle.ConfigTarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="configTarefaForm">
+	  				<forward name="sucesso" path="pro.configTarefa.incluir"/>
+			</action>
+			
+			<action path="/encaminhar/pesquisar/configTarefa" 
+					type="br.com.intraPRO.configTarefa.controle.ConfigTarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="configTarefaForm">
+	  				<forward name="sucesso" path="pro.configTarefa.consultarVarios"/>
+			</action>
+					
+		<action path="/tarefa/imprimirRelatorio"
+				type="br.com.intraPRO.tarefa.controle.TarefaAction"
+				parameter="op"
+				scope="request"
+				name="tarefaForm"
+				validate="false">
+				<forward name="sucessoMapa" path="pro.visualiza.tiposTarefas.arvore"/>
+		</action>
+<!-- ============================== Processo ===================================== -->
+	<action path="/processo/exportar"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="false">
+			<forward name="sucesso" path="pro.processo.listar.inicial"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+
+		<action path="/processo/tarefa"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="false">
+			<forward name="sucesso" path="/processo/consultar.do?op=consultarUm"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+				
+		<action path="/processo/manutencao"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="true"
+			input="erro">
+			<forward name="sucesso" path="pro.layout.sucesso.configuracao"/>
+			<forward name="erro" path="pro.erro.configuracao"/>
+		</action>
+		
+		<action path="/processo/manutencao"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="true"
+			input="erro">
+			<forward name="sucesso" path="pro.layout.sucesso.configuracao"/>
+			<forward name="erro" path="pro.erro.configuracao"/>
+		</action>
+		
+		
+		
+		<action path="/processo/consultar"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="false">
+			<forward name="sucesso" path="/processo/encaminha/alterar.do"/>
+			<forward name="sucessoArvore" path="pro.encaminha.arvoreConfiguracao"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/processo/abrir"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="false">
+			<forward name="sucessoConsulta" path="pro.encaminha.AbrirProcesso.configuracao"/>
+			<forward name="sucessoArvore" path="pro.encaminha.arvoreConfiguracao"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/processo/relatorioCrossTable"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="false">
+			<forward name="sucesso" path="pro.encaminha.AbrirProcesso.configuracao"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+
+		<action path="/processo/encaminha/abrirArvore"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="pro.encaminha.AbrirProcesso.configuracao"/>
+				
+		<action path="/processo/encaminha/incluir"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="false" >
+			<forward name="sucesso" path="pro.processo.incluir"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+							
+		<action path="/processo/encaminha/alterar"
+				type="org.apache.struts.actions.ForwardAction"	
+				parameter="pro.processo.alterar"/>
+							
+		<action path="/processo/inicial/listar"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="false" >
+			<forward name="sucesso" path="pro.processo.listar.inicial"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/processo/inicial/listarCompleto"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="false" >
+			<forward name="sucesso" path="pro.processo.listar.inicial.completo"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/processo/detalhar"
+			type="br.com.intraPRO.processo.controle.ProcessoAction"
+			parameter="op"
+			scope="request"
+			name="processoForm"
+			validate="false" >
+			<forward name="sucesso" path="pro.processo.detalhar"/>
+			<forward name="applet" path="pro.processoGrafico.detalhar"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+								
+
+<!-- Fim Processo -->
+
+<!-- Fase -->
+
+	   <action path="/fase/tarefa"
+			type="br.com.intraPRO.fase.controle.FaseAction"
+			parameter="op"
+			scope="request"
+			name="faseForm"
+			validate="false">
+			<forward name="sucesso" path="/fase/encaminha.do?op=encaminhaAlterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+	   </action>
+
+	   <action path="/fase/encaminha"
+			type="br.com.intraPRO.fase.controle.FaseAction"
+			parameter="op"
+			scope="request"
+			name="faseForm"
+			validate="false">
+			<forward name="sucessoIncluir" path="pro.encaminha.fase.incluir"/>
+			<forward name="sucessoAlterar" path="pro.encaminha.fase.alterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/fase/manutencao"
+			type="br.com.intraPRO.fase.controle.FaseAction"
+			parameter="op"
+			scope="request"
+			name="faseForm"
+			validate="true"
+			input="erro">
+			<forward name="sucessoIncluir" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucessoAlterar" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+	<action path="/fase/detalhar"
+			type="br.com.intraPRO.fase.controle.FaseAction"
+			parameter="op"
+			scope="request"
+			name="faseForm"
+			validate="false" >
+			<forward name="sucesso" path="pro.fase.detalhar"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+
+
+<!-- fim fase -->
+
+<!-- Atividade -->
+
+		<action path="/atividade/tarefa"
+			type="br.com.intraPRO.atividade.controle.AtividadeAction"
+			parameter="op"
+			scope="request"
+			name="atividadeForm"
+			validate="false">
+			<forward name="sucesso" path="/atividade/encaminha.do?op=encaminharAlterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+	   </action>
+		
+		<action path="/atividade/detalhar"
+			type="br.com.intraPRO.atividade.controle.AtividadeAction"
+			parameter="op"
+			scope="request"
+			name="atividadeForm"
+			validate="false" >
+			<forward name="sucesso" path="pro.atividade.detalhar"/>
+			<forward name="erro" path="bsc.erro"/>
+		</action>
+		
+		<action path="/atividade/encaminha"
+			type="br.com.intraPRO.atividade.controle.AtividadeAction"
+			parameter="op"
+			scope="request"
+			name="atividadeForm"
+			validate="false">
+			<forward name="sucessoIncluir" path="pro.encaminha.atividade.incluir"/>
+			<forward name="sucessoAlterar" path="pro.encaminha.atividade.alterar"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>
+		
+		<action path="/atividade/manutencao"
+			type="br.com.intraPRO.atividade.controle.AtividadeAction"
+			parameter="op"
+			scope="request"
+			name="atividadeForm"
+			validate="true"
+			input="erro">
+			<forward name="sucessoIncluir" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="sucessoAlterar" path="bsc.layout.sucesso.configuracao"/>
+			<forward name="erro" path="bsc.erro.configuracao"/>
+		</action>		
+
+
+<!-- Fim da Atividade -->
+
+<!-- ============================== Transicao ===================================== -->
+		
+		<action path="/transicao/manutencao"
+			type="br.com.intraPRO.transicao.controle.TransicaoAction"
+			parameter="op"
+			scope="session"
+			name="transicaoForm"
+			validate="false">
+			<forward name="sucesso" path="pro.encaminha.transicao.incluir"/>
+			<forward name="erro" path="pro.erro.configuracao"/>
+		</action>
+
+<!-- ============================== fim da Transicao ===================================== -->
+
+
+		 <action path="/configTarefa/incluir" 
+					type="br.com.intraPRO.configTarefa.controle.ConfigTarefaAction" 
+					parameter="op"
+					scope="session"
+					validate="true"
+					name="configTarefaForm">
+	  		<forward name="sucesso" path="/configTarefa/consultarUm.do?op=consultarUm"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		 </action>
+
+<!-- Acoes para alterações em uma Definição de Tarefa -->	
+		 <action path="/configTarefa/consultarUm" 
+			type="br.com.intraPRO.configTarefa.controle.ConfigTarefaAction" 
+			parameter="op"
+			scope="session"
+			name="configTarefaForm"
+			validate="false">
+			<forward name="sucesso" path="pro.configTarefa.alterar"/>		
+			<forward name="erro" path="pro.layout.erro"/>			
+		</action>
+	
+		<action path="/configTarefa/alterar" 
+					type="br.com.intraPRO.configTarefa.controle.ConfigTarefaAction" 
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="configTarefaForm">
+	  		<forward name="sucesso" path="pro.configTarefa.alterar"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+		
+		<action path="/configTarefa/consultarVarios"
+			type="br.com.intraPRO.configTarefa.controle.ConfigTarefaAction" 
+			parameter="op"
+			scope="request"
+			name="configTarefaForm"
+			validate="false">
+			<forward name="sucesso" path="pro.configTarefa.consultarVarios"/>		
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+<!-- Item -->		
+		<action path="/item/encaminhar/incluir" 
+					type="br.com.intraPRO.item.controle.ItemAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="itemForm">
+	  		<forward name="sucesso" path="pro.item.incluir"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+
+		<action path="/item/incluir" 
+					type="br.com.intraPRO.item.controle.ItemAction"
+					parameter="op"
+					scope="request"
+					validate="true"
+					name="itemForm">
+	  		<forward name="sucesso" path="pro.layout.sucesso.popup"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+		
+
+
+
+		<action path="/item/encaminhar/alterar" 
+					type="br.com.intraPRO.item.controle.ItemAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="itemForm">
+	  		<forward name="sucesso" path="pro.item.alterar" />
+			<forward name="erro" path="pro.layout.erro.popup" />
+		</action>
+
+		<action path="/item/alterar" 
+					type="br.com.intraPRO.item.controle.ItemAction"
+					parameter="op"
+					scope="session"					
+					name="itemForm"					
+				    validate="true">
+	  		<forward name="sucesso" path="pro.layout.sucesso.popup"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+
+		<action path="/item/encaminhar/consulta" 
+					type="br.com.intraPRO.item.controle.ItemAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="itemForm">
+	  		<forward name="sucesso" path="pro.item.consultarVarios"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+		<action path="/item/consultarVarios" 
+					type="br.com.intraPRO.item.controle.ItemAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="itemForm">
+	  		<forward name="sucesso" path="pro.item.consultarVarios"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		<!-- Fim das declarações de Item -->	
+
+<!-- ============================= Formulario ============================== -->		
+		<action path="/formulario/encaminhar/incluir" 
+					type="br.com.intraPRO.formulario.controle.FormularioAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="formularioForm">
+	  		<forward name="sucesso" path="pro.formulario.incluir"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+
+		<action path="/formulario/incluir" 
+					type="br.com.intraPRO.formulario.controle.FormularioAction"
+					parameter="op"
+					scope="request"
+					validate="true"
+					name="formularioForm">
+	  		<forward name="sucesso" path="pro.layout.sucesso.popup"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+
+		<action path="/formulario/encaminhar/alterar" 
+					type="br.com.intraPRO.formulario.controle.FormularioAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="formularioForm">
+	  		<forward name="sucesso" path="pro.formulario.alterar" />
+			<forward name="erro" path="pro.layout.erro.popup" />
+		</action>
+
+		<action path="/formulario/alterar" 
+					type="br.com.intraPRO.formulario.controle.FormularioAction"
+					parameter="op"
+					scope="session"					
+					name="formularioForm"					
+				    validate="true">
+	  		<forward name="sucesso" path="pro.layout.sucesso.popup"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+
+		<action path="/formulario/encaminhar/consulta" 
+					type="br.com.intraPRO.formulario.controle.FormularioAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="formularioForm">
+	  		<forward name="sucesso" path="pro.formulario.consultarVarios"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+		<action path="/formulario/consultarVarios" 
+					type="br.com.intraPRO.formulario.controle.FormularioAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="formularioForm">
+	  		<forward name="sucesso" path="pro.formulario.consultarVarios"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		<!-- Fim das declarações de Formulario -->	
+
+
+
+		<!-- Inicio das declarações de tarefa --> 
+
+<!-- AÇÃO PARA INCLUIR TAREFA-->
+
+		<action path="/conteudoItemTarefa/encaminhar/alterar" 
+					type="br.com.intraPRO.conteudoItemTarefa.controle.ConteudoItemTarefaAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="conteudoItemTarefaForm">
+	  		<forward name="sucesso" path="pro.itemTarefa.incluir"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+
+		<action path="/conteudoItemTarefa/alterar" 
+					type="br.com.intraPRO.conteudoItemTarefa.controle.ConteudoItemTarefaAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="conteudoItemTarefaForm">
+	  		<forward name="sucesso" path="pro.tarefa.alterar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+<action path="/conteudoFormularioTarefa/encaminhar/alterar" 
+					type="br.com.intraPRO.conteudoFormularioTarefa.controle.ConteudoFormularioTarefaAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="conteudoFormularioTarefaForm">
+	  		<forward name="sucesso" path="pro.formularioTarefa.incluir"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+
+		<action path="/conteudoFormularioTarefa/alterar" 
+					type="br.com.intraPRO.conteudoFormularioTarefa.controle.ConteudoFormularioTarefaAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="conteudoFormularioTarefaForm">
+	  		<forward name="sucesso" path="pro.tarefa.alterar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+		
+		<action path="/tarefa/encaminhar/incluir" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="tarefaForm">
+	  		<forward name="sucesso" path="pro.tarefa.incluir"/>
+			<forward name="erro" path="pro.layout.erro"/>
+			<forward name="sucessoMapaTarefa" path="pro.tarefa.incluir.mapa"/><!-- Utilizada para incluir Mapa a tarefa -->
+		</action>
+
+		<action path="/tarefa/incluir" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="tarefaForm">
+			<forward name="sucessoCalcularPrazo" path="pro.tarefa.incluir"/>
+	  		<forward name="sucesso" path="pro.tarefa.alterar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+			<forward name="erroExpirou" path="pro.layout.erroExpirou"/>
+		</action>	
+
+		<action path="/tarefa/encaminhar/alterar" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="tarefaForm">
+	  		<forward name="sucesso" path="pro.tarefa.alterar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		<action path="/tarefa/encaminhar/alterarStatus" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="tarefaForm">
+	  		<forward name="sucesso" path="/tarefa/encaminhar/alterar.do?op=encaminharAlterar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+		<action path="/tarefa/alterar" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="true"
+					name="tarefaForm"
+					input="pro.tarefa.alterar">					
+			<forward name="sucesso" path="pro.tarefa.alterar"/>
+			<forward name="sucessoCalcularPrazo" path="pro.tarefa.alterar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>		
+
+		<action path="/tarefa/visualizar" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="tarefaForm">
+	  		<forward name="sucesso" path="pro.tarefa.visualizar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>		
+
+        <action path="/tarefa/criarCopia" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="tarefaForm">
+	  		<forward name="sucesso" path="pro.tarefa.incluir"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		<action path="/tarefa/relatorioGrupoTarefa" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="tarefaForm">
+	  		<forward name="sucesso" path="relatorio.tarefa.grupo"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+
+		<!-- Tarefa criada para guardar os dados do Form de Tarefa -->
+        <action path="/tarefa/encaminha/consultaSolicitante"
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="tarefaFormConsulta">
+	  		<forward name="sucesso" path="/solicitante/encaminhar/consulta.do?op=encaminharConsulta"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+        <action path="/solicitante/encaminhar/consulta" 
+					type="br.com.intraPRO.solicitanteTarefa.controle.SolicitanteAction"
+					parameter="op"
+					scope="request"
+					validate="true"
+					name="solicitanteForm">
+	  		<forward name="sucesso" path="pro.solicitante.consultar"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+
+        <action path="/tarefa/solicitante"
+					type="br.com.intraPRO.solicitanteTarefa.controle.SolicitanteAction"
+					parameter="op"
+					scope="request"
+					validate="true"
+					name="solicitanteForm">
+	  		<forward name="sucessoPesquisaTarefa" path="pro.tarefa.consultarVarios"/>
+	  		<forward name="sucessoIncluiTarefa" path="pro.tarefa.incluir"/>
+	  		<forward name="sucessoAlteraTarefa" path="pro.tarefa.alterar"/>
+			<forward name="sucessoRelatorio" path="pro.pesquisa.visao.resumo"/>
+			<forward name="sucessoVincularAvitidade" path="pro.encaminhar.vincular.tarefa"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+		<!-- Início das declarações de anexos -->
+        <action path="/anexo/encaminhar/incluir"
+					type="br.com.intraPRO.anexo.controle.AnexoAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="anexoForm">
+	  		<forward name="sucesso" path="pro.anexo.incluir"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+	
+		<action path="/anexo/incluir" 
+					type="br.com.intraPRO.anexo.controle.AnexoAction"
+					parameter="op"
+					scope="request"
+					validate="true"
+					name="anexoForm">
+	  		<forward name="sucesso" path="pro.anexo.incluir"/>
+			<forward name="erro" path="pro.anexo.incluir"/>
+		</action>
+
+		<action path="/anexo/download" 
+					type="br.com.intraPRO.anexo.controle.AnexoAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="anexoForm">
+	  		<forward name="sucesso" path="pro.layout.sucesso.popup"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+		<!-- Fim das declarações de anexos -->
+		<!-- Inicio das declaracoes de Pesquisar Tarefa -->
+		<action path="/tarefa/encaminhar/consultar" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="tarefaForm">
+	  		<forward name="sucesso" path="pro.tarefa.consultarVarios"/>
+			<forward name="erro" path="pro.layout.erro"/>			
+		</action>		
+		
+		<action path="/tarefa/consultar" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="request"
+					validate="true"
+					name="tarefaFormConsulta">
+	  		<forward name="sucesso" path="pro.tarefa.consultarVarios"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>		
+		<!-- Fim das declaracoes de Pesquisar Tarefa -->
+
+		<!-- Início das declarações de anotações da tarefa -->
+        <action path="/tarefa/justificar/incluir" 
+					type="br.com.intraPRO.anotacaoTarefa.controle.AnotacaoTarefaAction"
+					parameter="op"
+					scope="request"
+					validate="true"
+					name="anotacaoTarefaForm">
+	  		<forward name="sucesso" path="/anotacao/encaminhar/visualizar.do?op=visualizar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+		
+		<action path="/anotacao/encaminhar/visualizar" 
+					type="br.com.intraPRO.anotacaoTarefa.controle.AnotacaoTarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="anotacaoTarefaFormIncluir">
+	  		<forward name="sucesso" path="pro.anotacao.visualizar"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+		
+		<action path="/anotacao/pesquisar" 
+					type="br.com.intraPRO.anotacaoTarefa.controle.AnotacaoTarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="anotacaoTarefaFormIncluir">
+	  		<forward name="sucesso" path="pro.anotacao.visualizar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		<action path="/anotacao/encaminhar/incluir" 
+					type="br.com.intraPRO.anotacaoTarefa.controle.AnotacaoTarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="anotacaoTarefaFormIncluir">
+	  		<forward name="sucesso" path="pro.anotacao.incluir"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		<action path="/anotacao/incluir" 
+					type="br.com.intraPRO.anotacaoTarefa.controle.AnotacaoTarefaAction"
+					parameter="op"
+					scope="session"
+					validate="true"
+					name="anotacaoTarefaFormIncluir">
+	  		<forward name="sucesso" path="/anotacao/encaminhar/incluir.do?op=encaminharInclusao"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+	  <!-- Fim das declarações de anexos histórico da tarefa -->
+		
+	  
+	  
+	   <!-- Inicio das declarações da tarefa Participante -->
+	  	<action path="/participante/encaminhar/pesquisa" 
+					type="br.com.intraPRO.participante.controle.ParticipanteAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="participanteForm">
+	  		<forward name="sucesso" path="pro.executante.pesquisa"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+		
+		<action path="/executante/excluir" 
+					type="br.com.intraPRO.participante.controle.ParticipanteAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="participanteForm">
+	  		<forward name="sucesso" path="/tarefa/encaminhar/alterar.do?op=encaminharAlterar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+		
+		
+	  	<action path="/executante/incluir"
+					type="br.com.intraPRO.participante.controle.ParticipanteAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="participanteForm">
+	  		<!--<forward name="sucesso" path="/tarefa/encaminhar/alterar.do?op=encaminharAlterar"/>-->
+			<forward name="sucesso" path="/participante/encaminhar/pesquisa.do"/>
+			<forward name="sucessoLimpar" path="/tarefa/encaminhar/alterar.do?op=encaminharAlterar"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+	  
+	  <!-- Fim das declarações da tarefa Participante -->
+	  
+	  <!-- Inicio das declarações de acompanhar tarefa -->
+	  <!--	NAO ESTA SENDO UTILIZADO<action path="/acompanhamentoTarefa/encaminhar/pesquisar" 
+					type="br.com.intraPRO.participante.controle.ParticipanteAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="participanteForm">
+	  		<forward name="sucesso" path="pro.acompanhamento.pesquisar"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>-->
+		
+		<!--	NAO ESTA SENDO UTILIZADO<action path="/acompanhamentoTarefa/incluir"
+					type="br.com.intraPRO.participante.controle.ParticipanteAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="participanteForm">
+	  		<forward name="sucesso" path="pro.layout.sucesso.popup"/>
+	  		<forward name="sucessoLimpar" path="/tarefa/encaminhar/alterar.do?op=encaminharAlterar"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>-->
+
+
+		<!--	NAO ESTA SENDO UTILIZADO<action path="/visualizar/tiposTarefa"
+				type="br.com.intraPRO.tarefa.controle.TarefaAction"
+				parameter="op"
+				scope="request"
+				validate="false"
+				name="tarefaForm">
+	  		<forward name="sucesso" path="pro.visualiza.tiposTarefas"/>
+	  		<forward name="sucessoListaTarefa" path="pro.visualiza.listaTarefas"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>-->
+		
+		<action path="/visualizar/configTarefa/arvore"
+				type="br.com.intraPRO.tarefa.controle.TarefaAction"
+				parameter="op"
+				scope="request"
+				validate="false"
+				name="tarefaForm">
+	  		<forward name="sucesso" path="pro.visualiza.tiposTarefas.arvore"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+	
+	
+	<!-- Acoes de Participante de definição da tarefa -->
+		<!-- Execucao definição da tarefa -->
+		<action path="/executanteConfigTarefa/encaminhar/consulta"
+				type="br.com.intraPRO.configTarefa.controle.ConfigTarefaAction"
+				parameter="op"
+				scope="request"
+				validate="false"
+				name="configTarefaForm">
+	  		<forward name="sucesso" path="/executanteConfigTarefa/consultar.do?op=encaminharConsulta"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+		
+		<action path="/executanteConfigTarefa/consultar"
+				type="br.com.intraPRO.participanteConfigTarefa.controle.ParticipanteConfigTarefaAction"
+				parameter="op"
+				scope="request"
+				validate="false"
+				name="participanteConfigTarefaForm">
+	  		<forward name="sucesso" path="pro.visualiza.participanteExecutanteConfigTarefas"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+		
+		<action path="/executanteConfigTarefa/incluir"
+				type="br.com.intraPRO.participanteConfigTarefa.controle.ParticipanteConfigTarefaAction"
+				parameter="op"
+				scope="request"
+				validate="false"
+				name="participanteConfigTarefaForm">
+	  		<forward name="sucesso" path="/executanteConfigTarefa/encaminhar/consulta.do?op=encaminharConsultaParticipante"/>
+	  		<forward name="sucessoLimpar" path="/configTarefa/consultarUm.do?op=consultarUm"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>
+		
+		<!-- Acompanhamento Modelo de Processo -->
+		<!-- NAO ESTA SENDO UTILIZADO<action path="/acompanhamentoConfigTarefa/encaminhar/consulta"
+				type="br.com.intraPRO.configTarefa.controle.ConfigTarefaAction"
+				parameter="op"
+				scope="request"
+				validate="false"
+				name="configTarefaForm">
+	  		<forward name="sucesso" path="/acompanhamentoConfigTarefa/consultar.do?op=encaminharConsulta"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action> -->
+		
+		<!-- NAO ESTA SENDO UTILIZADO<action path="/acompanhamentoConfigTarefa/consultar"
+				type="br.com.intraPRO.participanteConfigTarefa.controle.ParticipanteConfigTarefaAction"
+				parameter="op"
+				scope="request"
+				validate="false"
+				name="participanteConfigTarefaForm">
+	  		<forward name="sucesso" path="pro.visualiza.participanteAcompanhamentoConfigTarefas"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>-->
+		
+		<!-- NAO ESTA SENDO UTILIZADO<action path="/acompanhamentoConfigTarefa/incluir"
+				type="br.com.intraPRO.participanteConfigTarefa.controle.ParticipanteConfigTarefaAction"
+				parameter="op"
+				scope="request"
+				validate="false"
+				name="participanteConfigTarefaForm">
+	  		<forward name="sucesso" path="pro.layout.sucesso.popup"/>
+	  		<forward name="sucessoLimpar" path="/configTarefa/consultarUm.do?op=consultarUm"/>
+			<forward name="erro" path="pro.layout.erro.popup"/>
+		</action>-->
+
+	
+	<!-- Lista de Opções de Item -->
+		<action path="/listaOpcao/item" 
+					type="br.com.intraPRO.item.controle.ItemAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="itemForm">
+	  			<forward name="sucesso" path="/item/encaminhar/alterar.do?op=encaminharAlterar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+		<action path="/listaOpcao/formulario" 
+					type="br.com.intraPRO.formulario.controle.FormularioAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="formularioForm">
+	  			<forward name="sucesso" path="/formulario/encaminhar/alterar.do?op=encaminharAlterar"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>
+
+	
+		<!-- NAO ESTA SENDO UTILIZADO<action path="/tarefa/vincular/encaminhar"
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="tarefaForm">
+	  			<forward name="sucesso" path="pro.encaminhar.vincular.tarefa"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>-->
+
+		<!-- NAO ESTA SENDO UTILIZADO<action path="/tarefa/consultarSolicitanteChaveVincular" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="request"
+					validate="false"
+					name="tarefaForm">
+	  		<forward name="sucesso" path="pro.encaminhar.vincular.tarefa"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>-->
+		
+		<!-- NAO ESTA SENDO UTILIZADO<action path="/tarefa/calcularDataPrazoVincular" 
+					type="br.com.intraPRO.tarefa.controle.TarefaAction"
+					parameter="op"
+					scope="session"
+					validate="false"
+					name="tarefaForm">
+	  		<forward name="incluirTarefaVincular" path="pro.encaminhar.vincular.tarefa"/>
+			<forward name="erro" path="pro.layout.erro"/>
+		</action>-->
+
+	 </action-mappings>
+	 
+</struts-config>

@@ -1,0 +1,775 @@
+# -- standard errors --
+#errors.header=<UL>
+#errors.prefix=<LI>
+#errors.suffix=</LI>
+#errors.footer=</UL>
+# -- validator --
+errors.validaDiasNegativos={0} it only must contain positive values
+errors.invalid={0} invalid
+errors.maxlength={0} it cannot have a character more than.
+errors.minlength={0} it cannot have less than two character.
+errors.range={0} it must be in the interval of one and two.
+errors.required={0} obligator field.
+errors.byte={0} it must be byte.
+errors.date={0} it must have format {2}.
+errors.double={0} it must be  a decimal number.
+errors.float={0} it must be a decimal number.
+errors.integer={0} it must be a whole number.
+errors.long={0} long must be a number.
+errors.short={0} short must be a number.
+errors.creditcard={0} it is a number of invalid card.
+errors.email={0} it is an address of invalid email .
+errors.date.fields=the interval between the two dates of beginning and end must be of in the maximum three days.
+errors.cancel=Operation cancelled.
+errors.detail={0}
+errors.general=The process did not complete. Details should follow.
+errors.token=Request could not be completed. Operation is not in sequence.
+errors.anexo.tamanhoMaximoArquivo={0} it must not have more than {2} MB.
+errors.exception.transacaoBatch = the processing of the transaction batch cannot be completed.<br>{0}
+errors.exception.transacaoOnline = the processing of the solicitation cannot be completed.<br>{0}
+errors.exception = the processing of the solicitation cannot be completed.<br>{0}
+errors.valorInvalido = Invalid value.
+pro.mensagem.autorizacao=this user possue authorization not tho carry through this operation.
+pro.mensagem.expirou=Time expired of user system, <br></br>contact system administrator.
+# -- welcome --
+welcome.title=Struts Blank Application
+welcome.heading=Welcome!
+welcome.message=To get started on your own application, copy the struts-blank.war to a new WAR file using the name for your application. Place it in your container's "webapp" folder (or equivalent), and let your container auto-deploy the application. Edit the skeleton configuration files as needed, restart your container, and you are on your way! (You can find the application.properties file with this message in the /WEB-INF/src/java/resources folder.)
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#===BOTAO===
+bsc.botao.login=Login
+bsc.botao.senha=Password
+bsc.botao.salvar=Save
+bsc.botao.consultar=Search
+bsc.botao.excluir=Delete
+bsc.botao.incluir=Insert
+bsc.botao.causaEfeito=Cause/Effect
+bsc.botao.tarefa=Task
+bsc.botao.incluirTarefa=Insert task
+bsc.botao.meta=Goal
+bsc.botao.recurso=Resource
+bsc.botao.voltar=Back
+bsc.botao.ok=Ok
+bsc.botao.alterar=Modify
+bsc.botao.alterarSenha=Change password
+bsc.botao.alterarLogin=Change login
+bsc.botao.relatorioAcoes=Actions Plan
+bsc.botao.relatorioCrossTable=Description Map
+bsc.botao.relatorioGrafico=Graphic Map
+
+#===CAMPOS===
+bsc.campo.vincular=Tie
+bsc.campo.id=Id
+bsc.campo.login=Login
+bsc.campo.senha=password
+bsc.campo.senhaAtual=Actual Password
+bsc.campo.nome=Name
+bsc.campo.confirmaSenha= Confirm password
+bsc.campo.email=E-Mail
+bsc.campo.telefone=Phone
+bsc.campo.IntraBSC=IntraBSC
+bsc.campo.codigo=Code
+bsc.campo.descricao=Description
+bsc.campo.indicador=Meausure
+bsc.campo.linha=Line
+bsc.campo.limiteSuperior=Up limit
+bsc.campo.limiteInferior=Down limit
+bsc.campo.responsavel=Responsible
+bsc.campo.ativo=Active
+bsc.campo.inversaoLimite=Inversion limits
+bsc.label.sim=Yes
+bsc.label.nao=No
+bsc.campo.numeroOrdem=Order
+bsc.campo.tipoPerspectiva=Perspective Type
+bsc.campo.tema=Theme
+bsc.campo.perspectiva=Perspective
+bsc.campo.objetivo=Objective
+bsc.campo.causa=Cause
+bsc.campo.efeito=Effect
+bsc.campo.interacao=Interaction
+bsc.campo.intensidade=Intensity
+bsc.campo.valor=Value
+bsc.campo.unidade=Unit
+bsc.campo.periodicidade=Periodicity
+bsc.campo.ultimoValor=Last Value
+bsc.campo.ultimaData=Last Date
+bsc.campo.dataInicial=Begin Date
+bsc.campo.dataFinal=End Date
+bsc.campo.data=Date
+bsc.campo.datacontrato=Contract Date
+bsc.campo.formatoData=DD/MM/YYYY
+bsc.campo.perfil=Profile
+bsc.label.data=Date
+bsc.label.valor=Value
+bsc.label.vigente=Vigency
+bsc.label.tipo=Type
+bsc.label.ordem=Order
+bsc.label.fone=Phone
+bsc.label.descricao=Description
+bsc.label.ativo=Active
+bsc.label.codigo=Code
+bsc.label.nome=Name
+bsc.label.grupo=Group
+bsc.label.perfil=Profile
+bsc.label.login=Login
+bsc.label.metas=Goals
+bsc.label.acoes=My Actions
+bsc.label.planejamento= My Plan
+bsc.label.entrelogin=Submit Login:
+bsc.label.menosdois=-two
+bsc.label.menosum=-one
+bsc.label.zero=zero
+bsc.label.um=one
+bsc.label.dois=two
+bsc.label.manutencaoValores=Maintenance of values
+bsc.label.valoresindicador=Measure values
+bsc.label.mapas=Maps
+bsc.label.mapa=Map
+bsc.label.perspectiva=Perspective
+bsc.label.objetivo=Objective
+bsc.label.indicador=Measure
+bsc.label.indicadores=Measures
+bsc.label.mapav=Map tie
+bsc.label.perspectivav=Perspective tie
+bsc.label.objetivov=Objective tie
+bsc.label.indicadorv=Measure tie
+bsc.label.home=Home
+bsc.label.sair=Quit
+bsc.label.abrir=Open
+bsc.label.unidade=Unit
+bsc.label.periodicidade=Periodicity
+bsc.label.configmapa=Map definitions
+bsc.label.indicadores=Measures
+bsc.label.pesquisarmapa=Search Map Definitions
+bsc.label.incluirmapaestrategico=Insert Strategic Map
+bsc.label.alterarmapaestrategico=Modify Strategic Map
+bsc.label.incluirperspectiva=Insert Perspective
+bsc.label.alterarperspectiva=Modify Perspective
+bsc.label.incluirobjetivo=Insert Objective
+bsc.label.alterarobjetivo=Modify Objective
+bsc.label.incluirindicador=Insert Measure
+bsc.label.alterarindicador=Modify Measure
+bsc.label.incluirtema=Insert Theme
+bsc.label.alterartema=Modify Theme
+bsc.label.pesquisartema=Search Theme
+bsc.label.alterarmeta=Modify Goal
+bsc.label.incluirmeta=Insert Goal
+bsc.label.pesquisarmeta=Search Goal
+bsc.label.incluircausaefeito=Insert Cause Effect
+bsc.label.incluirunidade=Insert Unit
+bsc.label.alterarunidade=Modify Unit
+bsc.label.pesquisarunidade=Search Unit
+bsc.label.incluirperiodicidade=Insert Periodicity
+bsc.label.alterarperiodicidade=Modify Periodicity
+bsc.label.pesquisarperiodicidade=Search Periodicity
+bsc.label.incluirtipoperspectiva=Insert Perspective Type
+bsc.label.alterartipoperspectiva=Modify Perspective Type
+bsc.label.pesquisartipoperspectiva=Search Perspective Type
+bsc.option.positivo=Positive
+bsc.option.negativo=Negative
+bsc.option.fraco=Weak
+bsc.option.forte=Strong
+bsc.option.medio=Medium
+bsc.option.perfil.administrador=Administrator
+bsc.option.perfil.funcionario=Employee
+bsc.option.perfil.gerente.geral=Administrator Manager
+bsc.option.perfil.gerente.planejamento=Plan Manager
+bsc.option.perfil.gerente.processo=Process Manager
+bsc.option.perfil.funcionario.planejamento=Plan Employ
+bsc.option.perfil.funcionario.processo=Process Employ
+bsc.campo.tarefasVinculadas=Tasks tie
+bsc.report.meusindicadores=My Measures
+bsc.report.valor=VALUE
+bsc.report.unidade=UNIT
+bsc.report.ultimadata=LAST DATE
+bsc.report.mapa=MAP
+bsc.report.perspectiva=PERSPECTIVE
+bsc.report.objetivo=OBJECTIVE
+bsc.report.objetivos=Objectives
+bsc.report.indicador=MEASURE
+bsc.report.desvio=SHUT.LINE
+bsc.report.tarefa=TASK
+bsc.report.meta=GOAL
+bsc.report.desempenho=Performance
+bsc.report.tarefas=Tasks
+bsc.report.numero=NUMBER
+bsc.report.numero=NAME
+bsc.report.prazo=DEADLINE
+bsc.report.estado=STATUS
+bsc.report.criticidade=CRITICITY
+bsc.report.descricao=DESCRIPTION
+bsc.report.tema=THEME
+bsc.report.responsavel=RESPONSIBLE
+bsc.report.periodicidade=PERIODICITY
+bsc.report.limiteinferior=LIM DOWN 
+bsc.report.limitesuperior=LIM UP
+bsc.report.acao=ACTION
+bsc.report.tarefasvinculadaspontos=Tasks Tie...
+bsc.report.temefeito=Have Effect over the Objectives...
+bsc.report.objetivosvinculados=Objectives Tie...
+bsc.report.mensuradoindicadores=Measures...
+bsc.report.descritivo=Map Descritive
+#==MENSAGEM==
+bsc.mensagem.autorizacao=not authorized user to carry through this operation.
+bsc.mensagem.sucesso=Successfully carried through operation.
+
+#===ERRO===
+bsc.erro.login.errado=Login or password invalid.
+bsc.erro.login=Login occurred an error when effecting: {0}
+bsc.erro.incluir.usuario=An error in the inclusion of the user occurred. {0}
+bsc.erro.alterar.usuario=An error in the alteration of the user occurred. {0}
+bsc.erro.excluir.usuario=An error in the exclusion of the user occurred. {0}
+bsc.erro.consultar.usuario=An error in the consultation of the user occurred. {0}
+bsc.erro=An error in this operation occurred: {0}
+
+#==SUCESSO INCLUSAO==
+bsc.sucesso.inclusao.usuario=Success enclosed user.
+
+#==SUCESSO EXCLUSAO==
+bsc.sucesso.exclusao.usuario=Success exclused user.
+
+#==SUCESSO ALTERACAO==
+bsc.sucesso.alteracao.usuario=Success modified user.
+
+#==ALERTA==
+bsc.jaExiste.inclusao.usuario=User already registered in cadastre with this login.
+bsc.naoExiste.usuario=No data were found.
+
+#==MAPA ESTRATEGICO==
+bsc.mapaEstrategico.vazio=no registered in cadastre strategical map for this user .
+bsc.erro.consultar.mapaEstrategico=the report of the strategical map occurred an error when detailing: {0}
+bsc.erro.mapaEstrategico=an error occurred to {0} a strategical map: {1}
+
+
+#==PERSPECTIVA==
+bsc.erro.consultar.perspectiva=an error in the perspective research occurred: {0}
+bsc.erro.consultar.relatorio.perspectiva=the report of the perspective occurred an error when detailing:{0}
+bsc.erro.erspectiva=an error occurred to {0} a perspective: {1}
+
+#==OBJETIVO==
+bsc.erro.consultar.objetivo=an error in the objective research occurred: {0}
+bsc.erro.consultar.relatorio.objetivo=The report of the objective occurred an error when detailing:{0}
+bsc.erro.objetivo=An error occurred to{0} a objective: {1}
+
+#==INDICADOR==
+bsc.erro.consultar.indicador=An error in the measure research occurred: {0}
+bsc.erro.consultar.relatorio.indicador=The report of the measure occurred an error when detailing:{0}
+bsc.erro.indicador=An error occured {0} a measure: {1}
+
+#==TEMA==
+bsc.erro.consultar.tema=An error in the research of the subject occurred: {0}
+bsc.erro.tema=An error occured {0} a subjective: {1}
+bsc.erro.consultar.relatorio.tema = Subject report occurred an error when detailing: {0}
+bsc.lista.vazia.tema=Not found theme for this user.
+
+#==Recurso==
+bsc.erro.recurso=An error occured {0} a resourse: {1}
+
+#==Meta==
+bsc.erro.meta=An error occured{0} a goal: {1}
+
+#==SUCESSO GERAL==
+bsc.sucesso=Success carried through operation.
+
+
+
+
+
+#==********************************************PRO************************
+#================================================| MENSAGENS PADRAO - GENERICO |=======================
+#----------| VALIDACAO |-------------------------------------------------------------------------------
+errors.validaDiasNegativos={0} it only must contain positive values.
+errors.invalid={0} invalid.
+errors.maxlength={0} it cannot have {1} more than characters.
+errors.minlength={0} it cannot have less than {2} characters.
+errors.range={0} it must be in the interval of {1} and {2}.
+errors.required={0} Obligator field.
+errors.byte={0} it must be byte.
+errors.date={0} it must have the format {2}.
+errors.double={0}it must be a decimal number.
+errors.float={0} it must be a decimal number.
+errors.integer={0} it must be a whole number.
+errors.long={0} it must be a long number.
+errors.short={0} it must be a short number.
+errors.creditcard={0}it is a number of invalid card.
+errors.email={0} it is an address of invalid.
+errors.date.fields=The interval between the two dates of beginning and end must be of in the maximum {3} days.
+errors.cancel=Operation cancelled.
+errors.detail={0}
+errors.general=The process did not complete. Details should follow.
+errors.token=Request could not be completed. Operation is not in sequence.
+errors.anexo.tamanhoMaximoArquivo={0} it cannot have {2} MB more than.
+errors.autorizacao = you do not have access for this page.
+errors.anexo.extensaoArquivo={0} it cannot have extension: {3}.
+errors.exception = The processing of the solicitation cannot be completed.<br>{0}
+pro.anexo.erro.anexo.tamanho.invalido=Invalid size: {0}
+pro.anexo.erro.anexo.selecione.arquivo=Error excluding archive: {0}
+pro.anexo.erro.anexo.download=Error making download .: {0}
+pro.anexo.lista.exluir.required=It selects the annex that will be deleted.
+pro.errorValidacao.espacosBrancos=Name cannot initiate with spaces blank.
+pro.errorValidacao.caracteresInvalido=Use of invalid character.
+pro.errorValidacao.numDiasPrevistos=Number of foreseen days must contain only numbers.
+pro.errorValidacao.minNumDiasPrevistos=It must have the the least one day for the field number of foreseen days.
+pro.erroValidacao.quantDiasExec=Field Amount of Days for Execution must contain only numbers.
+pro.erroValidacao.codigoConfigTarefa=It selects the Flow of Work.
+pro.erroValidacao.numDiasPrevistos=Number of foreseen days.
+pro.campoObrigatorio= * Obligator field
+pro.msg.listaTarefaVazia=No task under its responsibility.
+pro.erro.paginaExpirou=“This Page Died.”
+pro.erro.login.errado=Invalid Login or password.
+pro.erro.login=Login occurred an error when effecting: {0}
+pro.erro.incluir.usuario=Error ocurred in the enclosed user.
+pro.erro.alterar.usuario=Error ocurred in the modified user.
+pro.erro.excluir.usuario=Error ocurred in the exclused user.
+pro.erro.consultar.usuario=Error ocurred in the searched user.
+pro.sucesso.inclusao.usuario=Success enclosed user.
+pro.sucesso.exclusao.usuario=Success exclused user.
+pro.sucesso.alteracao.usuario=Success modified user.
+pro.sucesso.vinculacao =Success entailed user.
+pro.jaExiste.inclusao.usuario=User already registered in cadastre with this login.
+pro.naoExiste.usuario=No data were found.
+
+
+#------------------------------------------------| FORMATACAO DATA E HORA - GENERICO |-------------
+org.apache.struts.taglib.bean.format.date=dd/MM/yyyy
+org.apache.struts.taglib.bean.format.sql.date=dd/MM/yyyy
+org.apache.struts.taglib.bean.format.sql.timestamp=dd/MM/yyyy HH:mm:ss
+
+
+#----------|FIM VALIDACAO |----------------------------------------------------------------------------
+
+# ------------| Label IntraPRO|-----------------------
+
+pro.campo.IntraPRO = IntraPRO
+pro.botao.login=Login
+pro.campo.login=Login
+pro.erro.login.errado=Login or Password invalid.
+pro.erro.login=Login occurred an error when effecting: {0}
+pro.jaExiste.inclusao.usuario=User already registered in cadastre with this login.
+pro.botao.senha = Password
+
+#----------| BOTOES |----------------------------------------------------------------------------------
+pro.botao.ok 		= Ok
+pro.botao.avancar 	= Next
+pro.botao.adicionar = Add
+pro.botao.add = Add
+pro.botao.adicionar.formulario = Add itens to Checklist
+pro.botao.incluir	= Insert
+pro.botao.excluir	= Delete
+pro.botao.excluirItem = Delete Item
+pro.botao.enviar 	= Send
+pro.botao.enviarEmail 	= Send E-mail
+pro.botao.fechar 	= Close
+pro.botao.voltar	= Back
+pro.botao.listar 	= List
+pro.botao.limpar 	= Delete all
+pro.botao.anexar 	= Attach
+pro.botao.imprimir 	= Print
+pro.botao.pdf 	    = PDF/Print
+pro.botao.cancelar	= Cancel
+pro.botao.download 	= Download
+pro.botao.pesquisar = Search
+pro.botao.atualizar = Modify
+pro.botao.consultar = Look
+pro.botao.salvar 	= Save
+pro.botao.concluir 	= Finish
+pro.botao.alterar 	= Modify
+pro.botao.anotacao = Annotations
+pro.botao.vincular  = Insert
+pro.botao.anexo 	= Attach
+pro.botao.adicionar = Add
+pro.botao.incluiranotacao = Insert Annotations
+pro.botao.item	= Itens
+pro.botao.gerarRelatorio= Run Report
+pro.botao.adicionarExcluir= Attach Files
+
+#----------| FIM BOTOES |------------------------------------------------------------------------------
+
+#----------| SUCESSO |---------------------------------------------------------------------------------
+pro.mensagem.sucesso.incluir = Success inclused Register!
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+
+#----------| LABELS |----------------------------------------------------------------------------------
+pro.label.ator = Actor
+pro.label.alterarexecucaotarefa = Modify Task
+pro.label.incluirexecucaotarefa = Insert Task
+pro.label.listatarefasemexecucao = Tasks run
+pro.label.tarefasporgrupo = Tasks
+pro.label.option.selecionar=Select
+pro.label.option.sim=Yes
+pro.label.option.nao=No
+pro.label.optionValueSim=Y
+pro.label.optionValueNao=N
+pro.label.aviso=Warning
+pro.label.nome=Name
+pro.label.incluirdefinicaotarefa= Insert Task Definitions
+pro.label.alterardefinicaotarefa= Modify Task Definitions
+pro.label.pesquisardefinicaotarefa= Search Task Definitions
+pro.label.caracteresdisponiveis= Caracther remaining.
+pro.label.conteudo=Content
+pro.label.item=Item
+pro.label.sinal=Signal
+pro.label.listartarefas = List Tasks
+pro.label.pesquisartarefas = Search Tasks
+pro.label.escolherfiltros = Choose filters
+pro.label.execucao= Participants
+pro.label.dentrodoprazo = In deadline
+pro.label.menosde50doprazo = Lass 50% of deadline
+pro.label.comprazovencido = Out of deadline
+pro.label.nomeItem=Inform the name of the field,
+pro.label.configTarefa=Task definitions
+pro.label.numeroInformacao=Order
+pro.label.nomeCampoItem= Item
+pro.label.nomeCampoInformacao= Item
+pro.label.numDiasPrevistos=Time estimated
+pro.label.sucesso=Success
+pro.label.vigente= Valid
+pro.label.critico=Critique
+pro.label.diasPrevistos=Time estimated
+pro.label.diasPrevistosTotal=Time estimeted
+pro.label.codigo=Code
+pro.label.configTarefa=Workflow
+pro.label.preRequisito= Before Requirements
+pro.label.quantidadeDiasExecucao=days amount of execution
+pro.label.codigoConfigTarefa=Select Workflow,
+pro.label.medio=Middle
+pro.label.alta=High
+pro.label.baixa=Low
+pro.label.tarefa.solicitadapor = Sended by:
+pro.label.tarefa.alteradapor = Modified by:
+pro.label.tarefa=Task
+pro.label.tarefa.naoIniciada=Criated
+pro.label.tarefa.iniciada=Began
+pro.label.tarefa.validar=Ended
+pro.label.tarefa.cancelada=Canceled
+pro.label.tarefa.validada=Checked
+pro.label.naoIniciada=Cri
+pro.label.iniciada=Beg
+pro.label.validar=Che
+pro.label.periodo=Period
+pro.label.relativoA=relatived of
+pro.label.resultadopesquisa=Serch resulted
+pro.label.a=the
+pro.label.anotacao=Annotations
+pro.label.estado=Status
+pro.label.resumo=Summary
+pro.lavel.anotacao.pesquisar=Search Task Annotations
+pro.label.tipoAnotacao=Type Annotations
+pro.label.chaveResponsavel=Id Actor
+pro.label.responsavel=Responsible
+pro.label.chaveSolicitante=Id Actor Client
+pro.label.exibirUltimoAnotacao=To show last Annotation
+pro.label.exibirAvisoAnexo=To show Attach Notice
+pro.label.exibirNoResultado=To show
+pro.label.anexo.tamanho.arquivo=Max Size by attach: 10Mb
+pro.label.anexo.tamanho = Size
+pro.label.anexo.incluidopor = Inserted by
+pro.label.anexo.datainclusao = Inclused date
+pro.label.item=Item
+pro.label.nomeInicialTarefa= Sugestion Begin Name (optional)
+pro.label.solicitacaoInicialTarefa=Sugestion Begin Description (optional)
+pro.label.estaInicialTarefa=Status Begin
+pro.label.criticidadeInicialTarefa=Priority Begin
+pro.label.Texto=Text
+pro.label.numero=Number
+pro.label.data=Date
+pro.label.combo=Combo
+pro.label.Tipo=Type
+pro.label.listaafazer=Checklist
+pro.label.dataConclusao=End Date
+pro.label.URL=URL
+pro.label.servico=Service
+pro.label.numeroOrdem=Order number
+pro.label.tamanho=Size
+pro.label.datainclusao=Ins Date
+pro.texto.pesquisa.usuario=Actor tie Task
+pro.texto.pesquisa.detalha.usuario=Search detail:
+pro.texto.necessario:(if necessary):
+
+# --- Label do Relatorio ---
+pro.relatorio.solicitante=Client
+pro.relatorio.participante=Actor
+pro.relatorio.nomeSolicitante=Client Name
+pro.relatorio.nomeParticipante=Actor Name
+
+#----------| FIM LABELS |------------------------------------------------------------------------------
+
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.incluir.jaCadastrado=Object almost registered.
+pro.erro.nenhumDadoEncontrado = Not any Content encountered.
+pro.erro.usuarioNaoEncontrado=Not any User encountered.
+#----------| FIM ERRO |------------------------------------------------------------------------
+#================================================| FIM MENSAGENS PADRAO |==============================
+
+
+#================================================| Tarefa |=============================
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.configTarefa.listaVaiza=Not any Task encountered.
+pro.configTarefa.alterar.sucesso=Succes modified task.
+pro.erro.configTarefa.incluir = Not any Item encountered.
+pro.erro.configTarefa.pesquisar=Ocurred error in the Search Task:{0}
+pro.sucesso.configTarefa.incluir=Success Task inserted.
+pro.erro.configTarefa.nome.obrigatorio=Name not content spaces in the begin.
+pro.erro.configTarefa.incluir=Ocurred error in the Insert Task: {0}
+pro.erro.configTarefa.alterar=Ocurred error in the Modify Task: {0}
+pro.erro.configTarefa.encaminharConsulta=Ocurred error in the Select: {0}
+pro.erro.configTarefa.encaminharInclusao=Ocurred error in the Insert: {0}
+pro.erro.configTarefa.campoNumericoDiasPrevistos=Number of days its required. Minimun value:1 and maximun value: 999.
+pro.mensagem.configTarefa.asteriscoCamposObrigatorios=(*) Field required.
+pro.validacao.configTarefa.campoNumericoDiasPrevistos=Number of days its required. Minimun value:1 and maximun value: 999.
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================| fim Tarefa |================================
+
+#================================================| Tarefa |=============================
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.configTarefa.listaVaiza=Not any Task encountered.
+pro.configTarefa.alterar.sucesso=Success modified task.
+pro.erro.configTarefa.incluir = Not any information  encountered.
+pro.erro.configTarefa.pesquisar=Ocurred error in the Search Task:{0}
+pro.sucesso.configTarefa.incluir=Success Task inserted.
+pro.erro.configTarefa.nome.obrigatorio=Name not content spaces in the begin.
+pro.erro.configTarefa.incluir=Ocurred error in the Insert: {0}
+pro.erro.configTarefa.alterar=Ocurred error in the Modify Task: {0}
+pro.erro.configTarefa.encaminharConsulta=Ocurred error in the Select: {0}
+pro.erro.configTarefa.encaminharInclusao=Ocurred error in the insert: {0}
+pro.erro.configTarefa.campoNumericoDiasPrevistos=Number of days its required. Minimun value:1 and maximun value: 999.
+pro.mensagem.configTarefa.asteriscoCamposObrigatorios=(*) Field required.
+pro.validacao.configTarefa.campoNumericoDiasPrevistos=Number of days its required. Minimun value:1 and maximun value: 999.
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================| Fim Tarefa |================================
+
+
+
+
+#================================================| Anotações da tarefa |=============================
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.anotacaoTarefa.incluir=Ocurred error in the Inserted Anotattion: {0}
+pro.label.anotacoes = Anottations
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================|fim Anotações da tarefa |================================
+
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.anotacaoTarefa.incluir=Success inserted Anottations.
+
+
+#================================================| Item |===================================
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.item.incluir=Success inserted Item.
+pro.sucesso.item.alterar=Sucess modified Item.
+pro.erro.item.incluir = Problems inthe insert Item.
+pro.label.item.opcoes.combo=Options for the Combo
+
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.item.incluir=Ocurred error in the Insert Item: {0}
+pro.erro.item.consultar=Ocurred error in the Search Item: {0}
+pro.erro.item.alterar=Ocurred error in the Modify Task: {0}
+pro.erro.item.consultar.naoExiste=Not encountered Item.
+pro.erro.items.criticos=Ocurred error in the selected Itens. {0}
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================| Fim Item |======================================
+
+#================================================| INICIO Atores|===================================
+pro.erro.participante.encaminhar.vincular=Ecurred error in the search participants: {0}
+pro.label.nomeParticipante=Name
+pro.label.chaveParticipante=Code
+pro.erro.participante.incluir=Ocurred error in the Insert Actor: {0}
+pro.erro.participante.excluir=Ocurred error in the Deleted Actor: {0}
+pro.erro.participante.limpar=Ocurred error in the Cleanned Actors: {0}
+pro.erro.participante.consulta.solicitante=Ocurred error in the Selected Actor: {0}
+pro.erro.participante.visualizar=Ocurred error in the viewed Actor: {0}
+
+#================================================| Fim Atores|===================================
+
+
+#================================================| Execução da Tarefa|===================================
+#----------|INICIO LABELS |----------------------------------------------------------------------------
+pro.label.item.nr = Nrº
+
+pro.label.numero=Number
+pro.label.numeroTarefa=Number
+pro.label.nomeTarefa=Name
+pro.label.estado=Status
+pro.label.incluirExecucao=Participants Begin
+pro.label.execucao=Participants
+pro.label.criticidade=Priority
+pro.label.configTarefa=Task definitions
+pro.label.prazo=Deadline
+pro.label.solicitacao=Description
+pro.label.descricao=Description
+pro.label.inicio=Begin
+pro.label.fim=End
+pro.label.solicitante=Client
+pro.label.justificativa=Justify modification
+pro.label.justificativa.radioAnotacao=Justify to communicate Annotation?
+pro.label.cricao=Create
+pro.label.modificacao=Modify
+pro.label.tarefas = Tasks
+pro.label.relatorios = Reports
+pro.label.minhastarefas = My Tasks
+pro.label.tarefasmes=Tasks of Mouth
+pro.label.definicaotarefas = Configuration Tasks
+pro.validacao.nomeTarefa=Insert the name of Task,
+pro.validacao.solicitacao=Insert the Tescription.
+pro.validacao.codConfigTarefa=Insert the Task,
+pro.validacao.codUsuSolicitante=Insert the id Client,
+pro.validacao.dtLimite=Insert Deadline,
+pro.validacao.dataLimiteFormato=Invalid date of Deadline.
+pro.validacao.dataPrevInicio=Invalid Begin Date expected.
+pro.validacao.dataPrevFim=Invalid End Date expected.
+pro.validacao.dataInicio=Invalid Begin Date.
+pro.validacao.dataFim=Invalid End Date.
+pro.errorValidacao.maior=Description of the Send upper to 1024.
+pro.sucesso.tarefa.incluir=Success inserted task.
+pro.validacao.dtPrazoInicioPesq=Invalid Deadline Begin Date.
+pro.validacao.dtPrazoFimPesq=Invalid Deadline End.
+pro.validacao.dtPeriodoInicioPesq=Invalid Date Begin.
+pro.validacao.dtPeriodoFimPesq=' Invalid Date End.
+
+
+#----------| FIM LABELS |------------------------------------------------------------------------------
+
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.tarefa.alterar=Success modified task.
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.anotacao.incluir=Success inserted annottation.
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.tarefa.alterar=Ocorreu um erro na alteração da Tarefa: {0}
+pro.erro.tarefa.encaminhar.alterar=Ocurred error in the Show Task: {0}
+pro.erro.tarefa.consultar=Ocurred error in the Select Task: {0}
+pro.erro.tarefa.incluir=Ocurred error in the Insert Task: {0}
+pro.erro.tarefa.visualizar=Ocurred error in the Show tasks: {0}
+pro.erro.tarefa.consutlarSolicitanteChave=Not find User.
+pro.erro.tarefa.pesquisa=Ocurred error in the search tasks: {0}
+pro.listaVazia.pesquisar=Not encoutered Task.
+pro.errorValidacao.numTarefa=Number of the Task just numbers.
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+
+#----------| INICIO MENSAGENS |------------------------------------------------------------------------
+pro.label.nomeTarefacaracInvalidos=Invalid Character for the Task Name.
+pro.label.configTarefaRequerido=Insert Task.
+pro.label.textoSolicitacao=Insert Send.
+pro.label.dtLimitePrazo=Insert Deadline.
+#----------| FIM MENSAGENS |---------------------------------------------------------------------------
+#================================================| FIM TAREFA |=====================================
+
+
+#================================================| INICIO ANEXO |======================================
+#----------| INICIO LABELS |---------------------------------------------------------------------------
+pro.anexo.label.anexo=Attach
+pro.anexo.label.anexos=Attaches
+pro.label.anexo.num= Nrº
+#----------| FIM LABELS |------------------------------------------------------------------------------
+
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+pro.sucesso.anexo.incluir=Success anexed Field.
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+
+#----------| INICIO ERROS |----------------------------------------------------------------------------
+pro.anexo.erro.anexoInvalido=Invalid Field type : {0}
+pro.anexo.erro.buscarDados=Ocurred error in the search data from the task attaches.
+pro.anexo.erro.buscarDadosAnexo=Ocurred error in the search data field.
+pro.erro.anexo.tamanhoInvalido=Erro: Max Size Field = 15Mb.
+#----------| FIM ERROS |-------------------------------------------------------------------------------
+
+#----------| INICIO MENSAGENS |------------------------------------------------------------------------
+pro.anexo.arquivo.required=Insert Field.
+#----------| FIM MENSAGENS |---------------------------------------------------------------------------
+#================================================| FIM ANEXO |=========================================
+
+
+#================================================| INICIO SOLICITANTE |================================
+
+#----------|INICIO LABELS |----------------------------------------------------------------------------
+pro.label.chaveSolicitante=Id Client
+pro.label.nomeSolicitante=Name
+pro.solicitante.listaVazia=Not encountered registers from the search.
+#----------| FIM LABELS |------------------------------------------------------------------------------
+#----------| INICIO SUCESSO |--------------------------------------------------------------------------
+#----------| FIM SUCESSO |-----------------------------------------------------------------------------
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.listarSolicitante=Ocurred error in the selected Send Actor: {0}
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+#================================================| FIM SOLICITANTE |===================================
+
+#----------| INICIO ERRO |-----------------------------------------------------------------------------
+pro.erro.gtr.consultarNomeChave=Ocurred error in the Search: {0}
+#----------| FIM ERRO |--------------------------------------------------------------------------------
+
+pro.mensagem.email1=Created Task
+pro.mensagem.email3=&code=
+pro.mensagem.email.de=of
+pro.mensagem.email.para=for
+pro.mensagem.email.erro=Ocurred error in the send e-mails:{0}
+pro.mensagem.email.sucesso=Success send e-mail.
+
+#================================================| INICIO RELATORIO |===================================
+
+#ERRO --------
+pro.relatorio.gerenteGeral=Ocurred error in the created Report: {0}
+pro.relatorio.solicitante.required=Id Client
+pro.relatorio.participante.required=Id Actor
+pro.relatorio.nomeSolicitante.required=Client name
+pro.relatorio.nomeParticipante.required=Actor name
+#=================================================| FIM RELATORIO |=====================================
+
+#================================================| INICIO LISTA OPCAO de Item |===================================
+
+pro.lista.opcaoItem.incluir.erro=Ocurred error in the inserted item option: {0}
+pro.lista.opcaoItem.alterar.erro=Ocurred error in the modified item option: {0}
+pro.lista.opcaoItem.consultarVarios.erro=Ocurred error in the selected item option: {0}
+
+#================================================| INICIO LISTA OPCAO ITEM |===================================
+
+#==============================================| Usuario |============================
+pro.campo.login=Login
+pro.campo.senha=Password
+pro.campo.nome=Name
+pro.campo.confirmaSenha=Confirm Password
+pro.campo.email=E-Mail
+pro.campo.telefone=Phone
+pro.campo.IntraBSC=IntraBSC
+pro.report.participante=PARTICIPANT
+pro.report.email=E-MAIL
+pro.report.fone=PHONE
+pro.report.nome=NAME
+pro.report.item=ITEM
+pro.report.tarefa=Task
+pro.report.tarefaM=TASK
+pro.report.numero=NUMBER
+pro.report.inicio=BEGIN
+pro.report.sinalizacao=SIGNAL
+pro.report.prazo=DEADLINE
+pro.report.solicitante=SOLICITANT
+pro.report.criticidade=CRITICITY
+pro.report.estado=STATE
+pro.report.anotacoes=Anotations
+pro.report.checklist=Checklist
+pro.report.participantes=Participants
+pro.report.planoacoes=ACTIONS PLAN
+pro.report.perspectivaobjindi=PERSPECTIVE/OBJECTIVE/MEASURE
+
+
+# ==== Grupo ====
+titulo.grupo.consultar=Search Group
+titulo.grupo.alterar=Modify Group
+titulo.grupo.incluir=Insert Group
+validacao.grupo.descricao=Description
+validacao.grupo.ativo=Active
+bsc.campo.grupo=Group
+bsc.campo.relatoriogrupo=Report Group
+bsc.label.usuario=User
+bsc.label.incluirusuario=Insert User
+bsc.label.consultarusuario=Search User
+bsc.label.alterarusuario=Modify User
+
+# === Tela Principal ===
+msg.mapaEstrategico.usuarioSemDados=This user don't Maps,Tasks and Measures.
+msg.mapaEstrategico.usuarioSemIndicador=This user don't Measures.
+msg.mapaEstrategico.usuarioSemTarefa=This user don't Tasks.
+

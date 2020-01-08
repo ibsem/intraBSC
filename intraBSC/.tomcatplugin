@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>/WebContent</rootDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>false</redirectLogger>
+    <updateXml>true</updateXml>
+    <warLocation>/Users/ibsem/Documents/workspace/intraBSC.war</warLocation>
+    <extraInfo>%3CResource+name%3D%22jdbc%2Fmysql%22+auth%3D%22Container%22+type%3D%22javax.sql.DataSource%22+maxActive%3D%22100%22+maxIdle%3D%2230%22+maxWait%3D%2210000%22+username%3D%22root%22+password%3D%22270285id%22+driverClassName%3D%22com.mysql.jdbc.Driver%22+url%3D%22jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Fintrabsc%3FautoReconnect%3Dtrue%22+%2F%3E+</extraInfo>
+    <webPath>/intraBSC</webPath>
+</tomcatProjectProperties>

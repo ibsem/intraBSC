@@ -1,0 +1,104 @@
+* { margin: 0; padding: 0; }
+
+body {
+    text-align: center;
+    font: Arial, "Trebuchet MS", Verdana,  Tahoma;
+    font-size: 12px;
+    background-color: #ffffff; /*fundo branco das páginas*/
+    color: #666666;
+    border: 1px;
+}
+
+ul { list-style: none; }
+p { margin-bottom: 10px; }
+h1 { margin-bottom: 5px; color: #69A90A; font-size: 170%; }
+h2 { margin-bottom: 2px; color: #81C281; font-size: 150%; }
+h3 { color: #709AFE; font-size: 130%; }
+
+#geral {
+    margin: 0px auto;
+    margin-left: 10px;
+    width: 800px;
+    text-align: left;
+    border-style:solid;
+    border:1px;
+}
+
+#menu ul { height: 18px; display: table; border: 1px;  }
+#menu ul li { float: left; margin: 2px 2px; height: 18px; border-color:buttonshadow;  border-style: solid; border-width: 1PX; border-radius: 2px; }
+#menu ul li.primeira { margin: 5px;  border: 1px; }
+#menu ul li a {
+	font-size: 14px;
+	height: 16px;
+    display: block;
+    float: left;
+    padding: 1px 5px;
+    
+    background-color:#b01a23; /* Cor dos botões do menu */
+    color: #ffffff;  /*Cor da fonte do menu*/
+    font-weight:none;
+    border-style:solid;
+    border: 0.5px; 
+    }
+
+#menu ul li a.selecionado, #menu ul li a:hover { background-color: #d37a80; color: #ffffff; border-style:inset;  border: 0,5px;} /* cor do item selecionado */
+
+#conteudo { background-color: #FFFFFF; color: #666666; padding: 1px; left:2px;
+	border-top:    0px solid #000000;
+	border-right:  0px solid #000000;
+	border-left:   0px solid #000000;
+	border-bottom: 0px solid #000000;
+	
+}
+
+/* =-=-=-=-=-=-=-[Itens Menu]-=-=-=-=-=-=-=-*/	
+#itemMenu {
+	font: 12px Arial,"Trebuchet MS", Verdana, Tahoma;
+	background:transparent;
+	padding: 0px 0px 0px 0px;
+	border-color: buttonface;
+	margin: 1px;
+	text-align: left;
+
+	
+	}
+	
+#itemMenu li a {
+	height: 16px;
+	background-color:#b01a23;
+	voice-family: "\"}\""; 
+  	voice-family: inherit;
+  	text-decoration: none;
+	text-align: left;
+	text-indent:2px;
+	border-style:outset;
+    border-width:1px;
+    border-color:silver;
+    margin-left:1px;
+    padding: 1x 1px 1px 0px;
+	}
+	
+#itemMenu li a:link, #itemMenu li a:visited {
+	color: #ffffff;
+	display: block;
+	background-color:#b01a23; /*cor do menu itens administração*/
+	padding: 1px 1px 1px 1px;
+	text-decoration: none;
+	text-align: left;
+	left: 2px;
+	border-style: inset;
+	}
+	
+#itemMenu li a:hover {
+	color: #000000;
+	padding: 1px 1px 1px 1px;
+	background-color:#d37a80;
+	text-decoration: none;
+	text-align: left;
+	}
+	
+#itemMenu li a:active {
+	color: #283A50;
+	padding: 1px 1px 1px 1px;
+	text-align: left
+	}

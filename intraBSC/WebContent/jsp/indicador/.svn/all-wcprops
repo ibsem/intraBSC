@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/indicador
+END
+listarIndicadorFato.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/indicador/listarIndicadorFato.jsp
+END
+alterarIndicador.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/indicador/alterarIndicador.jsp
+END
+relDetalhaMeuIndicador.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/indicador/relDetalhaMeuIndicador.jsp
+END
+incluirIndicadorFato.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/indicador/incluirIndicadorFato.jsp
+END
+relDetalhaMeuIndicadorCompleto.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/indicador/relDetalhaMeuIndicadorCompleto.jsp
+END
+incluirIndicador.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/indicador/incluirIndicador.jsp
+END
+relDetalhaIndicador.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/indicador/relDetalhaIndicador.jsp
+END
+listarIndicadores.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/tiagotts/intraBSC/svn/!svn/ver/2/intraBSC/jsp/indicador/listarIndicadores.jsp
+END
